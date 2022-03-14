@@ -1,0 +1,14 @@
+[11/20/11 9:12 AM]|Teller|createTransaction|Error|NOTAG|null<Transaction Creation Failure: Unrecognized transaction java.lang.NullPointerException>
+[11/20/11 9:15 AM]|Teller|createTransaction|Error|NOTAG|null<Transaction Creation Failure: Unrecognized transaction java.lang.NullPointerException>
+[11/20/11 9:22 AM]|DepositTransaction|Transaction|Error|NOTAG|null<Could not find any accounts for 1>
+[2/10/14 3:42 PM]|AccountHolder|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';wlkrpekw)' at line 1>
+[2/10/14 3:42 PM]|AccountHolder|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'ret54' in 'where clause'>
+[2/10/14 3:47 PM]|AccountHolder|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'smitra' in 'where clause'>
+[2/10/14 3:47 PM]|AccountHolder|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'klakshma' in 'where clause'>
+[2/10/14 3:47 PM]|AccountHolder|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'matthew' in 'where clause'>
+[2/10/14 3:48 PM]|AccountHolder|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'etienne' in 'where clause'>
+[6/11/15 4:42 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
+[6/11/15 4:59 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
+[6/11/15 4:59 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
+[6/11/15 4:59 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
+[6/11/15 5:04 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
