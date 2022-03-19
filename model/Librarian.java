@@ -33,7 +33,7 @@ public class Librarian implements IView, IModel
     private Properties dependencies;
     private ModelRegistry myRegistry;
 
-    private AccountHolder myAccountHolder;
+    private Worker myWorker;
 
     // GUI Components
     private Hashtable<String, Scene> myViews;
@@ -102,9 +102,9 @@ public class Librarian implements IView, IModel
         else
         if (key.equals("Name") == true)
         {
-            if (myAccountHolder != null)
+            if (myWorker != null)
             {
-                return myAccountHolder.getState("Name");
+                return myWorker.getState("firstName");
             }
             else
                 return "Undefined";
@@ -126,7 +126,7 @@ public class Librarian implements IView, IModel
             {
                 loginErrorMessage = "";
 
-                boolean flag = loginAccountHolder((Properties)value);
+                boolean flag = loginWorker((Properties)value);
                 if (flag == true)
                 {
                     createAndShowTransactionChoiceView();
@@ -139,13 +139,13 @@ public class Librarian implements IView, IModel
             createAndShowTransactionChoiceView();
         }
         else
-        if ((key.equals("Deposit") == true) || (key.equals("Withdraw") == true) ||
-                (key.equals("Transfer") == true) || (key.equals("BalanceInquiry") == true) ||
+        if ((key.equals("Add Book") == true) || (key.equals("Add Student Borrower") == true) ||
+                (key.equals("Add Worker") == true) || (key.equals("Modify Worker") == true) ||
                 (key.equals("ImposeServiceCharge") == true))
         {
             String transType = key;
 
-            if (myAccountHolder != null)
+            if (myWorker != null)
             {
                 doTransaction(transType);
             }
@@ -158,7 +158,7 @@ public class Librarian implements IView, IModel
         else
         if (key.equals("Logout") == true)
         {
-            myAccountHolder = null;
+            myWorker = null;
             myViews.remove("TransactionChoiceView");
 
             createAndShowLibrarianView();
@@ -180,11 +180,11 @@ public class Librarian implements IView, IModel
      * Login AccountHolder corresponding to user name and password.
      */
     //----------------------------------------------------------
-    public boolean loginAccountHolder(Properties props)
+    public boolean loginWorker(Properties props)
     {
         try
         {
-            myAccountHolder = new AccountHolder(props);
+            myWorker = new Worker(props);
             // DEBUG System.out.println("Account Holder: " + myAccountHolder.getState("Name") + " successfully logged in");
             return true;
         }
@@ -213,7 +213,7 @@ public class Librarian implements IView, IModel
         try
         {
             Transaction trans = TransactionFactory.createTransaction(
-                    transactionType, myAccountHolder);
+                    transactionType, myWorker);
 
             trans.subscribe("CancelTransaction", this);
             trans.stateChangeRequest("DoYourJob", "");

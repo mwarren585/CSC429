@@ -2,8 +2,6 @@
 package model;
 
 // system imports
-import java.util.Vector;
-import javax.swing.JFrame;
 
 // project imports
 
@@ -17,7 +15,7 @@ public class TransactionFactory
 	 */
 	//----------------------------------------------------------
 	public static Transaction createTransaction(String transType,
-		AccountHolder cust)
+                                                Worker cust)
 		throws Exception
 	{
 		Transaction retValue = null;

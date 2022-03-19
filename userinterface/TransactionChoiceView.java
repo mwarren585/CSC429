@@ -37,11 +37,11 @@ public class TransactionChoiceView extends View
 
 	// GUI components
 
-	private Button depositButton;
-	private Button withdrawButton;
-	private Button transferButton;
-	private Button balanceInquiryButton;
-	private Button imposeServiceChargeButton;
+	private Button addBookButton;
+	private Button addWorkerButton;
+	private Button addStudentBorrowerButton;
+	private Button modifyWorkerButton;
+
 
 	private Button cancelButton;
 
@@ -49,9 +49,9 @@ public class TransactionChoiceView extends View
 
 	// constructor for this class -- takes a model object
 	//----------------------------------------------------------
-	public TransactionChoiceView(IModel teller)
+	public TransactionChoiceView(IModel librarian)
 	{
-		super(teller, "TransactionChoiceView");
+		super(librarian, "TransactionChoiceView");
 
 		// create a container for showing the contents
 		VBox container = new VBox(10);
@@ -80,15 +80,15 @@ public class TransactionChoiceView extends View
 	private VBox createTitle()
 	{
 		VBox container = new VBox(10);
-		Text titleText = new Text("       Brockport Bank ATM          ");
+		Text titleText = new Text("       Brockport Library          ");
 		titleText.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 		titleText.setWrappingWidth(300);
 		titleText.setTextAlignment(TextAlignment.CENTER);
 		titleText.setFill(Color.DARKGREEN);
 		container.getChildren().add(titleText);
 
-		String accountHolderGreetingName = (String)myModel.getState("Name");
-		Text welcomeText = new Text("Welcome, " + accountHolderGreetingName + "!");
+		String workerGreetingName = (String)myModel.getState("firstName");
+		Text welcomeText = new Text("Welcome, " + workerGreetingName + "!");
 		welcomeText.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 		welcomeText.setWrappingWidth(300);
 		welcomeText.setTextAlignment(TextAlignment.CENTER);
@@ -116,65 +116,65 @@ public class TransactionChoiceView extends View
 		// create the buttons, listen for events, add them to the container
 		HBox dCont = new HBox(10);
 		dCont.setAlignment(Pos.CENTER);
-		depositButton = new Button("Deposit");
-		depositButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-		depositButton.setOnAction(new EventHandler<ActionEvent>() {
+		addBookButton = new Button("Add Book");
+		addBookButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		addBookButton.setOnAction(new EventHandler<ActionEvent>() {
 
        		     @Override
        		     public void handle(ActionEvent e) {
-       		     	myModel.stateChangeRequest("Deposit", null);    
+       		     	myModel.stateChangeRequest("Add Book", null);
             	     }
         	});
-		dCont.getChildren().add(depositButton);
+		dCont.getChildren().add(addBookButton);
 
 		container.getChildren().add(dCont);
 
 		HBox wCont = new HBox(10);
 		wCont.setAlignment(Pos.CENTER);
-		withdrawButton = new Button("Withdraw");
-		withdrawButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-		withdrawButton.setOnAction(new EventHandler<ActionEvent>() {
+		addStudentBorrowerButton = new Button("Add Student Borrower");
+		addStudentBorrowerButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		addStudentBorrowerButton.setOnAction(new EventHandler<ActionEvent>() {
 
        		     @Override
        		     public void handle(ActionEvent e) {
-       		     	myModel.stateChangeRequest("Withdraw", null);    
+       		     	myModel.stateChangeRequest("Add Student Borrower", null);
             	     }
         	});
-		wCont.getChildren().add(withdrawButton);
+		wCont.getChildren().add(addStudentBorrowerButton);
 
 		container.getChildren().add(wCont);
 
 		HBox tCont = new HBox(10);
 		tCont.setAlignment(Pos.CENTER);
-		transferButton = new Button("Transfer");
-		transferButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-		transferButton.setOnAction(new EventHandler<ActionEvent>() {
+		addWorkerButton = new Button("Add Worker");
+		addWorkerButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		addWorkerButton.setOnAction(new EventHandler<ActionEvent>() {
 
        		     @Override
        		     public void handle(ActionEvent e) {
-       		     	myModel.stateChangeRequest("Transfer", null);    
+       		     	myModel.stateChangeRequest("Add Worker", null);
             	     }
         	});
-		tCont.getChildren().add(transferButton);
+		tCont.getChildren().add(addWorkerButton);
 
 		container.getChildren().add(tCont);
 
 		HBox biCont = new HBox(10);
 		biCont.setAlignment(Pos.CENTER);
-		balanceInquiryButton = new Button("Balance Inquiry");
-		balanceInquiryButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-		balanceInquiryButton.setOnAction(new EventHandler<ActionEvent>() {
+		modifyWorkerButton = new Button("Modify Worker");
+		modifyWorkerButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		modifyWorkerButton.setOnAction(new EventHandler<ActionEvent>() {
 
        		     @Override
        		     public void handle(ActionEvent e) {
-       		     	myModel.stateChangeRequest("BalanceInquiry", null);    
+       		     	myModel.stateChangeRequest("Modify Worker", null);
             	     }
         	});
-		biCont.getChildren().add(balanceInquiryButton);
+		biCont.getChildren().add(modifyWorkerButton);
 
 		container.getChildren().add(biCont);
 
-		HBox iscCont = new HBox(10);
+		/*HBox iscCont = new HBox(10);
 		iscCont.setAlignment(Pos.CENTER);
 		imposeServiceChargeButton = new Button("Impose Service Charge");
 		imposeServiceChargeButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -187,7 +187,7 @@ public class TransactionChoiceView extends View
         	});
 		iscCont.getChildren().add(imposeServiceChargeButton);
 
-		container.getChildren().add(iscCont);
+		container.getChildren().add(iscCont);*/
 
 		HBox doneCont = new HBox(10);
 		doneCont.setAlignment(Pos.CENTER);
