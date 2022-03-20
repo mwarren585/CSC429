@@ -34,6 +34,7 @@ public class Librarian implements IView, IModel
     private ModelRegistry myRegistry;
 
     private Worker myWorker;
+    private WorkerCollection myWorkers;
 
     // GUI Components
     private Hashtable<String, Scene> myViews;
@@ -110,11 +111,15 @@ public class Librarian implements IView, IModel
                 return "Undefined";
         }
         else
+        if(key.equals("WorkerList") == true){
+            return myWorkers;
+        }
+        else
             return "";
     }
 
     //----------------------------------------------------------------
-    public void stateChangeRequest(String key, Object value)
+    /*public void stateChangeRequest(String key, Object value)
     {
         // STEP 4: Write the sCR method component for the key you
         // just set up dependencies for
@@ -165,7 +170,89 @@ public class Librarian implements IView, IModel
         }
 
         myRegistry.updateSubscribers(key, this);
+    }*/
+   /* public void createNewWorker(Properties props){
+        Worker worker = new Worker(props);
+        worker.save();
+        transactionErrorMessage = (String)worker.getState("UpdateStatusMessage");
+
+    }*/
+    //----------------------------------------------------------------
+    public void stateChangeRequest(String key, Object value)
+    {
+        // STEP 4: Write the sCR method component for the key you
+        // just set up dependencies for
+        // DEBUG System.out.println("Teller.sCR: key = " + key);
+
+        if (key.equals("Login") == true)
+        {
+            if (value != null)
+            {
+                loginErrorMessage = "";
+
+                boolean flag = loginWorker((Properties)value);
+                if (flag == true)
+                {
+                    createAndShowTransactionChoiceView();
+                }
+            }
+        }
+        else
+        if (key.equals("CancelTransaction") == true)
+        {
+            createAndShowTransactionChoiceView();
+        }
+
+        else if (key.equals("Insert New Book") == true)
+        {
+            //createAndShowBookView();
+        }
+        else if (key.equals("BookData") == true)
+        {
+            Properties p = (Properties)value;
+           // createNewBook(p);
+        }
+        else if (key.equals("Search Books") == true){
+            //createAndShowSearchBooksView();
+        }
+        else if (key.equals("Search Workers") == true)
+        {
+          //  createAndShowSearchPatronsView();
+        }
+        else if(key.equals("Insert Workers") == true){
+
+           // createAndShowPatronView();
+        }
+        else if(key.equals("WorkerData")){
+            Properties p = (Properties)value;
+            //createNewWorker(p);
+
+        }
+        else if(key.equals("FindBooks")){
+            Properties p = (Properties)value;
+            String titl = p.getProperty("bookTitle");
+          //  myBooks = new BookCollection();
+           // myBooks.findBooksWithTitleLike(titl);
+            //createAndShowBookCollectionView();
+        }
+        else if(key.equals("WorkerCollection")){
+            //createAndShowPatronCollectionView();
+        }
+        else if(key.equals("FindWorkers")){
+            Properties p = (Properties)value;
+            String first = p.getProperty("firstName");
+            String last = p.getProperty("lastName");
+            //myPatrons = new PatronCollection();
+
+            //createAndShowSearchPatronsView();
+
+        }
+
+
+
+        myRegistry.updateSubscribers(key, this);
     }
+
 
     /** Called via the IView relationship */
     //----------------------------------------------------------
