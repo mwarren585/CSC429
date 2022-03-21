@@ -7,9 +7,9 @@ public class ViewFactory {
 
 	public static View createView(String viewName, IModel model)
 	{
-		if(viewName.equals("TellerView") == true)
+		if(viewName.equals("LibrarianView") == true)
 		{
-			return new TellerView(model);
+			return new LibrarianView(model);
 		}
 		else if(viewName.equals("TransactionChoiceView") == true)
 		{

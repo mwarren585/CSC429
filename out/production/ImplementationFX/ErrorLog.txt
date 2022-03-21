@@ -12,3 +12,9 @@
 [6/11/15 4:59 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
 [6/11/15 4:59 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
 [6/11/15 5:04 PM]|DepositTransaction|processTransaction|Error|NOTAG|null<Failed to verify ownership of account number : 2.>
+[3/21/22 1:37 PM]|ATM|ATM.<init>|Error|NOTAG|null<Unable to create Teller object>
+[3/21/22 1:39 PM]|ATM|ATM.<init>|Error|NOTAG|null<Unable to create Teller object>
+[3/21/22 1:51 PM]|ATM|ATM.<init>|Error|NOTAG|null<Unable to create Teller object>
+[3/21/22 1:56 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'ID' in 'where clause'>
+[3/21/22 1:57 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'ID' in 'where clause'>
+[3/21/22 1:59 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'ID' in 'where clause'>

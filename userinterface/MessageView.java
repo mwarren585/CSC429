@@ -44,6 +44,7 @@ public class MessageView extends Text
 	{
 		super(initialMessage);
 		setFont(Font.font("Helvetica", FontWeight.BOLD, 16));
+		setWrappingWidth(400);
 		setFill(Color.BLUE);
 		setTextAlignment(TextAlignment.LEFT);
 	}

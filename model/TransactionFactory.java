@@ -20,7 +20,7 @@ public class TransactionFactory
 	{
 		Transaction retValue = null;
 
-		if (transType.equals("Deposit") == true)
+		/*if (transType.equals("Deposit") == true)
 		{
 			retValue = new DepositTransaction(cust);
 		}
@@ -44,7 +44,7 @@ public class TransactionFactory
 		{
 			retValue = new ImposeServiceChargeTransaction(cust);
 		}
-
+          */
 		return retValue;
 	}
 }

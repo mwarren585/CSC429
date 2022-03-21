@@ -63,6 +63,7 @@ public class LibrarianView extends View
 
         // Error message area
         container.getChildren().add(createStatusLog("                          "));
+        container.getChildren().add(new Text());
 
         getChildren().add(container);
 
@@ -192,8 +193,8 @@ public class LibrarianView extends View
                                           String passwordString)
     {
         Properties props = new Properties();
-        props.setProperty("ID", useridString);
-        props.setProperty("Password", passwordString);
+        props.setProperty("bannerID", useridString);
+        props.setProperty("password", passwordString);
 
         // clear fields for next time around
         userid.setText("");

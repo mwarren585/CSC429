@@ -33,7 +33,7 @@ public class Teller implements IView, IModel
 	private Properties dependencies;
 	private ModelRegistry myRegistry;
 
-	private AccountHolder myAccountHolder;
+	private Worker myAccountHolder;
 
 	// GUI Components
 	private Hashtable<String, Scene> myViews;
@@ -184,7 +184,7 @@ public class Teller implements IView, IModel
 	{
 		try
 		{
-			myAccountHolder = new AccountHolder(props);
+			myAccountHolder = new Worker(props);
 			// DEBUG System.out.println("Account Holder: " + myAccountHolder.getState("Name") + " successfully logged in");
 			return true;
 		}

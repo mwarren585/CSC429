@@ -23,7 +23,7 @@ public class Worker extends EntityBase {
     public Worker(String id) throws InvalidPrimaryKeyException
     {
         super(myTableName);
-        String query = "SELECT * FROM " + myTableName + " WHERE (workerID = " + id + ")";
+        String query = "SELECT * FROM " + myTableName + " WHERE (bannerID = " + id + ")";
 
         Vector allDataRetrieved = getSelectQueryResult(query);
 
@@ -212,6 +212,18 @@ public class Worker extends EntityBase {
             mySchema = getSchemaInfo(tableName);
         }
     }
+
+    //-----------------------------------------------------------------------------------
+    public boolean matchPassword(String givenPassword) {
+
+        String dbPassword = persistentState.getProperty("password");
+        if (givenPassword.equals(dbPassword) == true)
+            return true;
+        else
+            return false;
+    }
+
+    //------------------------------------------------------------------------------------
     public Vector<String> getEntryListView()
     {
         Vector<String> v = new Vector<String>();

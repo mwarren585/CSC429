@@ -269,23 +269,24 @@ public class Librarian implements IView, IModel
     //----------------------------------------------------------
     public boolean loginWorker(Properties props)
     {
+        String givenBannerId = props.getProperty("bannerID");
+        String givenPassword = props.getProperty("password");
         try
         {
-            myWorker = new Worker(props);
+            myWorker = new Worker(givenBannerId);
             // DEBUG System.out.println("Account Holder: " + myAccountHolder.getState("Name") + " successfully logged in");
-            return true;
+            boolean logInSuccessFull = myWorker.matchPassword(givenPassword);
+            if (logInSuccessFull == true)
+                return true;
+            else
+                return false;
         }
         catch (InvalidPrimaryKeyException ex)
         {
             loginErrorMessage = "ERROR: " + ex.getMessage();
             return false;
         }
-        catch (PasswordMismatchException exec)
-        {
 
-            loginErrorMessage = "ERROR: " + exec.getMessage();
-            return false;
-        }
     }
 
 

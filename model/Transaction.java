@@ -5,6 +5,8 @@ package model;
 import java.util.Hashtable;
 import java.util.Properties;
 import java.util.Vector;
+
+import com.sun.corba.se.impl.ior.WireObjectKeyTemplate;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
@@ -30,7 +32,7 @@ abstract public class Transaction implements IView, IModel
 	protected Stage myStage;
 	protected Hashtable<String, Scene> myViews;
 
-	protected AccountHolder myCust;
+	protected Worker myCust;
 
 	protected Vector myAccountIDs;
 	// GUI Components
@@ -43,7 +45,7 @@ abstract public class Transaction implements IView, IModel
 	 *
 	 */
 	//----------------------------------------------------------
-	protected Transaction(AccountHolder cust) throws Exception
+	protected Transaction(Worker cust) throws Exception
 	{
 
 		myStage = MainStageContainer.getInstance();
