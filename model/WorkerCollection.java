@@ -40,12 +40,12 @@ public class WorkerCollection extends EntityBase{
         System.out.println(query);
         queryHelper(query);
     }
-    public void findPatronsWithNameLike(String name)throws Exception{
-        if(name == null){
+    public void findWorkersWithNameLike(String firstName, String lastName)throws Exception{
+        if((firstName == null)||(lastName == null)){
             throw new Exception("UNEXPECTED ERROR: name is null");
         }
 
-        String query = "SELECT * FROM "+ myTableName+ "WHERE (name LIKE '%"+name+"%')";
+        String query = "SELECT * FROM "+ myTableName+ "WHERE (firstName LIKE '%"+firstName+"%') AND (lastName LIKE '%"+lastName+"%')";
 
         queryHelper(query);
     }

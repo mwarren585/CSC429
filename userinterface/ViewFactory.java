@@ -23,13 +23,13 @@ public class ViewFactory {
 		{
 			return new AccountView(model);
 		}
-		else if(viewName.equals("AccountHolderIDEntryView") == true)
+		else if(viewName.equals("SearchWorkerView") == true)
 		{
-			return new AccountHolderIDEntryView(model);
+			return new SearchWorkersView(model);
 		}
-		else if(viewName.equals("DepositTransactionView") == true)
+		else if(viewName.equals("WorkerCollectionView") == true)
 		{
-			return new DepositTransactionView(model);
+			return new WorkerCollectionView(model);
 		}
 		else if(viewName.equals("DepositAmountView") == true)
 		{

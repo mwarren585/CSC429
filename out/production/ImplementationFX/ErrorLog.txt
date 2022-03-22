@@ -18,3 +18,4 @@
 [3/21/22 1:56 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'ID' in 'where clause'>
 [3/21/22 1:57 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'ID' in 'where clause'>
 [3/21/22 1:59 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'ID' in 'where clause'>
+[3/22/22 1:14 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Kelley )' at line 1>

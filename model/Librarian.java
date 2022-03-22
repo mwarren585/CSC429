@@ -236,16 +236,25 @@ public class Librarian implements IView, IModel
             //createAndShowBookCollectionView();
         }
         else if(key.equals("WorkerCollection")){
-            //createAndShowPatronCollectionView();
+            createAndShowWorkerCollectionView();
         }
         else if(key.equals("FindWorkers")){
             Properties p = (Properties)value;
             String first = p.getProperty("firstName");
             String last = p.getProperty("lastName");
-            //myPatrons = new PatronCollection();
+            myWorkers = new WorkerCollection();
+            try {
+                myWorkers.findWorkersWithNameLike(first, last);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
 
-            //createAndShowSearchPatronsView();
+            createAndShowSearchWorkerView();
 
+        }
+        else if(key.equals("Modify Worker")){
+            createAndShowSearchWorkerView();
         }
 
 
@@ -316,16 +325,16 @@ public class Librarian implements IView, IModel
     }
 
     //----------------------------------------------------------
-    private void createAndShowTransactionChoiceView()
+    private void createAndShowWorkerCollectionView()
     {
-        Scene currentScene = (Scene)myViews.get("TransactionChoiceView");
+        Scene currentScene = (Scene)myViews.get("WorkerCollectionView");
 
         if (currentScene == null)
         {
             // create our initial view
-            View newView = ViewFactory.createView("TransactionChoiceView", this); // USE VIEW FACTORY
+            View newView = ViewFactory.createView("WorkerCollectionView", this); // USE VIEW FACTORY
             currentScene = new Scene(newView);
-            myViews.put("TransactionChoiceView", currentScene);
+            myViews.put("WorkerCollectionView", currentScene);
         }
 
 
@@ -350,6 +359,40 @@ public class Librarian implements IView, IModel
         swapToView(currentScene);
 
     }
+
+    private void createAndShowSearchWorkerView(){
+        Scene currentScene = (Scene)myViews.get("SearchWorkerView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("SearchWorkerView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("SearchWorkerView", currentScene);
+        }
+
+        swapToView(currentScene);
+
+    }
+    private void createAndShowTransactionChoiceView()
+    {
+        Scene currentScene = (Scene)myViews.get("TransactionChoiceView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("TransactionChoiceView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("TransactionChoiceView", currentScene);
+        }
+
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
+
+    //------------------
 
 
     /** Register objects to receive state updates. */
@@ -379,7 +422,7 @@ public class Librarian implements IView, IModel
 
         if (newScene == null)
         {
-            System.out.println("Teller.swapToView(): Missing view for display");
+            System.out.println("Librarian.swapToView(): Missing view for display");
             new Event(Event.getLeafLevelClassName(this), "swapToView",
                     "Missing view for display ", Event.ERROR);
             return;
