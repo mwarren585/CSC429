@@ -243,14 +243,9 @@ public class Librarian implements IView, IModel
             String first = p.getProperty("firstName");
             String last = p.getProperty("lastName");
             myWorkers = new WorkerCollection();
-            try {
-                myWorkers.findWorkersWithNameLike(first, last);
-            }
-            catch(Exception e){
-                e.printStackTrace();
-            }
+            myWorkers.findWorkersWithNameLike(first, last);
 
-            createAndShowSearchWorkerView();
+            createAndShowWorkerCollectionView();
 
         }
         else if(key.equals("Modify Worker")){
