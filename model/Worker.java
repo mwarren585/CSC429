@@ -65,64 +65,23 @@ public class Worker extends EntityBase {
     }
 
     //Constructor for it we do not know the specific id number to look up
-    public Worker(Properties props)
-            throws InvalidPrimaryKeyException, PasswordMismatchException {
+    public Worker(Properties props) {
+
+
         super(myTableName);
 
-        String idToQuery = props.getProperty("ID");
-
-        String query = "SELECT * FROM " + myTableName + " WHERE (ID = " + idToQuery + ")";
-
-        Vector allDataRetrieved = getSelectQueryResult(query);
-
-        // You must get one account at least
-        if (allDataRetrieved != null) {
-            int size = allDataRetrieved.size();
-
-            // There should be EXACTLY one account. More than that is an error
-            if (size != 1) {
-                throw new InvalidPrimaryKeyException("Multiple accounts matching user id : "
-                        + idToQuery + " found.");
-            } else {
-                // copy all the retrieved data into persistent state
-                Properties retrievedCustomerData = (Properties) allDataRetrieved.elementAt(0);
-                persistentState = new Properties();
-
-                Enumeration allKeys = retrievedCustomerData.propertyNames();
-                while (allKeys.hasMoreElements() == true) {
-                    String nextKey = (String) allKeys.nextElement();
-                    String nextValue = retrievedCustomerData.getProperty(nextKey);
-
-                    if (nextValue != null) {
-                        persistentState.setProperty(nextKey, nextValue);
-                    }
-                }
-
-            }
-        }
-        // If no account found for this user name, throw an exception
-        else
+        setDependencies();
+        persistentState = new Properties();
+        Enumeration allKeys = props.propertyNames();
+        while (allKeys.hasMoreElements() == true)
         {
-            throw new InvalidPrimaryKeyException("No account matching user id : "
-                    + idToQuery + " found.");
-        }
+            String nextKey = (String)allKeys.nextElement();
+            String nextValue = props.getProperty(nextKey);
 
-        String password = props.getProperty("Password");
-
-        String accountPassword = persistentState.getProperty("password");
-
-        if (accountPassword != null)
-        {
-            boolean passwordCheck = accountPassword.equals(password);
-            if (passwordCheck == false)
+            if (nextValue != null)
             {
-                throw new PasswordMismatchException("Password mismatch");
+                persistentState.setProperty(nextKey, nextValue);
             }
-
-        }
-        else
-        {
-            throw new PasswordMismatchException("Password missing for account");
         }
     }
 

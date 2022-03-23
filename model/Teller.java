@@ -122,16 +122,7 @@ public class Teller implements IView, IModel
 
 		if (key.equals("Login") == true)
 		{
-			if (value != null)
-			{
-				loginErrorMessage = "";
 
-				boolean flag = loginAccountHolder((Properties)value);
-				if (flag == true)
-				{
-					createAndShowTransactionChoiceView();
-				}
-			}
 		}
 		else
 		if (key.equals("CancelTransaction") == true)
@@ -180,26 +171,7 @@ public class Teller implements IView, IModel
 	 * Login AccountHolder corresponding to user name and password.
 	 */
 	//----------------------------------------------------------
-	public boolean loginAccountHolder(Properties props)
-	{
-		try
-		{
-			myAccountHolder = new Worker(props);
-			// DEBUG System.out.println("Account Holder: " + myAccountHolder.getState("Name") + " successfully logged in");
-			return true;
-		}
-		catch (InvalidPrimaryKeyException ex)
-		{
-				loginErrorMessage = "ERROR: " + ex.getMessage();
-				return false;
-		}
-		catch (PasswordMismatchException exec)
-		{
 
-				loginErrorMessage = "ERROR: " + exec.getMessage();
-				return false;
-		}
-	}
 
 
 	/**

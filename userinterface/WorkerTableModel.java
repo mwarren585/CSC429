@@ -65,6 +65,15 @@ public class WorkerTableModel {
         phone.set(pubyear);
     }
     //----------------------------------------------------------------------------
+    public String getEmail() { return email.get(); }
+
+    //----------------------------------------------------------------------------
+    public void setEmail(String stat)
+    {
+        email.set(stat);
+    }
+    //----------------------------------------------------------------------------
+
     public String getCredentials() { return credentials.get(); }
 
     //----------------------------------------------------------------------------
@@ -82,14 +91,7 @@ public class WorkerTableModel {
         dateOfLastCredentials.set(stat);
     }
 
-    //----------------------------------------------------------------------------
-    public String getEmail() { return email.get(); }
 
-    //----------------------------------------------------------------------------
-    public void setEmail(String stat)
-    {
-        email.set(stat);
-    }
     //----------------------------------------------------------------------------
     public String getDateOfHire() { return dateOfHire.get(); }
 

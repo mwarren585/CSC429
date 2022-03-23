@@ -48,6 +48,7 @@ public class WorkerCollection extends EntityBase{
         String query = "SELECT * FROM "+ myTableName+ " WHERE (firstName LIKE '%" + firstName + "%') AND (lastName LIKE '%" + lastName + "%')";
         System.out.println(query);
         queryHelper(query);
+        System.out.println("worker collection size right after query: " + workers.size());
     }
 
     public void queryHelper(String query) {
@@ -60,11 +61,11 @@ public class WorkerCollection extends EntityBase{
                 Properties nextPatronData = (Properties) allDataRetrieved.elementAt(cnt);
 
                 //Need to fix this
-               /*Worker worker = new Worker(nextPatronData);
+               Worker worker = new Worker(nextPatronData);
 
                 if (workers != null) {
                     addWorker(worker);
-                }*/
+                }
             }
 
 

@@ -180,7 +180,7 @@ public class WorkerCollectionView extends View {
         /*tableOfPatrons.getColumns().addAll(patronIdColumn,
                 nameColumn, titleColumn, publicationYearColumn, stateColumn, zipColumn, emailColumn, dateOfBirthColumn, statusColumn);*/
 
-        tableOfWorkers.getColumns().addAll(
+        tableOfWorkers.getColumns().addAll(workerIdColumn,
                 fNameColumn, lNameColumn, phoneColumn, emailColumn, credColumn, dateCredColumn, dateOfHireColumn);
 
         tableOfWorkers.setOnMousePressed(new EventHandler<MouseEvent>() {
