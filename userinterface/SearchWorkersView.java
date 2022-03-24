@@ -33,9 +33,9 @@ public class SearchWorkersView extends View{
 
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public SearchWorkersView(IModel patron)
+    public SearchWorkersView(IModel worker)
     {
-        super(patron, "SearchPatronsView");
+        super(worker, "SearchWorkersView");
 
         // create a container for showing the contents
         VBox container = new VBox(10);

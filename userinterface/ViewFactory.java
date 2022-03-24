@@ -17,7 +17,7 @@ public class ViewFactory {
 		}
 		else if(viewName.equals("WorkerView") == true)
 		{
-			return new AccountCollectionView(model);
+			return new WorkerView(model);
 		}
 		else if(viewName.equals("AccountView") == true)
 		{

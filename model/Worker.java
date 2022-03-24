@@ -17,6 +17,7 @@ public class Worker extends EntityBase {
     protected Properties dependencies;
 
     private String updateStatusMessage = "";
+    private boolean oldFlag = true;
 
 
     //Constructor for if we know the id number which is a private key so there should only be one unique id of that number
@@ -53,6 +54,7 @@ public class Worker extends EntityBase {
                         persistentState.setProperty(nextKey, nextValue);
                     }
                 }
+                oldFlag = true;
 
             }
         }
@@ -65,11 +67,8 @@ public class Worker extends EntityBase {
     }
 
     //Constructor for it we do not know the specific id number to look up
-    public Worker(Properties props) {
-
-
+    public Worker(Properties props){
         super(myTableName);
-
         setDependencies();
         persistentState = new Properties();
         Enumeration allKeys = props.propertyNames();
@@ -83,8 +82,14 @@ public class Worker extends EntityBase {
                 persistentState.setProperty(nextKey, nextValue);
             }
         }
+        oldFlag = false;
+
     }
 
+    public Worker(){
+        super(myTableName);
+        oldFlag = false;
+    }
 
     public void save(){
         updateStateInDatabase();
@@ -93,19 +98,22 @@ public class Worker extends EntityBase {
     public void updateStateInDatabase(){
         try
         {
-            if(persistentState.getProperty("bannerID") != null)
+            if(oldFlag == true)
             {
+
+                System.out.println("getting here");
                 Properties whereClause = new Properties();
                 whereClause.setProperty("bannerID",
                         persistentState.getProperty("bannerID"));
+                System.out.print(persistentState.getProperty("bannerID"));
                 updatePersistentState(mySchema, persistentState, whereClause);
                 updateStatusMessage = "Worker data for Worker Id : " + persistentState.getProperty("bannerID") + " updated successfully in database!";
             }
             else
             {
-                Integer patronId =
-                        insertAutoIncrementalPersistentState(mySchema, persistentState);
-                persistentState.setProperty("bannerID", "" + patronId.intValue());
+                Integer workerID =
+                        insertPersistentState(mySchema, persistentState);
+                persistentState.setProperty("bannerID", "" + workerID.intValue());
                 updateStatusMessage = "Worker data for new worker : " +  persistentState.getProperty("bannerID")
                         + "installed successfully in database!";
             }
@@ -127,7 +135,7 @@ public class Worker extends EntityBase {
     }
     @Override
     public String toString() {
-        return "Worker First Name: " + persistentState.getProperty("firstName") + "; Last Name: " +
+        return "bannerID" + persistentState.getProperty("bannerID") + "Worker First Name: " + persistentState.getProperty("firstName") + "; Last Name: " +
                 persistentState.getProperty("lastName")  + "; Phone#: " +
                 persistentState.getProperty("phone") + "; Email: "+
                 persistentState.getProperty("email") + "; Credentials: " +
@@ -193,7 +201,7 @@ public class Worker extends EntityBase {
         v.addElement(persistentState.getProperty("phone"));
         v.addElement(persistentState.getProperty("email"));
         v.addElement(persistentState.getProperty("credentials"));
-        v.addElement(persistentState.getProperty("dateOfLastCredentials"));
+        v.addElement(persistentState.getProperty("dateOfLatestCredentials"));
         v.addElement(persistentState.getProperty("dateOfHire"));
 
         return v;

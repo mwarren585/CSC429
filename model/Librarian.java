@@ -223,7 +223,7 @@ public class Librarian implements IView, IModel
 
            // createAndShowPatronView();
         }
-        else if (key.equals("addWorker") == true)
+        else if (key.equals("Add Worker") == true)
         {
 
             createAndShowAddWorkerView();
@@ -259,7 +259,7 @@ public class Librarian implements IView, IModel
         }
         else if (key.equals("back") == true)
         {
-            createAndShowLibrarianView();
+            createAndShowTransactionChoiceView();
 
         }
 

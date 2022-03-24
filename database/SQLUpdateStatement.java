@@ -71,9 +71,9 @@ public class SQLUpdateStatement extends SQLStatement
 			}
 
 			String theColumnName = (String)theSetColumns.nextElement();
-			/* DEBUG
+
 			System.out.println("SQLUpdateStatement.<init> : Column Name = " +
-				theColumnName + ". Length = " + theColumnName.length()); */
+				theColumnName + ". Length = " + theColumnName.length());
 			String theColumnValue = insertEscapes(updateValues.getProperty(theColumnName));
 					
 			String updateType = schema.getProperty(theColumnName);
