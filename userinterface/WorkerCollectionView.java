@@ -80,7 +80,7 @@ public class WorkerCollectionView extends View {
             {
                 System.out.println("Inside has more elements");
                 Worker nextWorker = (Worker) entries.nextElement();
-                System.out.println("Next patron for table" + nextWorker);
+                System.out.println("Next worker for table" + nextWorker);
                 Vector<String> view = nextWorker.getEntryListView();
 
                 // add this list entry to the list
@@ -135,7 +135,7 @@ public class WorkerCollectionView extends View {
         tableOfWorkers = new TableView<WorkerTableModel>();
         tableOfWorkers.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        TableColumn workerIdColumn = new TableColumn("Banner Id") ;
+        TableColumn workerIdColumn = new TableColumn("Banner ID") ;
         workerIdColumn.setMinWidth(100);
         workerIdColumn.setCellValueFactory(
                 new PropertyValueFactory<WorkerTableModel, String>("bannerID"));

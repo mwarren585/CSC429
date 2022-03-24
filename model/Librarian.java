@@ -52,10 +52,10 @@ public class Librarian implements IView, IModel
 
         // STEP 3.1: Create the Registry object - if you inherit from
         // EntityBase, this is done for you. Otherwise, you do it yourself
-        myRegistry = new ModelRegistry("Teller");
+        myRegistry = new ModelRegistry("Librarian");
         if(myRegistry == null)
         {
-            new Event(Event.getLeafLevelClassName(this), "Teller",
+            new Event(Event.getLeafLevelClassName(this), "Librarian",
                     "Could not instantiate Registry", Event.ERROR);
         }
 
@@ -71,7 +71,7 @@ public class Librarian implements IView, IModel
     {
         dependencies = new Properties();
         dependencies.setProperty("Login", "LoginError");
-        dependencies.setProperty("Deposit", "TransactionError");
+        dependencies.setProperty("WorkerData", "TransactionError");
         dependencies.setProperty("Withdraw", "TransactionError");
         dependencies.setProperty("Transfer", "TransactionError");
         dependencies.setProperty("BalanceInquiry", "TransactionError");
@@ -171,12 +171,12 @@ public class Librarian implements IView, IModel
 
         myRegistry.updateSubscribers(key, this);
     }*/
-   /* public void createNewWorker(Properties props){
+   public void createNewWorker(Properties props){
         Worker worker = new Worker(props);
         worker.save();
         transactionErrorMessage = (String)worker.getState("UpdateStatusMessage");
 
-    }*/
+    }
     //----------------------------------------------------------------
     public void stateChangeRequest(String key, Object value)
     {
@@ -223,9 +223,15 @@ public class Librarian implements IView, IModel
 
            // createAndShowPatronView();
         }
+        else if (key.equals("addWorker") == true)
+        {
+
+            createAndShowAddWorkerView();
+
+        }
         else if(key.equals("WorkerData")){
             Properties p = (Properties)value;
-            //createNewWorker(p);
+            createNewWorker(p);
 
         }
         else if(key.equals("FindBooks")){
@@ -250,6 +256,11 @@ public class Librarian implements IView, IModel
         }
         else if(key.equals("Modify Worker")){
             createAndShowSearchWorkerView();
+        }
+        else if (key.equals("back") == true)
+        {
+            createAndShowLibrarianView();
+
         }
 
 
@@ -383,6 +394,21 @@ public class Librarian implements IView, IModel
 
 
         // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
+    private void createAndShowAddWorkerView()
+    {
+        Scene currentScene = (Scene)myViews.get("WorkerView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("WorkerView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("WorkerView", currentScene);
+        }
+
         swapToView(currentScene);
 
     }

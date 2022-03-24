@@ -15,7 +15,7 @@ public class ViewFactory {
 		{
 			return new TransactionChoiceView(model);
 		}
-		else if(viewName.equals("AccountCollectionView") == true)
+		else if(viewName.equals("WorkerView") == true)
 		{
 			return new AccountCollectionView(model);
 		}

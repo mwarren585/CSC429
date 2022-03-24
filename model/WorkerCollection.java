@@ -58,10 +58,10 @@ public class WorkerCollection extends EntityBase{
 
         if (allDataRetrieved != null) {
             for (int cnt = 0; cnt < allDataRetrieved.size(); cnt++) {
-                Properties nextPatronData = (Properties) allDataRetrieved.elementAt(cnt);
+                Properties nextWorkerData = (Properties)allDataRetrieved.elementAt(cnt);
 
-                //Need to fix this
-               Worker worker = new Worker(nextPatronData);
+
+               Worker worker = new Worker(nextWorkerData);
 
                 if (workers != null) {
                     addWorker(worker);
