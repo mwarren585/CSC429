@@ -122,7 +122,7 @@ public class TransactionChoiceView extends View
 
        		     @Override
        		     public void handle(ActionEvent e) {
-       		     	myModel.stateChangeRequest("Add Book", null);
+       		     	myModel.stateChangeRequest("AddBook", null);
             	     }
         	});
 		dCont.getChildren().add(addBookButton);
@@ -137,7 +137,7 @@ public class TransactionChoiceView extends View
 
        		     @Override
        		     public void handle(ActionEvent e) {
-       		     	myModel.stateChangeRequest("Add Student Borrower", null);
+       		     	myModel.stateChangeRequest("AddStudent", null);
             	     }
         	});
 		wCont.getChildren().add(addStudentBorrowerButton);

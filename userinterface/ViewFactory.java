@@ -19,9 +19,13 @@ public class ViewFactory {
 		{
 			return new WorkerView(model);
 		}
-		else if(viewName.equals("AccountView") == true)
+		else if(viewName.equals("StudentView") == true)
 		{
-			return new AccountView(model);
+			return new AddStudentBorrowerView(model);
+		}
+		else if(viewName.equals("BookView") == true)
+		{
+			return new BookView(model);
 		}
 		else if(viewName.equals("SearchWorkerView") == true)
 		{
@@ -31,10 +35,7 @@ public class ViewFactory {
 		{
 			return new WorkerCollectionView(model);
 		}
-		else if(viewName.equals("DepositAmountView") == true)
-		{
-			return new DepositAmountView(model);
-		}
+
 		else if(viewName.equals("WithdrawTransactionView") == true)
 		{
 			return new WithdrawTransactionView(model);

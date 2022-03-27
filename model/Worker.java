@@ -111,8 +111,7 @@ public class Worker extends EntityBase {
             }
             else
             {
-                Integer workerID =
-                        insertPersistentState(mySchema, persistentState);
+                Integer workerID = insertPersistentState(mySchema, persistentState);
                 persistentState.setProperty("bannerID", "" + workerID.intValue());
                 updateStatusMessage = "Worker data for new worker : " +  persistentState.getProperty("bannerID")
                         + "installed successfully in database!";

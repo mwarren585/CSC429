@@ -72,7 +72,7 @@ public class Librarian implements IView, IModel
         dependencies = new Properties();
         dependencies.setProperty("Login", "LoginError");
         dependencies.setProperty("WorkerData", "TransactionError");
-        dependencies.setProperty("Withdraw", "TransactionError");
+        dependencies.setProperty("StudentData", "TransactionError");
         dependencies.setProperty("Transfer", "TransactionError");
         dependencies.setProperty("BalanceInquiry", "TransactionError");
         dependencies.setProperty("ImposeServiceCharge", "TransactionError");
@@ -177,6 +177,18 @@ public class Librarian implements IView, IModel
         transactionErrorMessage = (String)worker.getState("UpdateStatusMessage");
 
     }
+    public void createNewStudent(Properties props){
+        StudentBorrower student = new StudentBorrower(props);
+        student.update();
+        transactionErrorMessage = (String)student.getState("UpdateStatusMessage");
+
+    }
+    public void createNewBook(Properties props){
+        Book book = new Book(props);
+        book.save();
+        transactionErrorMessage = (String)book.getState("UpdateStatusMessage");
+
+    }
     //----------------------------------------------------------------
     public void stateChangeRequest(String key, Object value)
     {
@@ -203,14 +215,22 @@ public class Librarian implements IView, IModel
             createAndShowTransactionChoiceView();
         }
 
-        else if (key.equals("Insert New Book") == true)
+        else if (key.equals("AddStudent") == true)
         {
-            //createAndShowBookView();
+            createAndShowStudentView();
+        }
+        else if (key.equals("StudentData")== true){
+            Properties p = (Properties)value;
+            createNewStudent(p);
+        }
+        else if (key.equals("AddBook") == true)
+        {
+            createAndShowBookView();
         }
         else if (key.equals("BookData") == true)
         {
             Properties p = (Properties)value;
-           // createNewBook(p);
+            createNewBook(p);
         }
         else if (key.equals("Search Books") == true){
             //createAndShowSearchBooksView();
@@ -219,10 +239,7 @@ public class Librarian implements IView, IModel
         {
           //  createAndShowSearchPatronsView();
         }
-        else if(key.equals("Insert Workers") == true){
 
-           // createAndShowPatronView();
-        }
         else if (key.equals("Add Worker") == true)
         {
 
@@ -412,9 +429,42 @@ public class Librarian implements IView, IModel
         swapToView(currentScene);
 
     }
+    private void createAndShowBookView()
+    {
+        Scene currentScene = (Scene)myViews.get("BookView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("BookView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("BookView", currentScene);
+        }
+
+        swapToView(currentScene);
+
+    }
+
 
     //------------------
 
+    private void createAndShowStudentView()
+    {
+        Scene currentScene = (Scene)myViews.get("StudentView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("StudentView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("StudentView", currentScene);
+        }
+
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
 
     /** Register objects to receive state updates. */
     //----------------------------------------------------------
