@@ -36,9 +36,9 @@ public class ViewFactory {
 			return new WorkerCollectionView(model);
 		}
 
-		else if(viewName.equals("WithdrawTransactionView") == true)
+		else if(viewName.equals("ModifyWorkerView") == true)
 		{
-			return new WithdrawTransactionView(model);
+			return new ModifyWorkerView(model);
 		}
 		else if(viewName.equals("TransferTransactionView") == true)
 		{

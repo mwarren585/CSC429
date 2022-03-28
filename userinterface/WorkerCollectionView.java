@@ -34,9 +34,9 @@ public class WorkerCollectionView extends View {
     // For showing error message
     protected MessageView statusLog;
 
-    public WorkerCollectionView(IModel patron)
+    public WorkerCollectionView(IModel Worker)
     {
-        super(patron, "WorkerCollectionView");
+        super(Worker, "WorkerCollectionView");
 
         // create a container for showing the contents
         VBox container = new VBox(10);
@@ -104,7 +104,7 @@ public class WorkerCollectionView extends View {
         HBox container = new HBox();
         container.setAlignment(Pos.CENTER);
 
-        Text titleText = new Text(" Library System ");
+        Text titleText = new Text(" Worker Collection ");
         titleText.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         titleText.setWrappingWidth(300);
         titleText.setTextAlignment(TextAlignment.CENTER);
@@ -188,7 +188,7 @@ public class WorkerCollectionView extends View {
             public void handle(MouseEvent event)
             {
                 if (event.isPrimaryButtonDown() && event.getClickCount() >=2 ){
-                    //processAccountSelected();
+                    processWorkerSelected();
                 }
             }
         });
@@ -274,6 +274,16 @@ public class WorkerCollectionView extends View {
     {
 
         statusLog.clearErrorMessage();
+    }
+    protected void processWorkerSelected()
+    {
+        WorkerTableModel selectedWorker = tableOfWorkers.getSelectionModel().getSelectedItem();
+
+        if(selectedWorker != null)
+        {
+
+            myModel.stateChangeRequest("WorkerSelected", selectedWorker.getWorkerId());
+        }
     }
 
 

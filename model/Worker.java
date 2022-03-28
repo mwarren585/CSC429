@@ -205,4 +205,7 @@ public class Worker extends EntityBase {
 
         return v;
     }
+    public void setOldFlagTrue(){
+        oldFlag = true;
+    }
 }

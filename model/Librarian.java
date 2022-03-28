@@ -5,6 +5,7 @@ package model;
 import java.util.Hashtable;
 import java.util.Properties;
 
+
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
@@ -34,6 +35,8 @@ public class Librarian implements IView, IModel
     private ModelRegistry myRegistry;
 
     private Worker myWorker;
+    private Worker selectedWorker;
+    private Worker modifyWorker;
     private WorkerCollection myWorkers;
 
     // GUI Components
@@ -232,6 +235,14 @@ public class Librarian implements IView, IModel
             Properties p = (Properties)value;
             createNewBook(p);
         }
+        else if(key.equals("FindBooks")){
+            Properties p = (Properties)value;
+            String titl = p.getProperty("bookTitle");
+            //  myBooks = new BookCollection();
+            // myBooks.findBooksWithTitleLike(titl);
+            //createAndShowBookCollectionView();
+        }
+
         else if (key.equals("Search Books") == true){
             //createAndShowSearchBooksView();
         }
@@ -251,15 +262,8 @@ public class Librarian implements IView, IModel
             createNewWorker(p);
 
         }
-        else if(key.equals("FindBooks")){
-            Properties p = (Properties)value;
-            String titl = p.getProperty("bookTitle");
-          //  myBooks = new BookCollection();
-           // myBooks.findBooksWithTitleLike(titl);
-            //createAndShowBookCollectionView();
-        }
-        else if(key.equals("WorkerCollection")){
-            createAndShowWorkerCollectionView();
+        else if(key.equals("Modify Worker")){
+            createAndShowSearchWorkerView();
         }
         else if(key.equals("FindWorkers")){
             Properties p = (Properties)value;
@@ -269,11 +273,28 @@ public class Librarian implements IView, IModel
             myWorkers.findWorkersWithNameLike(first, last);
 
             createAndShowWorkerCollectionView();
+        }
 
+        else if(key.equals("WorkerCollection")){
+            createAndShowWorkerCollectionView();
         }
-        else if(key.equals("Modify Worker")){
-            createAndShowSearchWorkerView();
+        if (key.equals("WorkerSelected") == true)
+        {
+            try {
+                getWorker((String)value);
+            } catch (InvalidPrimaryKeyException e) {
+                e.printStackTrace();
+            }
+            createAndShowModifyWorkerView();
         }
+        if(key.equals("InsertWorkerData")){
+             Properties p = (Properties)value;
+             modifyWorker = new Worker(p);
+             modifyWorker.setOldFlagTrue();
+             modifyWorker.save();
+        }
+
+
         else if (key.equals("back") == true)
         {
             createAndShowTransactionChoiceView();
@@ -319,6 +340,10 @@ public class Librarian implements IView, IModel
             return false;
         }
 
+    }
+
+    private void getWorker(String id)throws InvalidPrimaryKeyException {
+        selectedWorker = new Worker(id);
     }
 
 
@@ -458,6 +483,23 @@ public class Librarian implements IView, IModel
             View newView = ViewFactory.createView("StudentView", this); // USE VIEW FACTORY
             currentScene = new Scene(newView);
             myViews.put("StudentView", currentScene);
+        }
+
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
+    private void createAndShowModifyWorkerView()
+    {
+        Scene currentScene = (Scene)myViews.get("ModifyWorkerView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("ModifyWorkerView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("ModifyWorkerView", currentScene);
         }
 
 
