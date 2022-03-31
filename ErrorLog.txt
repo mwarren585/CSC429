@@ -39,3 +39,4 @@
 [3/28/22 4:40 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 's' in 'where clause'>
 [3/28/22 5:00 PM]|Worker|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1054: Unknown column 's' in 'where clause'>
 [3/29/22 12:39 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1054: Unknown column 's' in 'field list'>
+[3/29/22 1:18 PM]|StudentBorrower|insertPersistentState|Error|NOTAG|null<SQL Exception: 0: Data truncation: Out of range value for column 'phone' at row 1>

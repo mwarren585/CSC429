@@ -30,17 +30,19 @@ import impresario.IModel;
 
 /** The class containing the Account View  for the ATM application */
 //==============================================================
-public class ModifyBookView extends View
+public class ModifyWorkerView extends View
 {
     // GUI components
-    protected TextField barcode;
-    protected TextField bookTitle;
-    protected TextField author;
-    protected TextField publisher;
-    protected TextField pubYear;
-    protected TextField ISBN;
-    protected TextField price;
-    protected TextField notes;
+    protected TextField bannerId;
+    protected TextField firstName;
+    protected TextField lastName;
+    protected TextField password;
+    protected TextField contactPhone;
+    protected TextField email;
+    protected TextArea credentials;
+    protected TextField dateOfLastCredentialsStatus;
+    protected TextField dateOfHire;
+
     //protected ComboBox statusBox;
 
     protected Button doneButton;
@@ -48,10 +50,9 @@ public class ModifyBookView extends View
     // For showing error message
     protected MessageView statusLog;
 
-
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public ModifyBookView(IModel Worker)
+    public ModifyWorkerView(IModel Worker)
     {
         super(Worker, "WorkerView");
 
@@ -104,92 +105,117 @@ public class ModifyBookView extends View
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text prompt = new Text("BOOK INFORMATION");
+        Text prompt = new Text("WORKER INFORMATION");
         prompt.setWrappingWidth(400);
         prompt.setTextAlignment(TextAlignment.CENTER);
         prompt.setFill(Color.BLACK);
         grid.add(prompt, 0, 0, 2, 1);
 
-        Text barLab = new Text(" Barcode : ");
+        /*
+        Text patronIdLabel = new Text(" Patron ID : ");
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
-        barLab.setFont(myFont);
-        barLab.setWrappingWidth(150);
-        barLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(barLab, 0, 1);
+        patronIdLabel.setFont(myFont);
+        patronIdLabel.setWrappingWidth(150);
+        patronIdLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(patronIdLabel, 0, 1);
 
-        barcode = new TextField();
-        barcode.setEditable(true);
-        grid.add(barcode, 1, 1);
+        patronId = new TextField();
+        patronId.setEditable(false);
+        grid.add(patronId, 1, 1);
+         */
 
-        Text titlLab = new Text(" Title : ");
-        titlLab.setFont(myFont);
-        titlLab.setWrappingWidth(150);
-        titlLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(titlLab, 0, 2);
+        Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
 
-        bookTitle = new TextField();
-        bookTitle.setEditable(true);
-        grid.add(bookTitle, 1, 2);
+        Text bannerIdLabel = new Text(" Banner Id : ");
+        bannerIdLabel.setFont(myFont);
+        bannerIdLabel.setWrappingWidth(150);
+        bannerIdLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(bannerIdLabel, 0, 2);
 
-        Text authLab = new Text(" Author : ");
-        authLab.setFont(myFont);
-        authLab.setWrappingWidth(150);
-        authLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(authLab, 0, 3);
+        bannerId = new TextField();
+        bannerId.setEditable(true);
+        grid.add(bannerId, 1, 2);
 
-        author = new TextField();
-        author.setEditable(true);
-        grid.add(author, 1, 3);
+        Text firstNameLabel = new Text(" First Name : ");
+        firstNameLabel.setFont(myFont);
+        firstNameLabel.setWrappingWidth(150);
+        firstNameLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(firstNameLabel, 0, 3);
 
-        Text publishLab = new Text(" Publisher : ");
-        publishLab.setFont(myFont);
-        publishLab.setWrappingWidth(150);
-        publishLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(publishLab, 0, 4);
+        firstName = new TextField();
+        firstName.setEditable(true);
+        grid.add(firstName, 1, 3);
 
-        publisher = new TextField();
-        publisher.setEditable(true);
-        grid.add(publisher, 1, 4);
 
-        Text pYearLab = new Text(" Publish Year : ");
-        pYearLab.setFont(myFont);
-        pYearLab.setWrappingWidth(150);
-        pYearLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(pYearLab, 0, 5);
+        Text lastNameLabel = new Text(" Last Name : ");
+        lastNameLabel.setFont(myFont);
+        lastNameLabel.setWrappingWidth(150);
+        lastNameLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(lastNameLabel, 0, 4);
 
-        pubYear = new TextField();
-        pubYear.setEditable(true);
-        grid.add(pubYear, 1, 5);
+        lastName = new TextField();
+        lastName.setEditable(true);
+        grid.add(lastName, 1, 4);
 
-        Text ISBNLab = new Text(" ISBN : ");
-        ISBNLab.setFont(myFont);
-        ISBNLab.setWrappingWidth(150);
-        ISBNLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(ISBNLab, 0, 6);
+        Text passwordLabel = new Text(" Password : ");
+        passwordLabel.setFont(myFont);
+        passwordLabel.setWrappingWidth(150);
+        passwordLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(passwordLabel, 0, 5);
 
-        ISBN = new TextField();
-        ISBN.setEditable(true);
-        grid.add(ISBN, 1, 6);
+        password = new TextField();
+        password.setEditable(true);
+        grid.add(password, 1, 5);
 
-        Text priceLab = new Text(" Price : ");
-        priceLab.setFont(myFont);
-        priceLab.setWrappingWidth(150);
-        priceLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(priceLab, 0, 7);
+        Text contactPhoneLabel = new Text(" Contact Phone : ");
+        contactPhoneLabel.setFont(myFont);
+        contactPhoneLabel.setWrappingWidth(150);
+        contactPhoneLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(contactPhoneLabel, 0, 6);
 
-        price = new TextField();
-        price.setEditable(true);
-        grid.add(price, 1, 7);
+        contactPhone = new TextField();
+        contactPhone.setEditable(true);
+        grid.add(contactPhone, 1, 6);
 
-        Text notesLab = new Text(" Notes : ");
-        notesLab.setFont(myFont);
-        notesLab.setWrappingWidth(150);
-        notesLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(notesLab, 0, 8);
+        Text emailLabel = new Text(" Email : ");
+        emailLabel.setFont(myFont);
+        emailLabel.setWrappingWidth(150);
+        emailLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(emailLabel, 0, 7);
 
-        notes = new TextField();
-        notes.setEditable(true);
-        grid.add(notes, 1, 8);
+        email = new TextField();
+        email.setEditable(true);
+        grid.add(email, 1, 7);
+
+        Text credentialsLabel = new Text(" Credentials : ");
+        credentialsLabel.setFont(myFont);
+        credentialsLabel.setWrappingWidth(150);
+        credentialsLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(credentialsLabel, 0, 8);
+
+        credentials = new TextArea();
+        credentials.setEditable(true);
+        grid.add(credentials, 1, 8);
+
+        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status : ");
+        dateOfLastCredentialsStatusLabel.setFont(myFont);
+        dateOfLastCredentialsStatusLabel.setWrappingWidth(150);
+        dateOfLastCredentialsStatusLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(dateOfLastCredentialsStatusLabel, 0, 9);
+
+        dateOfLastCredentialsStatus = new TextField();
+        dateOfLastCredentialsStatus.setEditable(true);
+        grid.add(dateOfLastCredentialsStatus, 1, 9);
+
+        Text dateOfHireLabel = new Text(" Date of Hire : ");
+        dateOfHireLabel.setFont(myFont);
+        dateOfHireLabel.setWrappingWidth(150);
+        dateOfHireLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(dateOfHireLabel, 0, 10);
+
+        dateOfHire = new TextField();
+        dateOfHire.setEditable(true);
+        grid.add(dateOfHire, 1, 10);
 
         /*statusBox = new ComboBox();
         statusBox.getItems().addAll("Active", "Inactive");
@@ -207,7 +233,7 @@ public class ModifyBookView extends View
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("back", null);
+                myModel.stateChangeRequest("Modify Worker", null);
             }
         });
         doneCont.getChildren().add(backButton);
@@ -222,19 +248,19 @@ public class ModifyBookView extends View
 
                 Properties p = new Properties();
 
-
-                p.setProperty("barcode", barcode.getText());
-                p.setProperty("title", bookTitle.getText());
-                p.setProperty("author", author.getText());
-                p.setProperty("publisher", publisher.getText());
-                p.setProperty("pubYear", pubYear.getText());
-                p.setProperty("ISBN", ISBN.getText());
-                p.setProperty("price", price.getText());
-                p.setProperty("notes", notes.getText());
-
+                p.setProperty("bannerID", bannerId.getText());
+                p.setProperty("firstName", firstName.getText());
+                p.setProperty("lastName", lastName.getText());
+                p.setProperty("password", password.getText());
+                p.setProperty("phone", contactPhone.getText());
+                p.setProperty("email", email.getText());
+                p.setProperty("credentials", credentials.getText());
+                p.setProperty("dateOfLatestCredentials", dateOfLastCredentialsStatus.getText());
+                p.setProperty("dateOfHire", dateOfHire.getText());
 
                 clearText();
-                myModel.stateChangeRequest("BookData", p);
+                myModel.stateChangeRequest("InsertWorkerData", p);
+                myModel.stateChangeRequest("done", null);
             }
         });
         doneCont.getChildren().add(doneButton);
@@ -316,17 +342,18 @@ public class ModifyBookView extends View
      * Clear text
      */
     //----------------------------------------------------------
-
     public void clearText()
     {
-        barcode.setText("");
-        bookTitle.setText("");
-        author.setText("");
-        publisher.setText("");
-        pubYear.setText("");
-        ISBN.setText("");
-        price.setText("");
-        notes.setText("");
+        bannerId.clear();
+        firstName.clear();
+        lastName.clear();
+        password.clear();
+        contactPhone.clear();
+        email.clear();
+        credentials.clear();
+        dateOfLastCredentialsStatus.clear();
+        dateOfHire.clear();
+        //statusBox.valueProperty().set("Active");
     }
 
 }

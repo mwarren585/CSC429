@@ -86,6 +86,11 @@ public class StudentBorrower extends EntityBase {
         String bb = (String)b.getState("firstName");
         return ba.compareTo(bb);
     }
+    public static int compareID(StudentBorrower a, StudentBorrower b) {
+        String ba = (String)a.getState("bannerID");
+        String bb = (String)b.getState("bannerID");
+        return ba.compareTo(bb);
+    }
 
     public static int compareBanner(StudentBorrower a, StudentBorrower b) {
         String banid = (String)a.getState("bannerID");
@@ -136,6 +141,61 @@ public class StudentBorrower extends EntityBase {
         {
             mySchema = getSchemaInfo(tableName);
         }
+    }
+
+    //------------------------------------------------------------------------------------
+    public void delete()
+    {
+        try
+        {
+            Properties whereClause = new Properties();
+            whereClause.setProperty("bannerID", persistentState.getProperty("bannerID"));
+            deletePersistentState(mySchema, whereClause);
+            updateStatusMessage = "StudentBorrower data for StudentBorrower : " + persistentState.getProperty("bannerID") + " deleted successfully from database!";
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Error: " + ex.toString());
+            updateStatusMessage = "Error deleting StudentBorrower data from database!";
+        }
+        //DEBUG System.out.println("delete " + updateStatusMessage);
+    }
+
+    //------------------------------------------------------------------------------------
+
+
+    //------------------------------------------------------------------------------------
+    public void add()
+    {
+        try
+        {
+            Integer studentId = insertPersistentState(mySchema, persistentState);
+            persistentState.setProperty("bannerID", "" + studentId.intValue());
+            updateStatusMessage = "StudentBorrower data for new StudentBorrower : " +  persistentState.getProperty("bannerID")
+                    + "installed successfully in database!";
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Error: " + ex.toString());
+            updateStatusMessage = "Error adding StudentBorrower data in database!";
+        }
+        //DEBUG System.out.println("add " + updateStatusMessage);
+    }
+
+    //------------------------------------------------------------------------------------
+    public void updateState(Properties cmpState)
+    {
+        try
+        {
+            Properties whereClause = new Properties();
+            whereClause.setProperty("bannerID", persistentState.getProperty("bannerID"));
+            updatePersistentState(mySchema, cmpState, whereClause);
+            updateStatusMessage = "StudentBorrower data for StudentBorrower : " + persistentState.getProperty("bannerID") + " updated successfully in database!";
+        }
+        catch (SQLException ex) {
+            System.out.println("Error: " + ex.toString());
+        }
+        //DEBUG System.out.println("updateState " + updateStatusMessage);
     }
 
     public Vector<String> getEntryListView()

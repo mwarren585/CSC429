@@ -64,6 +64,18 @@ public class ViewFactory {
         {
             return new TransferReceipt(model);
         }
+        else if(viewName.equals("ModifyWorkerView") == true)
+        {
+            return new ModifyWorkerView(model);
+        }
+        else if(viewName.equals("ModifyBookView") == true)
+        {
+            return new ModifyBookView(model);
+        }
+        else if(viewName.equals("SearchBooksView") == true)
+        {
+            return new SearchBooksView(model);
+        }
         else
             return null;
     }
