@@ -137,3 +137,4 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 ** END NESTED EXCEPTION **
 
 >
+[3/29/22 1:16 PM]|StudentBorrower|insertPersistentState|Error|NOTAG|null<SQL Exception: 0: Data truncation: Out of range value for column 'phone' at row 1>

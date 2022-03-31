@@ -41,6 +41,8 @@ public class TransactionChoiceView extends View
 	private Button addWorkerButton;
 	private Button addStudentBorrowerButton;
 	private Button modifyWorkerButton;
+	private Button modifyStudentBorrowerButton;
+	private Button modifyBookButton;
 
 
 	private Button cancelButton;
@@ -173,6 +175,38 @@ public class TransactionChoiceView extends View
 		biCont.getChildren().add(modifyWorkerButton);
 
 		container.getChildren().add(biCont);
+
+
+		HBox msbCont = new HBox(10);
+		msbCont.setAlignment(Pos.CENTER);
+		modifyStudentBorrowerButton = new Button("Modify Student Borrower");
+		modifyStudentBorrowerButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		modifyStudentBorrowerButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+				myModel.stateChangeRequest("Modify Student Borrower", null);
+			}
+		});
+		msbCont.getChildren().add(modifyStudentBorrowerButton);
+
+		container.getChildren().add(msbCont);
+
+		HBox mbCont = new HBox(10);
+		mbCont.setAlignment(Pos.CENTER);
+		modifyBookButton = new Button("Modify Book");
+		modifyBookButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		modifyBookButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+				myModel.stateChangeRequest("Modify Book", null);
+			}
+		});
+		msbCont.getChildren().add(modifyStudentBorrowerButton);
+
+		container.getChildren().add(msbCont);
+
 
 		/*HBox iscCont = new HBox(10);
 		iscCont.setAlignment(Pos.CENTER);
