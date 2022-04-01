@@ -46,6 +46,8 @@ public class Librarian implements IView, IModel
     private String loginErrorMessage = "";
     private String transactionErrorMessage = "";
 
+    private int searchMode = 1;
+
     // constructor for this class
     //----------------------------------------------------------
     public Librarian()
@@ -116,6 +118,12 @@ public class Librarian implements IView, IModel
         else
         if(key.equals("WorkerList") == true){
             return myWorkers;
+        }
+        else if(key.equals("searchMode")){
+            return searchMode;
+        }
+        else if (key.equals("Worker")){
+            return selectedWorker;
         }
         else
             return "";
@@ -262,7 +270,8 @@ public class Librarian implements IView, IModel
             createNewWorker(p);
 
         }
-        else if(key.equals("Modify Worker")){
+        else if(key.equals("Search Worker")){
+            searchMode = (int)value;
             createAndShowSearchWorkerView();
         }
         else if(key.equals("FindWorkers")){
@@ -278,16 +287,26 @@ public class Librarian implements IView, IModel
         else if(key.equals("WorkerCollection")){
             createAndShowWorkerCollectionView();
         }
-        if (key.equals("WorkerSelected") == true)
+        else if (key.equals("WorkerSelected"))
         {
-            try {
-                getWorker((String)value);
-            } catch (InvalidPrimaryKeyException e) {
-                e.printStackTrace();
+            if(searchMode == 1){
+                try {
+                    getWorker((String)value);
+                } catch (InvalidPrimaryKeyException e) {
+                    e.printStackTrace();
+                }
+                createAndShowModifyWorkerView();
             }
-            createAndShowModifyWorkerView();
+            else if(searchMode == 2){
+                try {
+                    getWorker((String)value);
+                } catch (InvalidPrimaryKeyException e) {
+                    e.printStackTrace();
+                }
+                createAndShowDeleteWorkerView();
+            }
         }
-        if(key.equals("InsertWorkerData")){
+        else if(key.equals("InsertWorkerData")){
              Properties p = (Properties)value;
              modifyWorker = new Worker(p);
              modifyWorker.setOldFlagTrue();
@@ -500,6 +519,23 @@ public class Librarian implements IView, IModel
             View newView = ViewFactory.createView("ModifyWorkerView", this); // USE VIEW FACTORY
             currentScene = new Scene(newView);
             myViews.put("ModifyWorkerView", currentScene);
+        }
+
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
+    private void createAndShowDeleteWorkerView()
+    {
+        Scene currentScene = (Scene)myViews.get("DeleteWorkerView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("DeleteWorkerView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("DeleteWorkerView", currentScene);
         }
 
 

@@ -40,9 +40,9 @@ public class ViewFactory {
 		{
 			return new ModifyWorkerView(model);
 		}
-		else if(viewName.equals("TransferTransactionView") == true)
+		else if(viewName.equals("DeleteWorkerView") == true)
 		{
-			return new TransferTransactionView(model);
+			return new DeleteWorkerView(model);
 		}
 		else if(viewName.equals("BalanceInquiryTransactionView") == true)
 		{
