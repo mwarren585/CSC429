@@ -32,9 +32,14 @@ public class Worker extends EntityBase {
             int size = allDataRetrieved.size();
 
             // There should be EXACTLY one patron. More than that is an error
-            if (size != 1)
+            if (size > 1)
             {
                 throw new InvalidPrimaryKeyException("Multiple workers matching id : "
+                        + id + " found.");
+            }
+            else if (size < 1)
+            {
+                throw new InvalidPrimaryKeyException("No worker matching id : "
                         + id + " found.");
             }
             else
@@ -59,11 +64,7 @@ public class Worker extends EntityBase {
             }
         }
         // If no patron found for this user name, throw an exception
-        else
-        {
-            throw new InvalidPrimaryKeyException("No worker matching id : "
-                    + id + " found.");
-        }
+
     }
 
     //Constructor for it we do not know the specific id number to look up
@@ -139,13 +140,14 @@ public class Worker extends EntityBase {
                 persistentState.getProperty("phone") + "; Email: "+
                 persistentState.getProperty("email") + "; Credentials: " +
                 persistentState.getProperty("credentials") + "; dateOfHire: " +
-                persistentState.getProperty("dateOfHire")
+                persistentState.getProperty("dateOfHire") + "; status: " +
+                persistentState.getProperty("status")
                 ;
     }
 
     // compare
     public void display(){
-        System.out.println(this);
+        System.out.println(toString());
     }
 
 
@@ -183,7 +185,11 @@ public class Worker extends EntityBase {
     public boolean matchPassword(String givenPassword) {
 
         String dbPassword = persistentState.getProperty("password");
-        return givenPassword.equals(dbPassword) == true;
+        if (givenPassword.equals(dbPassword) == true) {
+            return true;
+        }
+        else
+            return false;
     }
 
     //------------------------------------------------------------------------------------
@@ -199,7 +205,11 @@ public class Worker extends EntityBase {
         v.addElement(persistentState.getProperty("credentials"));
         v.addElement(persistentState.getProperty("dateOfLatestCredentials"));
         v.addElement(persistentState.getProperty("dateOfHire"));
+        v.addElement(persistentState.getProperty("status"));
 
         return v;
+    }
+    public void setOldFlagTrue(){
+        oldFlag = true;
     }
 }

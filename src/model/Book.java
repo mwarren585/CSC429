@@ -23,7 +23,7 @@ public class Book extends EntityBase {
         if (allDataRetrieved != null) {
             int size = allDataRetrieved.size();
             // There should be EXACTLY one Book. More than that is an error
-            if (size != 1) {
+            if (size > 1) {
                 throw new exception.InvalidPrimaryKeyException("Multiple Objects matching id : "
                         + bookID + " found.");
             } else {

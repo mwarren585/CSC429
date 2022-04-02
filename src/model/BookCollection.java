@@ -10,7 +10,6 @@ public class BookCollection extends EntityBase {
 
     public BookCollection(){
         super(myTableName);
-
         books = new Vector<Book>();
     }
 

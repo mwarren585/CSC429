@@ -45,6 +45,7 @@ public class TransactionChoiceView extends View
     private Button modifyStudentBorrowerButton;
     private Button modifyBookButton;
     private Button deleteWorkerButton;
+    private Button deleteBookButton;
 
     private Button cancelButton;
 
@@ -217,6 +218,19 @@ public class TransactionChoiceView extends View
         grid.add(deleteWorkerButton, 0, 5);
 
 
+        deleteBookButton = new Button("Delete Book");
+        deleteBookButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        deleteBookButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                myModel.stateChangeRequest("Delete Book", null);
+            }
+        });
+        grid.setHalignment(deleteBookButton, HPos.CENTER);
+        grid.add(deleteBookButton, 1, 5);
+
+
 		/*HBox iscCont = new HBox(10);
 		iscCont.setAlignment(Pos.CENTER);
 		imposeServiceChargeButton = new Button("Impose Service Charge");
@@ -243,7 +257,7 @@ public class TransactionChoiceView extends View
             }
         });
         grid.setHalignment(cancelButton, HPos.CENTER);
-        grid.add(cancelButton, 1, 5);
+        grid.add(cancelButton, 1, 6);
 
 
         container.getChildren().add(grid);

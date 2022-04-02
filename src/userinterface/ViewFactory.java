@@ -31,7 +31,7 @@ public class ViewFactory {
         {
             return new SearchWorkersView(model);
         }
-        else if(viewName.equals("SearchBookView"))
+        else if(viewName.equals("SearchBooksView"))
         {
             return new SearchBooksView(model);
         }
@@ -78,10 +78,6 @@ public class ViewFactory {
         else if(viewName.equals("ModifyBookView"))
         {
             return new ModifyBookView(model);
-        }
-        else if(viewName.equals("SearchBooksView"))
-        {
-            return new SearchBooksView(model);
         }
         else
             return null;
