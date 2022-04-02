@@ -176,10 +176,25 @@ public class LibrarianView extends View
             displayErrorMessage("Please enter a user id!");
             userid.requestFocus();
         }
+        else if(useridEntered.length() != 9){
+            displayErrorMessage("Please enter user id that is only 9 digits in length!");
+            userid.requestFocus();
+        }
         else
         {
             String passwordEntered = password.getText();
-            processUserIDAndPassword(useridEntered, passwordEntered);
+            if((passwordEntered == null) || (passwordEntered.length() == 0)){
+                displayErrorMessage("Please enter password!");
+                password.requestFocus();
+            }
+            else {
+                try {
+                    processUserIDAndPassword(useridEntered, passwordEntered);
+                }
+                catch(Exception e){
+                    displayErrorMessage("Wrong Password Entered! Try Again!");
+                }
+            }
         }
 
     }
@@ -201,6 +216,7 @@ public class LibrarianView extends View
         password.setText("");
 
         myModel.stateChangeRequest("Login", props);
+        
     }
 
     //---------------------------------------------------------

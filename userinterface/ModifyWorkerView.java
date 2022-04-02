@@ -23,6 +23,8 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 // project imports
@@ -199,6 +201,9 @@ public class ModifyWorkerView extends View
         credentials.setEditable(true);
         grid.add(credentials, 1, 8);
 
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime now = LocalDateTime.now();
+
         Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status : ");
         dateOfLastCredentialsStatusLabel.setFont(myFont);
         dateOfLastCredentialsStatusLabel.setWrappingWidth(150);
@@ -206,7 +211,9 @@ public class ModifyWorkerView extends View
         grid.add(dateOfLastCredentialsStatusLabel, 0, 9);
 
         dateOfLastCredentialsStatus = new TextField();
-        dateOfLastCredentialsStatus.setEditable(true);
+        dateOfLastCredentialsStatus.setEditable(false);
+        dateOfLastCredentialsStatus.setText(dtf.format(now));
+
         grid.add(dateOfLastCredentialsStatus, 1, 9);
 
         Text dateOfHireLabel = new Text(" Date of Hire : ");
@@ -307,7 +314,7 @@ public class ModifyWorkerView extends View
         contactPhone.setText((String)selectedWorker.getState("phone"));
         email.setText((String)selectedWorker.getState("email"));
         credentials.setText((String)selectedWorker.getState("credentials"));
-        dateOfLastCredentialsStatus.setText((String)selectedWorker.getState("dateOfLatestCredentials"));
+        //dateOfLastCredentialsStatus.setText((String)selectedWorker.getState("dateOfLatestCredentials"));
         dateOfHire.setText((String)selectedWorker.getState("dateOfHire"));
         status.setText((String)selectedWorker.getState("status"));
 

@@ -23,6 +23,8 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 // project imports
@@ -197,6 +199,9 @@ public class WorkerView extends View
         credentials.setEditable(true);
         grid.add(credentials, 1, 8);
 
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime now = LocalDateTime.now();
+
         Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status : ");
         dateOfLastCredentialsStatusLabel.setFont(myFont);
         dateOfLastCredentialsStatusLabel.setWrappingWidth(150);
@@ -205,6 +210,7 @@ public class WorkerView extends View
 
         dateOfLastCredentialsStatus = new TextField();
         dateOfLastCredentialsStatus.setEditable(true);
+        dateOfLastCredentialsStatus.setText(dtf.format(now));
         grid.add(dateOfLastCredentialsStatus, 1, 9);
 
         Text dateOfHireLabel = new Text(" Date of Hire : ");
@@ -246,6 +252,8 @@ public class WorkerView extends View
             public void handle(ActionEvent e) {
                 clearErrorMessage();
 
+                String bannerID = bannerId.getText();
+
                 Properties p = new Properties();
 
                 p.setProperty("bannerID", bannerId.getText());
@@ -258,8 +266,13 @@ public class WorkerView extends View
                 p.setProperty("dateOfLatestCredentials", dateOfLastCredentialsStatus.getText());
                 p.setProperty("dateOfHire", dateOfHire.getText());
 
-                clearText();
-                myModel.stateChangeRequest("WorkerData", p);
+                if(bannerID.length() != 9){
+                    displayErrorMessage("bannerID needs to be exactly 9 numbers long!");
+                }
+                else {
+                    myModel.stateChangeRequest("WorkerData", p);
+                    clearText();
+                }
             }
         });
         doneCont.getChildren().add(doneButton);

@@ -106,7 +106,7 @@ public class Librarian implements IView, IModel
             return transactionErrorMessage;
         }
         else
-        if (key.equals("Name") == true)
+        if (key.equals("firstName") == true)
         {
             if (myWorker != null)
             {
