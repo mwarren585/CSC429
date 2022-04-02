@@ -31,11 +31,18 @@ public class ViewFactory {
         {
             return new SearchWorkersView(model);
         }
+        else if(viewName.equals("SearchBookView"))
+        {
+            return new SearchBooksView(model);
+        }
         else if(viewName.equals("WorkerCollectionView"))
         {
             return new WorkerCollectionView(model);
         }
-
+        else if(viewName.equals("BookCollectionView"))
+        {
+            return new BookCollectionView(model);
+        }
         else if(viewName.equals("WithdrawTransactionView"))
         {
             return new WithdrawTransactionView(model);

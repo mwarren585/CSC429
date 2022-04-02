@@ -24,23 +24,16 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 
 import java.util.Properties;
-
 // project imports
 import impresario.IModel;
+import model.Book;
 
-/** The class containing the Account View  for the ATM application */
-//==============================================================
-public class ModifyBookView extends View
-{
+public class DeleteBookView extends View{
     // GUI components
-    protected TextField barcode;
-    protected TextField bookTitle;
-    protected TextField author;
-    protected TextField publisher;
-    protected TextField pubYear;
-    protected TextField ISBN;
-    protected TextField price;
-    protected TextField notes;
+    protected TextField barcodeField;
+    private Book boookSelction = (Book)myModel.getState("Book");
+
+
     //protected ComboBox statusBox;
 
     protected Button doneButton;
@@ -48,12 +41,11 @@ public class ModifyBookView extends View
     // For showing error message
     protected MessageView statusLog;
 
-
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public ModifyBookView(IModel Worker)
+    public DeleteBookView(IModel Book)
     {
-        super(Worker, "WorkerView");
+        super(Book, "BookView");
 
         // create a container for showing the contents
         VBox container = new VBox(10);
@@ -110,133 +102,50 @@ public class ModifyBookView extends View
         prompt.setFill(Color.BLACK);
         grid.add(prompt, 0, 0, 2, 1);
 
-        Text barLab = new Text(" Barcode : ");
+
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
-        barLab.setFont(myFont);
-        barLab.setWrappingWidth(150);
-        barLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(barLab, 0, 1);
 
-        barcode = new TextField();
-        barcode.setEditable(true);
-        grid.add(barcode, 1, 1);
+        Text bannerIdLabel = new Text(" Barcode : ");
+        bannerIdLabel.setFont(myFont);
+        bannerIdLabel.setWrappingWidth(150);
+        bannerIdLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(bannerIdLabel, 0, 2);
 
-        Text titlLab = new Text(" Title : ");
-        titlLab.setFont(myFont);
-        titlLab.setWrappingWidth(150);
-        titlLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(titlLab, 0, 2);
-
-        bookTitle = new TextField();
-        bookTitle.setEditable(true);
-        grid.add(bookTitle, 1, 2);
-
-        Text authLab = new Text(" Author : ");
-        authLab.setFont(myFont);
-        authLab.setWrappingWidth(150);
-        authLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(authLab, 0, 3);
-
-        author = new TextField();
-        author.setEditable(true);
-        grid.add(author, 1, 3);
-
-        Text publishLab = new Text(" Publisher : ");
-        publishLab.setFont(myFont);
-        publishLab.setWrappingWidth(150);
-        publishLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(publishLab, 0, 4);
-
-        publisher = new TextField();
-        publisher.setEditable(true);
-        grid.add(publisher, 1, 4);
-
-        Text pYearLab = new Text(" Publish Year : ");
-        pYearLab.setFont(myFont);
-        pYearLab.setWrappingWidth(150);
-        pYearLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(pYearLab, 0, 5);
-
-        pubYear = new TextField();
-        pubYear.setEditable(true);
-        grid.add(pubYear, 1, 5);
-
-        Text ISBNLab = new Text(" ISBN : ");
-        ISBNLab.setFont(myFont);
-        ISBNLab.setWrappingWidth(150);
-        ISBNLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(ISBNLab, 0, 6);
-
-        ISBN = new TextField();
-        ISBN.setEditable(true);
-        grid.add(ISBN, 1, 6);
-
-        Text priceLab = new Text(" Price : ");
-        priceLab.setFont(myFont);
-        priceLab.setWrappingWidth(150);
-        priceLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(priceLab, 0, 7);
-
-        price = new TextField();
-        price.setEditable(true);
-        grid.add(price, 1, 7);
-
-        Text notesLab = new Text(" Notes : ");
-        notesLab.setFont(myFont);
-        notesLab.setWrappingWidth(150);
-        notesLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(notesLab, 0, 8);
-
-        notes = new TextField();
-        notes.setEditable(true);
-        grid.add(notes, 1, 8);
-
-        /*statusBox = new ComboBox();
-        statusBox.getItems().addAll("Active", "Inactive");
-        statusBox.getSelectionModel().selectFirst();
-
-        grid.add(statusBox, 1, 11);*/
+        barcodeField = new TextField();
+        barcodeField.setEditable(true);
+        grid.add(barcodeField, 1, 2);
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
         backButton = new Button("Back");
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        backButton.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent e) {
-                clearErrorMessage();
-                myModel.stateChangeRequest("back", null);
-            }
+        backButton.setOnAction(e -> {
+            clearErrorMessage();
+            myModel.stateChangeRequest("BookCollection", null);
         });
         doneCont.getChildren().add(backButton);
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        doneButton.setOnAction(new EventHandler<ActionEvent>() {
+        doneButton.setOnAction(e -> {
+            clearErrorMessage();
 
-            @Override
-            public void handle(ActionEvent e) {
-                clearErrorMessage();
+            Properties p = new Properties();
+            //String status = "inactive";
 
-                Properties p = new Properties();
+            p.setProperty("barcode", (String)boookSelction.getState("barcode"));
+            p.setProperty("title", (String)boookSelction.getState("title"));
+            p.setProperty("author", (String)boookSelction.getState("author"));
+            p.setProperty("publisher", (String)boookSelction.getState("publisher"));
+            p.setProperty("pubYear", (String)boookSelction.getState("pubYear"));
+            p.setProperty("ISBN", (String)boookSelction.getState("ISBN"));
+            p.setProperty("price", (String)boookSelction.getState("price"));
+            p.setProperty("notes", (String)boookSelction.getState("notes"));
 
-
-                p.setProperty("barcode", barcode.getText());
-                p.setProperty("title", bookTitle.getText());
-                p.setProperty("author", author.getText());
-                p.setProperty("publisher", publisher.getText());
-                p.setProperty("pubYear", pubYear.getText());
-                p.setProperty("ISBN", ISBN.getText());
-                p.setProperty("price", price.getText());
-                p.setProperty("notes", notes.getText());
-
-
-                clearText();
-                myModel.stateChangeRequest("BookData", p);
-                myModel.stateChangeRequest("done", null);
-            }
+            clearText();
+            myModel.stateChangeRequest("insertBookData", p);
+            myModel.stateChangeRequest("done", null);
         });
         doneCont.getChildren().add(doneButton);
 
@@ -261,10 +170,9 @@ public class ModifyBookView extends View
     //-------------------------------------------------------------
     public void populateFields()
     {
-        //accountNumber.setText((String)myModel.getState("AccountNumber"));
-        //acctType.setText((String)myModel.getState("Type"));
-        //balance.setText((String)myModel.getState("Balance"));
-        //serviceCharge.setText((String)myModel.getState("ServiceCharge"));
+        Book boookSelction = (Book)myModel.getState("Book");
+        barcodeField.setText((String)boookSelction.getState("barcode"));
+
     }
 
     /**
@@ -317,17 +225,10 @@ public class ModifyBookView extends View
      * Clear text
      */
     //----------------------------------------------------------
-
     public void clearText()
     {
-        barcode.setText("");
-        bookTitle.setText("");
-        author.setText("");
-        publisher.setText("");
-        pubYear.setText("");
-        ISBN.setText("");
-        price.setText("");
-        notes.setText("");
+        barcodeField.clear();
+        //statusBox.valueProperty().set("Active");
     }
 
 }

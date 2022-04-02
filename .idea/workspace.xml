@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="This is mostly working">
-      <change afterPath="$PROJECT_DIR$/src/userinterface/BookCollectionView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/userinterface/BookTableModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/userinterface/ModifyWorkerView.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="This is modify and selection of Books should be working">
+      <change afterPath="$PROJECT_DIR$/src/userinterface/DeleteBookView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/userinterface/DeleteWorkerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ErrorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ErrorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/StudentBorrower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/StudentBorrower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/StudentBorrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/StudentBorrower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ViewFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ViewFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userinterface/ModifyBookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userinterface/ModifyBookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userinterface/ModifyWorkerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userinterface/ModifyWorkerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userinterface/TransactionChoiceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userinterface/TransactionChoiceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userinterface/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userinterface/ViewFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -312,7 +312,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648573900487</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="This is modify and selection of Books should be working">
+      <created>1648747755136</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648747755136</updated>
+    </task>
+    <task id="LOCAL-00005" summary="This is modify and selection of Books should be working">
+      <created>1648748021252</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1648748021252</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -374,7 +388,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="This is mostly working" />
-    <option name="LAST_COMMIT_MESSAGE" value="This is mostly working" />
+    <MESSAGE value="This is modify and selection of Books should be working" />
+    <option name="LAST_COMMIT_MESSAGE" value="This is modify and selection of Books should be working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -391,7 +406,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CSC429_Project$Main.ic" NAME="Main Coverage Results" MODIFIED="1648139996973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CSC429_Project$Main.ic" NAME="Main Coverage Results" MODIFIED="1648748089312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sample.*</FILTER>
     </SUITE>
   </component>

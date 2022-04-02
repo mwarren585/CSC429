@@ -23,8 +23,6 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 // project imports
@@ -33,19 +31,15 @@ import model.Worker;
 
 /** The class containing the Account View  for the ATM application */
 //==============================================================
-public class ModifyWorkerView extends View
+public class DeleteWorkerView extends View
 {
     // GUI components
     protected TextField bannerId;
     protected TextField firstName;
     protected TextField lastName;
-    protected TextField password;
-    protected TextField contactPhone;
-    protected TextField email;
-    protected TextArea credentials;
-    protected TextField dateOfLastCredentialsStatus;
-    protected TextField dateOfHire;
-    protected TextField status;
+    private Worker selectedWorker = (Worker)myModel.getState("Worker");
+
+
 
     //protected ComboBox statusBox;
 
@@ -56,7 +50,7 @@ public class ModifyWorkerView extends View
 
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public ModifyWorkerView(IModel Worker)
+    public DeleteWorkerView(IModel Worker)
     {
         super(Worker, "WorkerView");
 
@@ -161,86 +155,7 @@ public class ModifyWorkerView extends View
         lastName.setEditable(true);
         grid.add(lastName, 1, 4);
 
-        Text passwordLabel = new Text(" Password : ");
-        passwordLabel.setFont(myFont);
-        passwordLabel.setWrappingWidth(150);
-        passwordLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(passwordLabel, 0, 5);
 
-        password = new TextField();
-        password.setEditable(true);
-        grid.add(password, 1, 5);
-
-        Text contactPhoneLabel = new Text(" Contact Phone : ");
-        contactPhoneLabel.setFont(myFont);
-        contactPhoneLabel.setWrappingWidth(150);
-        contactPhoneLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(contactPhoneLabel, 0, 6);
-
-        contactPhone = new TextField();
-        contactPhone.setEditable(true);
-        grid.add(contactPhone, 1, 6);
-
-        Text emailLabel = new Text(" Email : ");
-        emailLabel.setFont(myFont);
-        emailLabel.setWrappingWidth(150);
-        emailLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(emailLabel, 0, 7);
-
-        email = new TextField();
-        email.setEditable(true);
-        grid.add(email, 1, 7);
-
-        Text credentialsLabel = new Text(" Credentials : ");
-        credentialsLabel.setFont(myFont);
-        credentialsLabel.setWrappingWidth(150);
-        credentialsLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(credentialsLabel, 0, 8);
-
-        credentials = new TextArea();
-        credentials.setEditable(true);
-        grid.add(credentials, 1, 8);
-
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime now = LocalDateTime.now();
-
-        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status : ");
-        dateOfLastCredentialsStatusLabel.setFont(myFont);
-        dateOfLastCredentialsStatusLabel.setWrappingWidth(150);
-        dateOfLastCredentialsStatusLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(dateOfLastCredentialsStatusLabel, 0, 9);
-
-        dateOfLastCredentialsStatus = new TextField();
-        dateOfLastCredentialsStatus.setEditable(false);
-        dateOfLastCredentialsStatus.setText(dtf.format(now));
-
-        grid.add(dateOfLastCredentialsStatus, 1, 9);
-
-        Text dateOfHireLabel = new Text(" Date of Hire : ");
-        dateOfHireLabel.setFont(myFont);
-        dateOfHireLabel.setWrappingWidth(150);
-        dateOfHireLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(dateOfHireLabel, 0, 10);
-
-        dateOfHire = new TextField();
-        dateOfHire.setEditable(true);
-        grid.add(dateOfHire, 1, 10);
-
-        Text statusLabel = new Text(" Status : ");
-        statusLabel.setFont(myFont);
-        statusLabel.setWrappingWidth(150);
-        statusLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(statusLabel, 0, 11);
-
-        status = new TextField();
-        status.setEditable(true);
-        grid.add(status, 1, 11);
-
-        /*statusBox = new ComboBox();
-        statusBox.getItems().addAll("Active", "Inactive");
-        statusBox.getSelectionModel().selectFirst();
-
-        grid.add(statusBox, 1, 11);*/
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
@@ -252,7 +167,7 @@ public class ModifyWorkerView extends View
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("Modify Worker", null);
+                myModel.stateChangeRequest("WorkerCollection", null);
             }
         });
         doneCont.getChildren().add(backButton);
@@ -266,17 +181,19 @@ public class ModifyWorkerView extends View
                 clearErrorMessage();
 
                 Properties p = new Properties();
+                String status = "inactive";
 
-                p.setProperty("bannerID", bannerId.getText());
-                p.setProperty("firstName", firstName.getText());
-                p.setProperty("lastName", lastName.getText());
-                p.setProperty("password", password.getText());
-                p.setProperty("phone", contactPhone.getText());
-                p.setProperty("email", email.getText());
-                p.setProperty("credentials", credentials.getText());
-                p.setProperty("dateOfLatestCredentials", dateOfLastCredentialsStatus.getText());
-                p.setProperty("dateOfHire", dateOfHire.getText());
-                p.setProperty("status", status.getText());
+                p.setProperty("bannerID", (String)selectedWorker.getState("bannerID"));
+                p.setProperty("firstName", (String)selectedWorker.getState("firstName"));
+                p.setProperty("lastName", (String)selectedWorker.getState("lastName"));
+                p.setProperty("password", (String)selectedWorker.getState("password"));
+                p.setProperty("phone", (String)selectedWorker.getState("phone"));
+                p.setProperty("email", (String)selectedWorker.getState("email"));
+                p.setProperty("credentials", (String)selectedWorker.getState("credentials"));
+                p.setProperty("dateOfLatestCredentials", (String)selectedWorker.getState("dateOfLatestCredentials"));
+                p.setProperty("dateOfHire", (String)selectedWorker.getState("dateOfHire"));
+                p.setProperty("status", status);
+
 
                 clearText();
                 myModel.stateChangeRequest("InsertWorkerData", p);
@@ -310,13 +227,7 @@ public class ModifyWorkerView extends View
         bannerId.setText((String)selectedWorker.getState("bannerID"));
         firstName.setText((String)selectedWorker.getState("firstName"));
         lastName.setText((String)selectedWorker.getState("lastName"));
-        password.setText((String)selectedWorker.getState("password"));
-        contactPhone.setText((String)selectedWorker.getState("phone"));
-        email.setText((String)selectedWorker.getState("email"));
-        credentials.setText((String)selectedWorker.getState("credentials"));
-        //dateOfLastCredentialsStatus.setText((String)selectedWorker.getState("dateOfLatestCredentials"));
-        dateOfHire.setText((String)selectedWorker.getState("dateOfHire"));
-        status.setText((String)selectedWorker.getState("status"));
+
 
     }
 
@@ -375,12 +286,8 @@ public class ModifyWorkerView extends View
         bannerId.clear();
         firstName.clear();
         lastName.clear();
-        password.clear();
-        contactPhone.clear();
-        email.clear();
-        credentials.clear();
-        dateOfLastCredentialsStatus.clear();
-        dateOfHire.clear();
+
+
         //statusBox.valueProperty().set("Active");
     }
 
