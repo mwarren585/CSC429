@@ -138,3 +138,6 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 
 >
 [3/29/22 1:16 PM]|StudentBorrower|insertPersistentState|Error|NOTAG|null<SQL Exception: 0: Data truncation: Out of range value for column 'phone' at row 1>
+[4/3/22 11:46 AM]|BookCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.Book' doesn't exist>
+[4/3/22 11:47 AM]|BookCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.Book' doesn't exist>
+[4/3/22 11:59 AM]|BookCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.Book' doesn't exist>

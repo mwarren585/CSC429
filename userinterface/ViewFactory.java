@@ -44,21 +44,21 @@ public class ViewFactory {
 		{
 			return new DeleteWorkerView(model);
 		}
-		else if(viewName.equals("BalanceInquiryTransactionView") == true)
+		else if(viewName.equals("SearchBookView") == true)
 		{
-			return new BalanceInquiryTransactionView(model);
+			return new SearchBooksView(model);
 		}
-		else if(viewName.equals("BalanceInquiryReceipt") == true)
+		else if(viewName.equals("ModifyBookView") == true)
 		{
-			return new BalanceInquiryReceipt(model);
+			return new ModifyBookView(model);
 		}
-		else if(viewName.equals("WithdrawReceipt") == true)
+		else if(viewName.equals("DeleteBookView") == true)
 		{
-			return new WithdrawReceipt(model);
+			return new DeleteBookView(model);
 		}
-		else if(viewName.equals("DepositReceipt") == true)
+		else if(viewName.equals("BookCollectionView") == true)
 		{
-			return new DepositReceipt(model);
+			return new BookCollectionView(model);
 		}
 		else if(viewName.equals("TransferReceipt") == true)
 		{

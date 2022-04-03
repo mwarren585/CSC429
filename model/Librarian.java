@@ -37,7 +37,9 @@ public class Librarian implements IView, IModel
     private Worker myWorker;
     private Worker selectedWorker;
     private Worker modifyWorker;
+    private Book selectedBook;
     private WorkerCollection myWorkers;
+    private BookCollection myBooks;
 
     // GUI Components
     private Hashtable<String, Scene> myViews;
@@ -116,14 +118,21 @@ public class Librarian implements IView, IModel
                 return "Undefined";
         }
         else
-        if(key.equals("WorkerList") == true){
+        if(key.equals("WorkerList")){
             return myWorkers;
+        }
+        else
+        if(key.equals("BookList")){
+            return myBooks;
         }
         else if(key.equals("searchMode")){
             return searchMode;
         }
         else if (key.equals("Worker")){
             return selectedWorker;
+        }
+        else if (key.equals("Book")){
+            return selectedBook;
         }
         else
             return "";
@@ -243,13 +252,6 @@ public class Librarian implements IView, IModel
             Properties p = (Properties)value;
             createNewBook(p);
         }
-        else if(key.equals("FindBooks")){
-            Properties p = (Properties)value;
-            String titl = p.getProperty("bookTitle");
-            //  myBooks = new BookCollection();
-            // myBooks.findBooksWithTitleLike(titl);
-            //createAndShowBookCollectionView();
-        }
 
         else if (key.equals("Search Books") == true){
             //createAndShowSearchBooksView();
@@ -274,6 +276,10 @@ public class Librarian implements IView, IModel
             searchMode = (int)value;
             createAndShowSearchWorkerView();
         }
+        else if(key.equals("Search Book")){
+            searchMode = (int)value;
+            createAndShowSearchBookView();
+        }
         else if(key.equals("FindWorkers")){
             Properties p = (Properties)value;
             String first = p.getProperty("firstName");
@@ -283,7 +289,14 @@ public class Librarian implements IView, IModel
 
             createAndShowWorkerCollectionView();
         }
+        else if(key.equals("FindBooks")){
+            Properties p = (Properties)value;
+            String title = p.getProperty("title");
+            myBooks = new BookCollection();
+            myBooks.findBooksWithTitleLike(title);
 
+            createAndShowBookCollectionView();
+        }
         else if(key.equals("WorkerCollection")){
             createAndShowWorkerCollectionView();
         }
@@ -304,6 +317,25 @@ public class Librarian implements IView, IModel
                     e.printStackTrace();
                 }
                 createAndShowDeleteWorkerView();
+            }
+        }
+        else if (key.equals("BookSelected"))
+        {
+            if(searchMode == 1){
+                try {
+                    getBook((String)value);
+                } catch (InvalidPrimaryKeyException e) {
+                    e.printStackTrace();
+                }
+                createAndShowModifyBookView();
+            }
+            else if(searchMode == 2){
+                try {
+                    getBook((String)value);
+                } catch (InvalidPrimaryKeyException e) {
+                    e.printStackTrace();
+                }
+                createAndShowDeleteBookView();
             }
         }
         else if(key.equals("InsertWorkerData")){
@@ -363,6 +395,9 @@ public class Librarian implements IView, IModel
 
     private void getWorker(String id)throws InvalidPrimaryKeyException {
         selectedWorker = new Worker(id);
+    }
+    private void getBook(String id)throws InvalidPrimaryKeyException {
+        selectedBook = new Book(id);
     }
 
 
@@ -436,6 +471,34 @@ public class Librarian implements IView, IModel
             View newView = ViewFactory.createView("SearchWorkerView", this); // USE VIEW FACTORY
             currentScene = new Scene(newView);
             myViews.put("SearchWorkerView", currentScene);
+        }
+
+        swapToView(currentScene);
+
+    }
+    private void createAndShowSearchBookView(){
+        Scene currentScene = (Scene)myViews.get("SearchBookView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("SearchBookView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("SearchBookView", currentScene);
+        }
+
+        swapToView(currentScene);
+
+    }
+    private void createAndShowBookCollectionView(){
+        Scene currentScene = (Scene)myViews.get("BookCollectionView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("BookCollectionView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("BookCollectionView", currentScene);
         }
 
         swapToView(currentScene);
@@ -526,6 +589,23 @@ public class Librarian implements IView, IModel
         swapToView(currentScene);
 
     }
+    private void createAndShowModifyBookView()
+    {
+        Scene currentScene = (Scene)myViews.get("ModifyBookView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("ModifyBookView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("ModifyBookView", currentScene);
+        }
+
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
     private void createAndShowDeleteWorkerView()
     {
         Scene currentScene = (Scene)myViews.get("DeleteWorkerView");
@@ -536,6 +616,23 @@ public class Librarian implements IView, IModel
             View newView = ViewFactory.createView("DeleteWorkerView", this); // USE VIEW FACTORY
             currentScene = new Scene(newView);
             myViews.put("DeleteWorkerView", currentScene);
+        }
+
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
+    private void createAndShowDeleteBookView()
+    {
+        Scene currentScene = (Scene)myViews.get("DeleteBookView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("DeleteBookView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("DeleteBookView", currentScene);
         }
 
 

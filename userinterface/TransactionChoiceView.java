@@ -45,6 +45,8 @@ public class TransactionChoiceView extends View
 	private Button modifyStudentBorrowerButton;
 	private Button modifyBookButton;
     private Button deleteWorkerButton;
+    private Button deleteStudentButton;
+    private Button deleteBookButton;
 
 	private Button cancelButton;
 
@@ -184,7 +186,7 @@ public class TransactionChoiceView extends View
 
 			@Override
 			public void handle(ActionEvent e) {
-				myModel.stateChangeRequest("Modify Student Borrower", null);
+				myModel.stateChangeRequest("Search Student Borrower", 1);
 			}
 		});
 		grid.setHalignment(modifyStudentBorrowerButton, HPos.CENTER);
@@ -197,7 +199,7 @@ public class TransactionChoiceView extends View
 
 			@Override
 			public void handle(ActionEvent e) {
-				myModel.stateChangeRequest("Modify Book", null);
+				myModel.stateChangeRequest("Search Book", 1);
 			}
 		});
 		grid.setHalignment(modifyBookButton, HPos.CENTER);
@@ -215,6 +217,30 @@ public class TransactionChoiceView extends View
         });
 		grid.setHalignment(deleteWorkerButton, HPos.CENTER);
 		grid.add(deleteWorkerButton, 0, 5);
+
+        deleteStudentButton = new Button("Delete Student Borrower");
+        deleteStudentButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        deleteStudentButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                myModel.stateChangeRequest("Search Student Borrower", 2);
+            }
+        });
+        grid.setHalignment(deleteStudentButton, HPos.CENTER);
+        grid.add(deleteStudentButton, 1, 5);
+
+        deleteBookButton = new Button("Delete Book");
+        deleteBookButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        deleteBookButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                myModel.stateChangeRequest("Search Book", 2);
+            }
+        });
+        grid.setHalignment(deleteBookButton, HPos.CENTER);
+        grid.add(deleteBookButton, 0, 6);
 
 
 		/*HBox iscCont = new HBox(10);
@@ -243,7 +269,7 @@ public class TransactionChoiceView extends View
             	     }
         	});
 		grid.setHalignment(cancelButton, HPos.CENTER);
-		grid.add(cancelButton, 1, 5);
+		grid.add(cancelButton, 1, 6);
 
 
 		container.getChildren().add(grid);
