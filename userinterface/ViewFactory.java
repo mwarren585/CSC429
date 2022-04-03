@@ -60,9 +60,21 @@ public class ViewFactory {
 		{
 			return new BookCollectionView(model);
 		}
-		else if(viewName.equals("TransferReceipt") == true)
+		else if(viewName.equals("SearchStudentView") == true)
 		{
-			return new TransferReceipt(model);
+			return new SearchStudentsView(model);
+		}
+		else if(viewName.equals("StudentCollectionView") == true)
+		{
+			return new StudentCollectionView(model);
+		}
+		else if(viewName.equals("ModifyStudentView") == true)
+		{
+			return new ModifyStudentView(model);
+		}
+		else if(viewName.equals("DeleteStudentView") == true)
+		{
+			return new DeleteStudentView(model);
 		}
 		else
 			return null;

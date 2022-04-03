@@ -172,7 +172,11 @@ public class Book extends EntityBase {
         v.addElement(persistentState.getProperty("ISBN"));
         v.addElement(persistentState.getProperty("price"));
         v.addElement(persistentState.getProperty("notes"));
+        v.addElement(persistentState.getProperty("status"));
 
         return v;
+    }
+    public void setOldFlagTrue(){
+        oldFlag = true;
     }
 }

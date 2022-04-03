@@ -141,3 +141,9 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 [4/3/22 11:46 AM]|BookCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.Book' doesn't exist>
 [4/3/22 11:47 AM]|BookCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.Book' doesn't exist>
 [4/3/22 11:59 AM]|BookCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.Book' doesn't exist>
+[4/3/22 5:01 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
+[4/3/22 5:03 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
+[4/3/22 5:04 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
+[4/3/22 5:21 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
+[4/3/22 5:24 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
+[4/3/22 5:25 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>

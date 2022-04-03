@@ -28,10 +28,11 @@ import java.util.Properties;
 
 // project imports
 import impresario.IModel;
+import model.StudentBorrower;
 
 /** The class containing the Account View  for the ATM application */
 //==============================================================
-public class AddStudentBorrowerView extends View
+public class ModifyStudentView extends View
 {
 
     // GUI components
@@ -40,10 +41,12 @@ public class AddStudentBorrowerView extends View
     protected TextField lastName;
     protected TextField contactPhone;
     protected TextField email;
+    //protected ComboBox borrowerStatus;
     protected TextField dateOfLatestBorrowerStatus;
     protected TextField dateOfRegistration;
     protected TextField notes;
     protected TextField status;
+    //protected ComboBox status;
 
 
     protected Button cancelButton;
@@ -54,7 +57,7 @@ public class AddStudentBorrowerView extends View
 
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public AddStudentBorrowerView(IModel librarian)
+    public ModifyStudentView(IModel librarian)
     {
         super(librarian, "AddStudentBorrowerView");
 
@@ -220,11 +223,11 @@ public class AddStudentBorrowerView extends View
         notes.setEditable(true);
         grid.add(notes, 1, 9);
 
-        Text sta = new Text(" Status : ");
-        not.setFont(myFont);
-        not.setWrappingWidth(150);
-        not.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(not, 0, 10);
+        Text statusLabel = new Text(" Status : ");
+        statusLabel.setFont(myFont);
+        statusLabel.setWrappingWidth(150);
+        statusLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(statusLabel, 0, 10);
 
         status = new TextField();
         status.setEditable(true);
@@ -292,7 +295,7 @@ public class AddStudentBorrowerView extends View
         String dateOfLatest = dateOfLatestBorrowerStatus.getText();
         String dateOfReg = dateOfRegistration.getText();
         String note = notes.getText();
-        //String stat = (String)status.getValue();
+        String stat = (String)status.getText();
 
         Properties p2 = new Properties();
 
@@ -301,26 +304,25 @@ public class AddStudentBorrowerView extends View
         p2.setProperty("lastName", last);
         p2.setProperty("phone", phone);
         p2.setProperty("email", eml);
-        //p2.setProperty("borrowerStatus", borrowerStat);
         p2.setProperty("dateOfLatestBorrower", dateOfLatest);
         p2.setProperty("dateOfRegistration", dateOfReg);
         p2.setProperty("notes", note);
-        //p2.setProperty("status", stat);
+        p2.setProperty("status", stat);
 
         if (banid.length() != 9){
-            databaseErrorBarcode();
+            displayErrorMessage("BannerID needs to be 9 numbers long!");
         }else {
-            myModel.stateChangeRequest("StudentData", p2);
+            myModel.stateChangeRequest("InsertStudentData", p2);
+            myModel.stateChangeRequest("done", null);
+            bannerId.clear();
+            firstName.clear();
+            lastName.clear();
+            contactPhone.clear();
+            email.clear();
+            notes.clear();
         }
 
-        bannerId.clear();
-        firstName.clear();
-        lastName.clear();
-        contactPhone.clear();
-        email.clear();
-        notes.clear();
-        //borrowerStatus.setValue("Good Standing");
-        //status.setValue("Active");
+
 
     }
 
@@ -335,13 +337,17 @@ public class AddStudentBorrowerView extends View
     }
 
     //-------------------------------------------------------------
-    public void populateFields()
-    {
-       /* accountNumber.setText((String)myModel.getState("AccountNumber"));
-        acctType.setText((String)myModel.getState("Type"));
-        balance.setText((String)myModel.getState("Balance"));
-        serviceCharge.setText((String)myModel.getState("ServiceCharge"));
-        */
+    public void populateFields(){
+
+        StudentBorrower selectedStudent = (StudentBorrower) myModel.getState("Student");
+        bannerId.setText((String)selectedStudent.getState("bannerID"));
+        firstName.setText((String)selectedStudent.getState("firstName"));
+        lastName.setText((String)selectedStudent.getState("lastName"));
+        contactPhone.setText((String)selectedStudent.getState("phone"));
+        email.setText((String)selectedStudent.getState("email"));
+        dateOfRegistration.setText((String)selectedStudent.getState("dateOfRegistration"));
+        notes.setText((String)selectedStudent.getState("notes"));
+        status.setText((String)selectedStudent.getState("status"));
     }
 
     /**
@@ -385,29 +391,7 @@ public class AddStudentBorrowerView extends View
         statusLog.clearErrorMessage();
     }
 
-    public void databaseUpdated(){
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Database");
-        alert.setHeaderText(null);
-        alert.setHeaderText("Student Borrower Added To Database");
 
-        alert.showAndWait();
-    }
-
-    public void databaseErrorBarcode(){
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Database");
-        alert.setHeaderText("Could not connect");
-        alert.setContentText("Please make sure the barcode is correct.");
-
-        alert.showAndWait();
-    }
 
 }
-
-
-//---------------------------------------------------------------
-//	Revision History:
-//

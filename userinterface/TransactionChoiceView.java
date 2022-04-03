@@ -186,7 +186,7 @@ public class TransactionChoiceView extends View
 
 			@Override
 			public void handle(ActionEvent e) {
-				myModel.stateChangeRequest("Search Student Borrower", 1);
+				myModel.stateChangeRequest("Search Student", 1);
 			}
 		});
 		grid.setHalignment(modifyStudentBorrowerButton, HPos.CENTER);
@@ -224,7 +224,7 @@ public class TransactionChoiceView extends View
 
             @Override
             public void handle(ActionEvent e) {
-                myModel.stateChangeRequest("Search Student Borrower", 2);
+                myModel.stateChangeRequest("Search Student", 2);
             }
         });
         grid.setHalignment(deleteStudentButton, HPos.CENTER);

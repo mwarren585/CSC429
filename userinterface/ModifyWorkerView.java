@@ -252,7 +252,7 @@ public class ModifyWorkerView extends View
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("Modify Worker", null);
+                myModel.stateChangeRequest("Cancel Transaction", null);
             }
         });
         doneCont.getChildren().add(backButton);
@@ -278,9 +278,14 @@ public class ModifyWorkerView extends View
                 p.setProperty("dateOfHire", dateOfHire.getText());
                 p.setProperty("status", status.getText());
 
-                clearText();
-                myModel.stateChangeRequest("InsertWorkerData", p);
-                myModel.stateChangeRequest("done", null);
+                if(bannerId.getText().length() != 9){
+                    displayErrorMessage("BannerID needs to be 9 numbers long!");
+                }
+                else {
+                    myModel.stateChangeRequest("InsertWorkerData", p);
+                    myModel.stateChangeRequest("done", null);
+                    clearText();
+                }
             }
         });
         doneCont.getChildren().add(doneButton);
