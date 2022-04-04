@@ -24,7 +24,7 @@ public class AccountCatalog  extends EntityBase implements IView
 
 	// constructor for this class
 	//----------------------------------------------------------
-	public AccountCatalog( AccountHolder cust) throws
+	public AccountCatalog( Worker cust) throws
 		Exception
 	{
 		super(myTableName);

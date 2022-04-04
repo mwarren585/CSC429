@@ -7,61 +7,74 @@ public class ViewFactory {
 
 	public static View createView(String viewName, IModel model)
 	{
-		if(viewName.equals("TellerView") == true)
+		if(viewName.equals("LibrarianView") == true)
 		{
-			return new TellerView(model);
+			return new LibrarianView(model);
 		}
 		else if(viewName.equals("TransactionChoiceView") == true)
 		{
 			return new TransactionChoiceView(model);
 		}
-		else if(viewName.equals("AccountCollectionView") == true)
+		else if(viewName.equals("WorkerView") == true)
 		{
-			return new AccountCollectionView(model);
+			return new WorkerView(model);
 		}
-		else if(viewName.equals("AccountView") == true)
+		else if(viewName.equals("StudentView") == true)
 		{
-			return new AccountView(model);
+			return new AddStudentBorrowerView(model);
 		}
-		else if(viewName.equals("AccountHolderIDEntryView") == true)
+		else if(viewName.equals("BookView") == true)
 		{
-			return new AccountHolderIDEntryView(model);
+			return new BookView(model);
 		}
-		else if(viewName.equals("DepositTransactionView") == true)
+		else if(viewName.equals("SearchWorkerView") == true)
 		{
-			return new DepositTransactionView(model);
+			return new SearchWorkersView(model);
 		}
-		else if(viewName.equals("DepositAmountView") == true)
+		else if(viewName.equals("WorkerCollectionView") == true)
 		{
-			return new DepositAmountView(model);
+			return new WorkerCollectionView(model);
 		}
-		else if(viewName.equals("WithdrawTransactionView") == true)
+
+		else if(viewName.equals("ModifyWorkerView") == true)
 		{
-			return new WithdrawTransactionView(model);
+			return new ModifyWorkerView(model);
 		}
-		else if(viewName.equals("TransferTransactionView") == true)
+		else if(viewName.equals("DeleteWorkerView") == true)
 		{
-			return new TransferTransactionView(model);
+			return new DeleteWorkerView(model);
 		}
-		else if(viewName.equals("BalanceInquiryTransactionView") == true)
+		else if(viewName.equals("SearchBookView") == true)
 		{
-			return new BalanceInquiryTransactionView(model);
+			return new SearchBooksView(model);
 		}
-		else if(viewName.equals("BalanceInquiryReceipt") == true)
+		else if(viewName.equals("ModifyBookView") == true)
 		{
-			return new BalanceInquiryReceipt(model);
+			return new ModifyBookView(model);
 		}
-		else if(viewName.equals("WithdrawReceipt") == true)
+		else if(viewName.equals("DeleteBookView") == true)
 		{
-			return new WithdrawReceipt(model);
+			return new DeleteBookView(model);
 		}
-		else if(viewName.equals("DepositReceipt") == true)
+		else if(viewName.equals("BookCollectionView") == true)
 		{
-			return new DepositReceipt(model);
+			return new BookCollectionView(model);
 		}
-		else if(viewName.equals("TransferReceipt") == true)
+		else if(viewName.equals("SearchStudentView") == true)
 		{
-			return new TransferReceipt(model);
+			return new SearchStudentsView(model);
+		}
+		else if(viewName.equals("StudentCollectionView") == true)
+		{
+			return new StudentCollectionView(model);
+		}
+		else if(viewName.equals("ModifyStudentView") == true)
+		{
+			return new ModifyStudentView(model);
+		}
+		else if(viewName.equals("DeleteStudentView") == true)
+		{
+			return new DeleteStudentView(model);
 		}
 		else
 			return null;
