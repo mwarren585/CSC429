@@ -75,7 +75,7 @@ public class BookCollection extends EntityBase {
     }
 
     public Object getState(String key) {
-        if (key.equals("Books"))
+        if (key.equals("BookList"))
             return books;
         return null;
     }

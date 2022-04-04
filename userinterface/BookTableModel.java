@@ -32,12 +32,12 @@ public class BookTableModel  {
     }
 
     //----------------------------------------------------------------------------
-    public String getBookId() {
+    public String getBarcode() {
         return barcode.get();
     }
 
     //----------------------------------------------------------------------------
-    public void setBookId(String number) { barcode.set(number); }
+    public void setBarcode(String number) { barcode.set(number); }
 
     //----------------------------------------------------------------------------
     public String getBookTitle() {

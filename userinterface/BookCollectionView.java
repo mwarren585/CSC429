@@ -95,6 +95,8 @@ public class BookCollectionView extends View {
         }
         catch (Exception e) {//SQLException e) {
             // Need to handle this exception
+            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -149,7 +151,7 @@ public class BookCollectionView extends View {
         TableColumn titleColumn = new TableColumn("Book Title") ;
         titleColumn.setMinWidth(100);
         titleColumn.setCellValueFactory(
-                new PropertyValueFactory<BookTableModel, String>("title"));
+                new PropertyValueFactory<BookTableModel, String>("bookTitle"));
 
         TableColumn authColumn = new TableColumn("Author") ;
         authColumn.setMinWidth(100);
@@ -276,7 +278,7 @@ public class BookCollectionView extends View {
         if(bookChosen != null)
         {
 
-            myModel.stateChangeRequest("BookSelected", bookChosen.getBookId());
+            myModel.stateChangeRequest("BookSelected", bookChosen.getBarcode());
         }
     }
 
