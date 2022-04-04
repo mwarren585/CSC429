@@ -136,10 +136,6 @@ public class BookCollectionView extends View {
             tableOfBooks = new TableView<>();
             tableOfBooks.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-            TableColumn bookIdColumn = new TableColumn("Book ID") ;
-            bookIdColumn.setMinWidth(100);
-            bookIdColumn.setCellValueFactory(
-                    new PropertyValueFactory<BookTableModel, String>("bookID"));
 
             TableColumn barcodeColumn = new TableColumn("Barcode") ;
             barcodeColumn.setMinWidth(100);
@@ -180,7 +176,7 @@ public class BookCollectionView extends View {
             priceColumn.setCellValueFactory(
                     new PropertyValueFactory<BookTableModel, String>("notes"));
 
-        tableOfBooks.getColumns().addAll(bookIdColumn,
+        tableOfBooks.getColumns().addAll(
                 barcodeColumn, titleColumn, authColumn, publisherColumn, pubYearColumn, iSBNColumn, priceColumn, notesColumn);
 
 
@@ -279,7 +275,7 @@ public class BookCollectionView extends View {
             if(bookChosen != null)
             {
 
-                myModel.stateChangeRequest("BookSelected", bookChosen.getBookId());
+                myModel.stateChangeRequest("BookSelected", bookChosen.getIsbn());
             }
         }
 
