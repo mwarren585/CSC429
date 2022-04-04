@@ -232,10 +232,11 @@ public class ModifyBookView extends View
                 p.setProperty("ISBN", ISBN.getText());
                 p.setProperty("price", price.getText());
                 p.setProperty("notes", notes.getText());
+                p.setProperty("status", "Active");
 
 
                 clearText();
-                myModel.stateChangeRequest("BookData", p);
+                myModel.stateChangeRequest("InsertBookData", p);
                 myModel.stateChangeRequest("done", null);
             }
         });

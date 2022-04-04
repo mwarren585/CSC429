@@ -39,8 +39,8 @@ public class DeleteStudentView extends View
     private Button submitButton;
     private Button back;
 
-    private TextField nameT;
-    private TextField banT;
+    private TextField fullName;
+    private TextField bannID;
 
     // For showing error message
     private MessageView statusLog;
@@ -104,19 +104,19 @@ public class DeleteStudentView extends View
         name.setTextAlignment(TextAlignment.CENTER);
         grid.add(name, 0, 0);
 
-        nameT = new TextField();
-        nameT.setEditable(false);
-        grid.add(nameT, 1, 0);
+        fullName = new TextField();
+        fullName.setEditable(false);
+        grid.add(fullName, 1, 0);
 
-        Text ban = new Text(" Banner ID : ");
-        ban.setFont(myFont);
-        ban.setWrappingWidth(80);
-        ban.setTextAlignment(TextAlignment.CENTER);
-        grid.add(ban, 0, 2);
+        Text banID = new Text(" BannerID : ");
+        banID.setFont(myFont);
+        banID.setWrappingWidth(80);
+        banID.setTextAlignment(TextAlignment.CENTER);
+        grid.add(banID, 0, 1);
 
-        banT = new TextField();
-        banT.setEditable(false);
-        grid.add(banT, 1, 2);
+        bannID = new TextField();
+        bannID.setEditable(false);
+        grid.add(bannID, 1, 1);
 
         submitButton = new Button("Submit");
         submitButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -132,9 +132,9 @@ public class DeleteStudentView extends View
 
             @Override
             public void handle(ActionEvent e) {
+                clearErrorMessage();
 
-
-                myModel.stateChangeRequest("SelectStudentView", null);
+                myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
 
@@ -167,12 +167,13 @@ public class DeleteStudentView extends View
     public void populateFields()
     {
         StudentBorrower wc = (StudentBorrower)myModel.getState("Student");
-        String ban = (String)wc.getState("bannerId");
         String fName = (String)wc.getState("firstName");
         String lName = (String)wc.getState("lastName");
+        String bannerID = (String)wc.getState("bannerID");
 
-        banT.setText(ban);
-        nameT.setText(fName + " " +lName);
+
+        bannID.setText(bannerID);
+        fullName.setText(fName + " " +lName);
 
     }
 
@@ -181,34 +182,30 @@ public class DeleteStudentView extends View
     //-------------------------------------------------------------
     public void processAction(Event evt) {
         StudentBorrower wc = (StudentBorrower)myModel.getState("Student");
-        String ban = (String)wc.getState("bannerId");
+        String ban = (String)wc.getState("bannerID");
         String fName = (String)wc.getState("firstName");
         String lName = (String)wc.getState("lastName");
-        String pho = (String)wc.getState("contactPhone");
+        String pho = (String)wc.getState("phone");
         String eml = (String)wc.getState("email");
-        String credentials = (String)wc.getState("borrowerStatus");
-        String latestCred = (String)wc.getState("dateOfLatestBorrowerStatus");
+        String latestCred = (String)wc.getState("dateOfLatestBorrower");
         String dateHire =(String)wc.getState("dateOfRegistration");
         String notes =(String)wc.getState("notes");
         String stat = "Inactive";
 
-        System.out.println(fName + " " + lName + " " + pho + " " + eml + " " + credentials + " " + latestCred + " " + dateHire + " " + notes + " " + stat);
 
         Properties p1 = new Properties();
-        p1.setProperty("bannerId", ban);
+        p1.setProperty("bannerID", ban);
         p1.setProperty("firstName", fName);
         p1.setProperty("lastName", lName);
-        p1.setProperty("contactPhone", pho);
+        p1.setProperty("phone", pho);
         p1.setProperty("email", eml);
-        p1.setProperty("borrowerStatus", credentials);
-        p1.setProperty("dateOfLatestBorrowerStatus", latestCred);
+        p1.setProperty("dateOfLatestBorrower", latestCred);
         p1.setProperty("dateOfRegistration", dateHire);
         p1.setProperty("notes", notes);
         p1.setProperty("status", stat);
 
-        databaseRemoved();
 
-        myModel.stateChangeRequest("insertStudentModification", p1);
+        myModel.stateChangeRequest("InsertStudentData", p1);
     }
     /**
      * Process userid and pwd supplied when Submit button is hit.
@@ -242,13 +239,5 @@ public class DeleteStudentView extends View
 
     }
 
-    public void databaseRemoved(){
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Database");
-        alert.setHeaderText("Your request was complete!");
-        alert.setContentText("Student was set to 'Inactive' in database.");
-
-        alert.showAndWait();
-    }
 }

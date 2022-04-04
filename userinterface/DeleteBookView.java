@@ -122,30 +122,35 @@ public class DeleteBookView extends View{
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         backButton.setOnAction(e -> {
             clearErrorMessage();
-            myModel.stateChangeRequest("BookCollection", null);
+            myModel.stateChangeRequest("CancelTransaction", null);
         });
         doneCont.getChildren().add(backButton);
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        doneButton.setOnAction(e -> {
-            clearErrorMessage();
+        doneButton.setOnAction(new EventHandler<ActionEvent>() {
 
-            Properties p = new Properties();
-            //String status = "inactive";
+            @Override
+            public void handle(ActionEvent e){
+                clearErrorMessage();
 
-            p.setProperty("barcode", (String)boookSelction.getState("barcode"));
-            p.setProperty("title", (String)boookSelction.getState("title"));
-            p.setProperty("author", (String)boookSelction.getState("author"));
-            p.setProperty("publisher", (String)boookSelction.getState("publisher"));
-            p.setProperty("pubYear", (String)boookSelction.getState("pubYear"));
-            p.setProperty("ISBN", (String)boookSelction.getState("ISBN"));
-            p.setProperty("price", (String)boookSelction.getState("price"));
-            p.setProperty("notes", (String)boookSelction.getState("notes"));
+                Properties p = new Properties();
 
-            clearText();
-            myModel.stateChangeRequest("insertBookData", p);
-            myModel.stateChangeRequest("done", null);
+
+                p.setProperty("barcode", (String) boookSelction.getState("barcode"));
+                p.setProperty("title", (String) boookSelction.getState("title"));
+                p.setProperty("author", (String) boookSelction.getState("author"));
+                p.setProperty("publisher", (String) boookSelction.getState("publisher"));
+                p.setProperty("pubYear", (String) boookSelction.getState("pubYear"));
+                p.setProperty("ISBN", (String) boookSelction.getState("ISBN"));
+                p.setProperty("price", (String) boookSelction.getState("price"));
+                p.setProperty("notes", (String) boookSelction.getState("notes"));
+                p.setProperty("status", "Inactive");
+
+
+                myModel.stateChangeRequest("InsertBookData", p);
+
+            }
         });
         doneCont.getChildren().add(doneButton);
 

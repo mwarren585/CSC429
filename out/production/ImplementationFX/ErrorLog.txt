@@ -147,3 +147,7 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 [4/3/22 5:21 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
 [4/3/22 5:24 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
 [4/3/22 5:25 PM]|StudentBorrowerCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.StudentBorrower' doesn't exist>
+[4/4/22 2:22 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
+[4/4/22 2:25 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
+[4/4/22 2:29 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
+[4/4/22 2:32 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1062: Duplicate entry '53523552' for key 'PRIMARY'>

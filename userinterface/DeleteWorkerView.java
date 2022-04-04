@@ -167,7 +167,7 @@ public class DeleteWorkerView extends View
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("WorkerCollection", null);
+                myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
         doneCont.getChildren().add(backButton);
@@ -181,7 +181,6 @@ public class DeleteWorkerView extends View
                 clearErrorMessage();
 
                 Properties p = new Properties();
-                String status = "inactive";
 
                 p.setProperty("bannerID", (String)selectedWorker.getState("bannerID"));
                 p.setProperty("firstName", (String)selectedWorker.getState("firstName"));
@@ -192,12 +191,11 @@ public class DeleteWorkerView extends View
                 p.setProperty("credentials", (String)selectedWorker.getState("credentials"));
                 p.setProperty("dateOfLatestCredentials", (String)selectedWorker.getState("dateOfLatestCredentials"));
                 p.setProperty("dateOfHire", (String)selectedWorker.getState("dateOfHire"));
-                p.setProperty("status", status);
+                p.setProperty("status", "Inactive");
 
 
-                clearText();
                 myModel.stateChangeRequest("InsertWorkerData", p);
-                myModel.stateChangeRequest("done", null);
+
             }
         });
         doneCont.getChildren().add(doneButton);

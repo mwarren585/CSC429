@@ -282,7 +282,7 @@ public class WorkerCollectionView extends View {
         if(selectedWorker != null)
         {
 
-            myModel.stateChangeRequest("WorkerSelected", selectedWorker.getWorkerId());
+            myModel.stateChangeRequest("WorkerSelected", selectedWorker.getBannerID());
         }
     }
 
