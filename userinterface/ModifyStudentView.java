@@ -41,7 +41,7 @@ public class ModifyStudentView extends View
     protected TextField lastName;
     protected TextField contactPhone;
     protected TextField email;
-    //protected ComboBox borrowerStatus;
+    protected ComboBox borrowerStatus;
     protected TextField dateOfLatestBorrowerStatus;
     protected TextField dateOfRegistration;
     protected TextField notes;
@@ -171,7 +171,7 @@ public class ModifyStudentView extends View
         email.setEditable(true);
         grid.add(email, 1, 5);
 
-        /*
+
         Text borrowersta = new Text(" Students Borrower Status : ");
         borrowersta.setFont(myFont);
         borrowersta.setWrappingWidth(150);
@@ -187,7 +187,7 @@ public class ModifyStudentView extends View
         borrowerStatus.setValue("Good Standing");
         grid.add(borrowerStatus, 1, 6);
 
-        */
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
@@ -209,8 +209,7 @@ public class ModifyStudentView extends View
         grid.add(dateOfReg, 0, 8);
 
         dateOfRegistration = new TextField();
-        dateOfRegistration.setEditable(false);
-        dateOfRegistration.setText(dtf.format(now));
+        dateOfRegistration.setEditable(true);
         grid.add(dateOfRegistration, 1, 8);
 
         Text not = new Text(" Notes : ");
@@ -292,10 +291,11 @@ public class ModifyStudentView extends View
         String last = lastName.getText();
         String phone = contactPhone.getText();
         String eml = email.getText();
+        String borrowerStat = (String)borrowerStatus.getValue();
         String dateOfLatest = dateOfLatestBorrowerStatus.getText();
         String dateOfReg = dateOfRegistration.getText();
         String note = notes.getText();
-        String stat = (String)status.getText();
+        String stat = status.getText();
 
         Properties p2 = new Properties();
 
@@ -304,6 +304,7 @@ public class ModifyStudentView extends View
         p2.setProperty("lastName", last);
         p2.setProperty("phone", phone);
         p2.setProperty("email", eml);
+        p2.setProperty("borrowerStatus", borrowerStat);
         p2.setProperty("dateOfLatestBorrower", dateOfLatest);
         p2.setProperty("dateOfRegistration", dateOfReg);
         p2.setProperty("notes", note);

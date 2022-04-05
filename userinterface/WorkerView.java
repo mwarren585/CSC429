@@ -209,7 +209,7 @@ public class WorkerView extends View
         grid.add(dateOfLastCredentialsStatusLabel, 0, 9);
 
         dateOfLastCredentialsStatus = new TextField();
-        dateOfLastCredentialsStatus.setEditable(true);
+        dateOfLastCredentialsStatus.setEditable(false);
         dateOfLastCredentialsStatus.setText(dtf.format(now));
         grid.add(dateOfLastCredentialsStatus, 1, 9);
 
@@ -220,7 +220,8 @@ public class WorkerView extends View
         grid.add(dateOfHireLabel, 0, 10);
 
         dateOfHire = new TextField();
-        dateOfHire.setEditable(true);
+        dateOfHire.setEditable(false);
+        dateOfHire.setText(dtf.format(now));
         grid.add(dateOfHire, 1, 10);
 
         /*statusBox = new ComboBox();

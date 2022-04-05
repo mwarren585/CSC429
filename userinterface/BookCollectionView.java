@@ -158,6 +158,21 @@ public class BookCollectionView extends View {
         authColumn.setCellValueFactory(
                 new PropertyValueFactory<BookTableModel, String>("author"));
 
+        TableColumn auth2Column = new TableColumn("Author2") ;
+        auth2Column.setMinWidth(100);
+        auth2Column.setCellValueFactory(
+                new PropertyValueFactory<BookTableModel, String>("author2"));
+
+        TableColumn auth3Column = new TableColumn("Author3") ;
+        auth3Column.setMinWidth(100);
+        auth3Column.setCellValueFactory(
+                new PropertyValueFactory<BookTableModel, String>("author3"));
+
+        TableColumn auth4Column = new TableColumn("Author4") ;
+        auth4Column.setMinWidth(100);
+        auth4Column.setCellValueFactory(
+                new PropertyValueFactory<BookTableModel, String>("author4"));
+
         TableColumn publisherColumn = new TableColumn("Publisher") ;
         publisherColumn.setMinWidth(100);
         publisherColumn.setCellValueFactory(
@@ -182,7 +197,8 @@ public class BookCollectionView extends View {
         priceColumn.setCellValueFactory(
                 new PropertyValueFactory<BookTableModel, String>("notes"));
 
-        tableOfBooks.getColumns().addAll(barcodeColumn, titleColumn, authColumn, publisherColumn, pubYearColumn, iSBNColumn, priceColumn, notesColumn);
+        tableOfBooks.getColumns().addAll(barcodeColumn, titleColumn, authColumn, auth2Column, auth3Column, auth4Column,
+                publisherColumn, pubYearColumn, iSBNColumn, priceColumn, notesColumn);
 
 
         tableOfBooks.setOnMousePressed(new EventHandler<MouseEvent>() {

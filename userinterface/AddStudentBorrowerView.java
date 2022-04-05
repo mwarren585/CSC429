@@ -40,10 +40,12 @@ public class AddStudentBorrowerView extends View
     protected TextField lastName;
     protected TextField contactPhone;
     protected TextField email;
+    protected ComboBox borrowerStatus;
     protected TextField dateOfLatestBorrowerStatus;
     protected TextField dateOfRegistration;
     protected TextField notes;
-    protected TextField status;
+    protected ComboBox status;
+
 
 
     protected Button cancelButton;
@@ -168,7 +170,7 @@ public class AddStudentBorrowerView extends View
         email.setEditable(true);
         grid.add(email, 1, 5);
 
-        /*
+
         Text borrowersta = new Text(" Students Borrower Status : ");
         borrowersta.setFont(myFont);
         borrowersta.setWrappingWidth(150);
@@ -184,7 +186,7 @@ public class AddStudentBorrowerView extends View
         borrowerStatus.setValue("Good Standing");
         grid.add(borrowerStatus, 1, 6);
 
-        */
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
@@ -220,17 +222,9 @@ public class AddStudentBorrowerView extends View
         notes.setEditable(true);
         grid.add(notes, 1, 9);
 
-        Text sta = new Text(" Status : ");
-        not.setFont(myFont);
-        not.setWrappingWidth(150);
-        not.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(not, 0, 10);
 
-        status = new TextField();
-        status.setEditable(true);
-        grid.add(status, 1, 10);
 
-        /*
+
         Text sta = new Text(" Students Borrower Status : ");
         sta.setFont(myFont);
         sta.setWrappingWidth(150);
@@ -246,7 +240,7 @@ public class AddStudentBorrowerView extends View
         status.setValue("Active");
         grid.add(status, 1, 10);
 
-         */
+
 
 
 
@@ -289,10 +283,11 @@ public class AddStudentBorrowerView extends View
         String last = lastName.getText();
         String phone = contactPhone.getText();
         String eml = email.getText();
+        String borrowerStat = (String)borrowerStatus.getValue();
         String dateOfLatest = dateOfLatestBorrowerStatus.getText();
         String dateOfReg = dateOfRegistration.getText();
         String note = notes.getText();
-        //String stat = (String)status.getValue();
+        String stat = (String)status.getValue();
 
         Properties p2 = new Properties();
 
@@ -301,11 +296,11 @@ public class AddStudentBorrowerView extends View
         p2.setProperty("lastName", last);
         p2.setProperty("phone", phone);
         p2.setProperty("email", eml);
-        //p2.setProperty("borrowerStatus", borrowerStat);
+        p2.setProperty("borrowerStatus", borrowerStat);
         p2.setProperty("dateOfLatestBorrower", dateOfLatest);
         p2.setProperty("dateOfRegistration", dateOfReg);
         p2.setProperty("notes", note);
-        //p2.setProperty("status", stat);
+        p2.setProperty("status", stat);
 
         if (banid.length() != 9){
             databaseErrorBarcode();

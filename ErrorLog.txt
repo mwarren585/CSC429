@@ -151,3 +151,4 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 [4/4/22 2:25 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
 [4/4/22 2:29 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
 [4/4/22 2:32 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1062: Duplicate entry '53523552' for key 'PRIMARY'>
+[4/5/22 6:54 PM]|StudentBorrower|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>

@@ -12,6 +12,7 @@ public class StudentBorrowerTableModel{
     private final SimpleStringProperty lastName;
     private final SimpleStringProperty phone;
     private final SimpleStringProperty email;
+    private final SimpleStringProperty borrowerStatus;
     private final SimpleStringProperty dateOfLatestBorrower;
     private final SimpleStringProperty dateOfRegistration;
     private final SimpleStringProperty notes;
@@ -26,10 +27,11 @@ public class StudentBorrowerTableModel{
         lastName =  new SimpleStringProperty(bookData.elementAt(2));
         phone =  new SimpleStringProperty(bookData.elementAt(3));
         email =  new SimpleStringProperty(bookData.elementAt(4));
-        dateOfLatestBorrower =  new SimpleStringProperty(bookData.elementAt(5));
-        dateOfRegistration =  new SimpleStringProperty(bookData.elementAt(6));
-        notes =  new SimpleStringProperty(bookData.elementAt(7));
-        status =  new SimpleStringProperty(bookData.elementAt(8));
+        borrowerStatus = new SimpleStringProperty(bookData.elementAt(5));
+        dateOfLatestBorrower =  new SimpleStringProperty(bookData.elementAt(6));
+        dateOfRegistration =  new SimpleStringProperty(bookData.elementAt(7));
+        notes =  new SimpleStringProperty(bookData.elementAt(8));
+        status =  new SimpleStringProperty(bookData.elementAt(9));
     }
 
     //----------------------------------------------------------------------------
@@ -81,6 +83,18 @@ public class StudentBorrowerTableModel{
     public void setEmail(String em)
     {
         email.set(em);
+    }
+
+    //----------------------------------------------------------------------------
+    public String getBorrowerStatus()
+    {
+        return borrowerStatus.get();
+    }
+
+    //----------------------------------------------------------------------------
+    public void setBorrowerStatus(String em)
+    {
+        borrowerStatus.set(em);
     }
 
     //----------------------------------------------------------------------------

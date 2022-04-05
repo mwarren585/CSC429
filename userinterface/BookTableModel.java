@@ -10,6 +10,9 @@ public class BookTableModel  {
     private final SimpleStringProperty barcode;
     private final SimpleStringProperty bookTitle;
     private final SimpleStringProperty author;
+    private final SimpleStringProperty author4;
+    private final SimpleStringProperty author2;
+    private final SimpleStringProperty author3;
     private final SimpleStringProperty publisher;
     private final SimpleStringProperty pubYear;
     private final SimpleStringProperty ISBN;
@@ -22,11 +25,14 @@ public class BookTableModel  {
         barcode = new SimpleStringProperty(accountData.elementAt(0));
         bookTitle =  new SimpleStringProperty(accountData.elementAt(1));
         author =  new SimpleStringProperty(accountData.elementAt(2));
-        publisher =  new SimpleStringProperty(accountData.elementAt(3));
-        pubYear = new SimpleStringProperty(accountData.elementAt(4));
-        ISBN = new SimpleStringProperty(accountData.elementAt(5));
-        price = new SimpleStringProperty(accountData.elementAt(6));
-        notes = new SimpleStringProperty(accountData.elementAt(7));
+        author2 =  new SimpleStringProperty(accountData.elementAt(3));
+        author3 =  new SimpleStringProperty(accountData.elementAt(4));
+        author4 =  new SimpleStringProperty(accountData.elementAt(5));
+        publisher =  new SimpleStringProperty(accountData.elementAt(6));
+        pubYear = new SimpleStringProperty(accountData.elementAt(7));
+        ISBN = new SimpleStringProperty(accountData.elementAt(8));
+        price = new SimpleStringProperty(accountData.elementAt(9));
+        notes = new SimpleStringProperty(accountData.elementAt(10));
 
 
     }
@@ -55,6 +61,33 @@ public class BookTableModel  {
     //----------------------------------------------------------------------------
 
     public void setAuthor(String name) { author.set(name); }
+    //----------------------------------------------------------------------------
+
+    public String getAuthor2() {
+        return author2.get();
+    }
+
+    //----------------------------------------------------------------------------
+
+    public void setAuthor2(String name) { author2.set(name); }
+    //----------------------------------------------------------------------------
+
+    public String getAuthor3() {
+        return author3.get();
+    }
+
+    //----------------------------------------------------------------------------
+
+    public void setAuthor3(String name) { author3.set(name); }
+    //----------------------------------------------------------------------------
+
+    public String getAuthor4() {
+        return author4.get();
+    }
+
+    //----------------------------------------------------------------------------
+
+    public void setAuthor4(String name) { author4.set(name); }
 
     //----------------------------------------------------------------------------
     public String getPublisher() {

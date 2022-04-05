@@ -157,10 +157,10 @@ public class StudentCollectionView extends View
         emailColumn.setCellValueFactory(
                 new PropertyValueFactory<StudentBorrowerTableModel, String>("email"));
 
-        /*TableColumn author3Column = new TableColumn("borrowerStatus") ;
+        TableColumn author3Column = new TableColumn("borrowerStatus") ;
         author3Column.setMinWidth(100);
         author3Column.setCellValueFactory(
-                new PropertyValueFactory<StudentBorrowerTableModel, String>("borrowerStatus"));*/
+                new PropertyValueFactory<StudentBorrowerTableModel, String>("borrowerStatus"));
 
         TableColumn latestBorrowerColumn = new TableColumn("dateOfLatestBorrower") ;
         latestBorrowerColumn.setMinWidth(100);
@@ -182,7 +182,7 @@ public class StudentCollectionView extends View
         statusColumn.setCellValueFactory(
                 new PropertyValueFactory<StudentBorrowerTableModel, String>("status"));
 
-        tableOfStudents.getColumns().addAll(bannerIDColumn, fNameColumn, lNameColumn, phoneColumn, emailColumn
+        tableOfStudents.getColumns().addAll(bannerIDColumn, fNameColumn, lNameColumn, phoneColumn, emailColumn, author3Column
                 , latestBorrowerColumn, regColumn, notesColumn, statusColumn);
 
 

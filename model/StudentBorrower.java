@@ -147,6 +147,7 @@ public class StudentBorrower extends EntityBase {
         v.addElement(persistentState.getProperty("lastName"));
         v.addElement(persistentState.getProperty("phone"));
         v.addElement(persistentState.getProperty("email"));
+        v.addElement(persistentState.getProperty("borrowerStatus"));
         v.addElement(persistentState.getProperty("dateOfLatestBorrower"));
         v.addElement(persistentState.getProperty("dateOfRegistration"));
         v.addElement(persistentState.getProperty("notes"));
