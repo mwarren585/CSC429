@@ -239,7 +239,13 @@ public class Librarian implements IView, IModel
                 {
                     createAndShowTransactionChoiceView();
                 }
+                else{
+
+                }
             }
+        }
+        else if(key.equals("Logout")){
+            createAndShowLibrarianView();
         }
         else
         if (key.equals("CancelTransaction") == true)
@@ -301,10 +307,9 @@ public class Librarian implements IView, IModel
         }
         else if(key.equals("FindBooks")){
             Properties p = (Properties)value;
-            String title = p.getProperty("title");
+            String barcode = p.getProperty("barcode");
             myBooks = new BookCollection();
-            myBooks.findBooksWithTitleLike(title);
-
+            myBooks.findBookWithBarcodeLike(barcode);
             createAndShowBookCollectionView();
         }
         else if(key.equals("FindStudents")){
@@ -378,18 +383,21 @@ public class Librarian implements IView, IModel
              modifyWorker = new Worker(p);
              modifyWorker.setOldFlagTrue();
              modifyWorker.save();
+             modifyWorker.getState("UpdateStatusMessage");
         }
         else if(key.equals("InsertBookData")){
             Properties p = (Properties)value;
             modifyBook = new Book(p);
             modifyBook.setOldFlagTrue();
             modifyBook.save();
+            modifyBook.getState("UpdateStatusMessage");
         }
         else if(key.equals("InsertStudentData")){
             Properties p = (Properties)value;
             modifyStudent = new StudentBorrower(p);
             modifyStudent.setExistsTrue();
             modifyStudent.update();
+            modifyStudent.getState("UpdateStatusMessage");
         }
 
 
@@ -433,6 +441,11 @@ public class Librarian implements IView, IModel
                 return false;
         }
         catch (InvalidPrimaryKeyException ex)
+        {
+            loginErrorMessage = "ERROR: " + ex.getMessage();
+            return false;
+        }
+        catch (PasswordMismatchException ex)
         {
             loginErrorMessage = "ERROR: " + ex.getMessage();
             return false;

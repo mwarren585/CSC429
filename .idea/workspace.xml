@@ -3,17 +3,61 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ErrorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ErrorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/BookCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/BookCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Librarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Librarian.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/StudentBorrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/StudentBorrower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/StudentBorrowerCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/StudentBorrowerCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/WorkerCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/WorkerCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/BookCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/BookCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/Librarian.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/Librarian.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/StudentBorrower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/StudentBorrower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/StudentBorrowerCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/StudentBorrowerCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/Worker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/WorkerCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/WorkerCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/AddStudentBorrowerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/AddStudentBorrowerView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookCollectionView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookCollectionView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookCollectionView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookCollectionView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/BookView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteBookView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteBookView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteBookView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteBookView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteStudentView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteStudentView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteWorkerView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteWorkerView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteWorkerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/DeleteWorkerView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/LibrarianView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/LibrarianView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyBookView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyBookView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyBookView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyBookView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyBookView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyBookView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyStudentView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyStudentView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyStudentView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyStudentView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyStudentView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyStudentView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyWorkerView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyWorkerView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyWorkerView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyWorkerView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyWorkerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/ModifyWorkerView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/SearchBooksView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/SearchBooksView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/StudentCollectionView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/StudentCollectionView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/WorkerView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/WorkerView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/WorkerView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/WorkerView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/WorkerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/WorkerView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/AddStudentBorrowerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/AddStudentBorrowerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/BookCollectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/BookCollectionView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userinterface/BookTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/BookTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/BookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/BookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/DeleteBookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/DeleteBookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/DeleteStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/DeleteStudentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/DeleteWorkerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/DeleteWorkerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/LibrarianView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/LibrarianView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/ModifyBookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/ModifyBookView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/ModifyStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/ModifyStudentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userinterface/StudentBorrowerTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/StudentBorrowerTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/ModifyWorkerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/ModifyWorkerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/SearchBooksView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/SearchBooksView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/SearchStudentsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/SearchStudentsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/SearchWorkersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/SearchWorkersView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/StudentCollectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/StudentCollectionView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/WorkerCollectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/WorkerCollectionView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/WorkerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/WorkerView.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -70,30 +114,54 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/userinterface/StudentBorrowerTableModel.java">
+        <entry file="file://$PROJECT_DIR$/model/Librarian.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+            <state relative-caret-position="5661">
+              <caret line="450" column="25" selection-start-line="450" selection-start-column="25" selection-end-line="450" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/userinterface/StudentCollectionView.java">
+        <entry file="file://$PROJECT_DIR$/model/WorkerCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2686">
-              <caret line="184" column="125" selection-start-line="184" selection-start-column="125" selection-end-line="184" selection-end-column="125" />
+            <state relative-caret-position="226">
+              <caret line="119" column="31" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/userinterface/ModifyStudentView.java">
+        <entry file="file://$PROJECT_DIR$/userinterface/SearchWorkersView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-213">
-              <caret line="307" column="8" selection-start-line="307" selection-start-column="8" selection-end-line="307" selection-end-column="8" />
+            <state relative-caret-position="442">
+              <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/userinterface/DeleteBookView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="152" column="37" selection-start-line="152" selection-start-column="37" selection-end-line="152" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/userinterface/DeleteStudentView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="210" column="23" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,10 +170,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/userinterface/AddStudentBorrowerView.java">
+        <entry file="file://$PROJECT_DIR$/userinterface/DeleteWorkerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-256">
-              <caret line="302" column="8" selection-start-line="302" selection-start-column="8" selection-end-line="302" selection-end-column="8" />
+            <state relative-caret-position="-528">
+              <caret line="200" column="33" selection-start-line="200" selection-start-column="33" selection-end-line="200" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/userinterface/SearchBooksView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/userinterface/BookCollectionView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2300">
+              <caret line="201" column="58" selection-start-line="201" selection-start-column="58" selection-end-line="201" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/userinterface/WorkerCollectionView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="74" column="76" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,38 +245,38 @@
         <option value="$PROJECT_DIR$/userinterface/MessageView.java" />
         <option value="$PROJECT_DIR$/model/Transaction.java" />
         <option value="$PROJECT_DIR$/model/Teller.java" />
-        <option value="$PROJECT_DIR$/model/WorkerCollection.java" />
-        <option value="$PROJECT_DIR$/userinterface/SearchWorkersView.java" />
         <option value="$PROJECT_DIR$/database/SQLUpdateStatement.java" />
         <option value="$PROJECT_DIR$/database/Persistable.java" />
-        <option value="$PROJECT_DIR$/model/Worker.java" />
-        <option value="$PROJECT_DIR$/userinterface/LibrarianView.java" />
-        <option value="$PROJECT_DIR$/userinterface/SearchBooksView.java" />
         <option value="$PROJECT_DIR$/userinterface/SearchStudentView.java" />
-        <option value="$PROJECT_DIR$/userinterface/SearchStudentsView.java" />
         <option value="$PROJECT_DIR$/userinterface/ViewFactory.java" />
-        <option value="$PROJECT_DIR$/userinterface/ModifyWorkerView.java" />
-        <option value="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" />
-        <option value="$PROJECT_DIR$/model/StudentBorrowerCollection.java" />
-        <option value="$PROJECT_DIR$/model/Librarian.java" />
-        <option value="$PROJECT_DIR$/model/BookCollection.java" />
         <option value="$PROJECT_DIR$/database/JDBCBroker.java" />
-        <option value="$PROJECT_DIR$/userinterface/DeleteWorkerView.java" />
-        <option value="$PROJECT_DIR$/userinterface/DeleteBookView.java" />
-        <option value="$PROJECT_DIR$/userinterface/DeleteStudentView.java" />
-        <option value="$PROJECT_DIR$/userinterface/WorkerCollectionView.java" />
         <option value="$PROJECT_DIR$/userinterface/WorkerTableModel.java" />
         <option value="$PROJECT_DIR$/model/Book.java" />
         <option value="$PROJECT_DIR$/userinterface/BookTableModel.java" />
-        <option value="$PROJECT_DIR$/userinterface/BookView.java" />
-        <option value="$PROJECT_DIR$/userinterface/BookCollectionView.java" />
-        <option value="$PROJECT_DIR$/userinterface/ModifyBookView.java" />
-        <option value="$PROJECT_DIR$/userinterface/WorkerView.java" />
-        <option value="$PROJECT_DIR$/model/StudentBorrower.java" />
-        <option value="$PROJECT_DIR$/userinterface/ModifyStudentView.java" />
         <option value="$PROJECT_DIR$/userinterface/StudentBorrowerTableModel.java" />
+        <option value="$PROJECT_DIR$/model/BookCollection.java" />
+        <option value="$PROJECT_DIR$/model/StudentBorrower.java" />
+        <option value="$PROJECT_DIR$/userinterface/LibrarianView.java" />
+        <option value="$PROJECT_DIR$/model/Worker.java" />
+        <option value="$PROJECT_DIR$/model/Librarian.java" />
+        <option value="$PROJECT_DIR$/userinterface/BookCollectionView.java" />
         <option value="$PROJECT_DIR$/userinterface/StudentCollectionView.java" />
+        <option value="$PROJECT_DIR$/model/StudentBorrowerCollection.java" />
+        <option value="$PROJECT_DIR$/userinterface/WorkerView.java" />
+        <option value="$PROJECT_DIR$/userinterface/ModifyWorkerView.java" />
+        <option value="$PROJECT_DIR$/userinterface/ModifyBookView.java" />
+        <option value="$PROJECT_DIR$/userinterface/BookView.java" />
+        <option value="$PROJECT_DIR$/userinterface/ModifyStudentView.java" />
+        <option value="$PROJECT_DIR$/userinterface/SearchStudentsView.java" />
+        <option value="$PROJECT_DIR$/userinterface/SearchBooksView.java" />
         <option value="$PROJECT_DIR$/userinterface/AddStudentBorrowerView.java" />
+        <option value="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" />
+        <option value="$PROJECT_DIR$/userinterface/WorkerCollectionView.java" />
+        <option value="$PROJECT_DIR$/model/WorkerCollection.java" />
+        <option value="$PROJECT_DIR$/userinterface/SearchWorkersView.java" />
+        <option value="$PROJECT_DIR$/userinterface/DeleteBookView.java" />
+        <option value="$PROJECT_DIR$/userinterface/DeleteStudentView.java" />
+        <option value="$PROJECT_DIR$/userinterface/DeleteWorkerView.java" />
       </list>
     </option>
   </component>
@@ -215,8 +322,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -228,7 +335,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1649199464616" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1649277587049" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-5.1.7-bin.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -358,7 +465,7 @@
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27769348" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.29135054" />
       <window_info id="Structure" order="1" weight="0.24920635" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -367,7 +474,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977098" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29833335" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29833335" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -637,76 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/LibrarianView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/SearchBooksView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="208" column="28" selection-start-line="208" selection-start-column="28" selection-end-line="208" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5316#5317#0" expanded="true" />
-            <element signature="e#5370#5371#0" expanded="true" />
-            <element signature="e#5533#5534#0" expanded="true" />
-            <element signature="e#5582#5583#0" expanded="true" />
-            <element signature="e#5733#5734#0" expanded="true" />
-            <element signature="e#5778#5779#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/SearchWorkersView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2720">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/SearchStudentsView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-670">
-          <caret line="168" column="9" lean-forward="true" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5758#5759#0" expanded="true" />
-            <element signature="e#5812#5813#0" expanded="true" />
-            <element signature="e#5975#5976#0" expanded="true" />
-            <element signature="e#6024#6025#0" expanded="true" />
-            <element signature="e#6175#6176#0" expanded="true" />
-            <element signature="e#6220#6221#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/TransferTransactionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3247">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/TransactionChoiceView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="182" column="53" selection-start-line="182" selection-start-column="53" selection-end-line="182" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/WorkerCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/Persistable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -738,61 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/DeleteBookView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="150" column="45" selection-start-line="150" selection-start-column="45" selection-end-line="150" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6450#6451#0" expanded="true" />
-            <element signature="e#6662#6663#0" expanded="true" />
-            <element signature="e#6858#6859#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/DeleteWorkerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/DeleteStudentView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="207" column="37" selection-start-line="207" selection-start-column="37" selection-end-line="207" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3606#3607#0" expanded="true" />
-            <element signature="e#3654#3655#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Librarian.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7468">
-          <caret line="745" selection-start-line="745" selection-end-line="745" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/WorkerCollectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2533">
-          <caret line="284" column="85" selection-start-line="284" selection-start-column="85" selection-end-line="284" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/WorkerTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
@@ -803,47 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/BookCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/BookTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="926">
-          <caret line="89" column="49" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="211" column="7" lean-forward="true" selection-start-line="211" selection-start-column="3" selection-end-line="213" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/BookView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="149" column="25" selection-start-line="145" selection-start-column="7" selection-end-line="174" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/BookCollectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-397">
-          <caret line="200" column="16" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="16" />
+        <state relative-caret-position="-936">
+          <caret line="39" column="82" lean-forward="true" selection-start-line="39" selection-start-column="82" selection-end-line="39" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -852,8 +797,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="171" column="57" selection-start-line="171" selection-start-column="57" selection-end-line="171" selection-end-column="57" />
+        <state relative-caret-position="291">
+          <caret line="101" column="33" lean-forward="true" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
           <folding>
             <element signature="e#2672#2673#0" expanded="true" />
             <element signature="e#2711#2712#0" expanded="true" />
@@ -861,82 +806,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/WorkerView.java">
+    <entry file="file://$PROJECT_DIR$/userinterface/LibrarianView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="224" column="8" selection-start-line="224" selection-start-column="8" selection-end-line="224" selection-end-column="8" />
+        <state relative-caret-position="141">
+          <caret line="217" lean-forward="true" selection-start-line="217" selection-end-line="217" />
           <folding>
-            <element signature="e#11052#11053#0" expanded="true" />
-            <element signature="e#11106#11107#0" expanded="true" />
-            <element signature="e#11269#11270#0" expanded="true" />
-            <element signature="e#11318#11319#0" expanded="true" />
-            <element signature="e#11469#11470#0" expanded="true" />
-            <element signature="e#11514#11515#0" expanded="true" />
+            <element signature="e#7201#7202#0" expanded="true" />
+            <element signature="e#7397#7398#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/ModifyWorkerView.java">
+    <entry file="file://$PROJECT_DIR$/model/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="254" column="62" selection-start-line="254" selection-start-column="62" selection-end-line="254" selection-end-column="62" />
+        <state relative-caret-position="222">
+          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
+          <folding>
+            <element signature="e#7365#7366#0" expanded="true" />
+            <element signature="e#7395#7396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/StudentBorrower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="122" column="28" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12078#12079#0" expanded="true" />
-            <element signature="e#12132#12133#0" expanded="true" />
-            <element signature="e#12295#12296#0" expanded="true" />
-            <element signature="e#12344#12345#0" expanded="true" />
-            <element signature="e#12495#12496#0" expanded="true" />
-            <element signature="e#12540#12541#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/StudentBorrowerCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="86" column="92" selection-start-line="86" selection-start-column="92" selection-end-line="86" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/StudentBorrower.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="149" column="64" selection-start-line="149" selection-start-column="64" selection-end-line="149" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="719">
+          <caret line="170" column="35" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/StudentBorrowerTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
+        <state relative-caret-position="611">
           <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/StudentCollectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2686">
-          <caret line="184" column="125" selection-start-line="184" selection-start-column="125" selection-end-line="184" selection-end-column="125" />
+        <state relative-caret-position="158">
+          <caret line="73" column="79" selection-start-line="73" selection-start-column="79" selection-end-line="73" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/WorkerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="255" selection-start-line="255" selection-end-line="255" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/ModifyBookView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="375" column="15" selection-start-line="375" selection-start-column="15" selection-end-line="375" selection-end-column="15" />
+        <state relative-caret-position="141">
+          <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/SearchStudentsView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="155" column="10" selection-start-line="155" selection-start-column="10" selection-end-line="155" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5758#5759#0" expanded="true" />
+            <element signature="e#5812#5813#0" expanded="true" />
+            <element signature="e#5975#5976#0" expanded="true" />
+            <element signature="e#6024#6025#0" expanded="true" />
+            <element signature="e#6175#6176#0" expanded="true" />
+            <element signature="e#6220#6221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/ModifyStudentView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-213">
-          <caret line="307" column="8" selection-start-line="307" selection-start-column="8" selection-end-line="307" selection-end-column="8" />
+        <state relative-caret-position="-562">
+          <caret line="253" column="41" selection-start-line="253" selection-start-column="41" selection-end-line="253" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/BookView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1015">
+          <caret line="284" lean-forward="true" selection-start-line="284" selection-end-line="284" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/TransferTransactionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2463">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/ModifyWorkerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-919">
+          <caret line="294" column="47" selection-start-line="294" selection-start-column="47" selection-end-line="294" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/TransactionChoiceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="309" column="64" lean-forward="true" selection-start-line="309" selection-start-column="64" selection-end-line="309" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/BookCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1037">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -945,8 +951,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/AddStudentBorrowerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-256">
-          <caret line="302" column="8" selection-start-line="302" selection-start-column="8" selection-end-line="302" selection-end-column="8" />
+        <state relative-caret-position="152">
+          <caret line="383" selection-start-line="383" selection-end-line="383" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/SearchBooksView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/BookCollectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2300">
+          <caret line="201" column="58" selection-start-line="201" selection-start-column="58" selection-end-line="201" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/WorkerCollectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="74" column="76" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Librarian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5661">
+          <caret line="450" column="25" selection-start-line="450" selection-start-column="25" selection-end-line="450" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/WorkerCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="119" column="31" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/SearchWorkersView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/DeleteBookView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="152" column="37" selection-start-line="152" selection-start-column="37" selection-end-line="152" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/DeleteStudentView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="210" column="23" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/DeleteWorkerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-528">
+          <caret line="200" column="33" selection-start-line="200" selection-start-column="33" selection-end-line="200" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -91,7 +91,7 @@ public class SearchBooksView extends View{
         prompt.setFill(Color.BLACK);
         grid.add(prompt, 0, 0, 2, 1);
 
-        Text accNumLabel = new Text(" Book Title : ");
+        Text accNumLabel = new Text(" Book Barcode : ");
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
         accNumLabel.setFont(myFont);
         accNumLabel.setWrappingWidth(150);
@@ -111,6 +111,7 @@ public class SearchBooksView extends View{
             public void handle(ActionEvent e) {
                 //clearErrorMessage();
                 processBookSearchData();
+                bookSearch.clear();
 
 
 
@@ -144,7 +145,7 @@ public class SearchBooksView extends View{
     //-------------------------------------------------------------
     public void populateFields()
     {
-        bookSearch.setText((String)myModel.getState("bookTitle"));
+        //bookSearch.setText((String)myModel.getState("bookTitle"));
 
     }
 
@@ -206,7 +207,7 @@ public class SearchBooksView extends View{
     public void processBookSearchData() {
         String input = bookSearch.getText();
         Properties p = new Properties();
-        p.setProperty("title", input);
+        p.setProperty("barcode", input);
         myModel.stateChangeRequest("FindBooks", p);
         System.out.println(p);
 

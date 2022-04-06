@@ -44,7 +44,7 @@ public class BookView extends View
     protected TextField ISBN;
     protected TextField price;
     protected TextField notes;
-    //protected ComboBox statusBox;
+    protected ComboBox statusBox;
 
     protected Button doneButton;
     protected Button backButton;
@@ -223,26 +223,32 @@ public class BookView extends View
         notes.setEditable(true);
         grid.add(notes, 1, 11);
 
-        /*statusBox = new ComboBox();
+        Text sta = new Text(" Book Status : ");
+        sta.setFont(myFont);
+        sta.setWrappingWidth(150);
+        sta.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(sta, 0, 12);
+
+
+        statusBox = new ComboBox();
         statusBox.getItems().addAll("Active", "Inactive");
         statusBox.getSelectionModel().selectFirst();
 
-        grid.add(statusBox, 1, 11);*/
+        grid.add(statusBox, 1, 12);
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
-        backButton = new Button("Back");
+        backButton = new Button("Cancel");
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         backButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("back", null);
+                myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
-        doneCont.getChildren().add(backButton);
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -266,14 +272,17 @@ public class BookView extends View
                 p.setProperty("ISBN", ISBN.getText());
                 p.setProperty("price", price.getText());
                 p.setProperty("notes", notes.getText());
-                p.setProperty("status", "Active");
+                p.setProperty("status", (String)statusBox.getValue());
 
 
                 clearText();
                 myModel.stateChangeRequest("BookData", p);
+                displayMessage("Book Added to database successfully!");
             }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
+
 
 
         vbox.getChildren().add(grid);

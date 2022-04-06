@@ -215,7 +215,9 @@ public class LibrarianView extends View
         userid.setText("");
         password.setText("");
 
-        myModel.stateChangeRequest("Login", props);
+
+            myModel.stateChangeRequest("Login", props);
+
 
     }
 

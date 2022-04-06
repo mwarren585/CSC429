@@ -127,7 +127,7 @@ public class DeleteStudentView extends View
             }
         });
 
-        back = new Button("Back");
+        back = new Button("Cancel");
         back.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -206,6 +206,11 @@ public class DeleteStudentView extends View
 
 
         myModel.stateChangeRequest("InsertStudentData", p1);
+        displayMessage("Book with Barcode: "+ ban +" Deleted Succcessfully!");
+        fullName.clear();
+        bannID.clear();
+
+
     }
     /**
      * Process userid and pwd supplied when Submit button is hit.
@@ -237,6 +242,10 @@ public class DeleteStudentView extends View
     @Override
     public void updateState(String key, Object value) {
 
+    }
+    public void displayMessage(String message)
+    {
+        statusLog.displayMessage(message);
     }
 
 

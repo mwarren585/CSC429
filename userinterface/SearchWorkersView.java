@@ -122,6 +122,8 @@ public class SearchWorkersView extends View{
             public void handle(ActionEvent e) {
                 //clearErrorMessage();
                 processWorkerSearchData();
+                firstName.clear();
+                lastName.clear();
 
             }
         });
@@ -152,8 +154,8 @@ public class SearchWorkersView extends View{
     //-------------------------------------------------------------
     public void populateFields()
     {
-        firstName.setText((String)myModel.getState("firstName"));
-        lastName.setText((String)myModel.getState("lastName"));
+        //firstName.setText((String)myModel.getState("firstName"));
+        //lastName.setText((String)myModel.getState("lastName"));
 
     }
 

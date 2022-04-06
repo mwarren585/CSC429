@@ -71,7 +71,7 @@ public class StudentCollectionView extends View
         {
             StudentBorrowerCollection studentCollection = (StudentBorrowerCollection)myModel.getState("StudentList");
 
-            Vector entryList = (Vector) studentCollection.getState("StudentBorrowers");
+            Vector entryList = (Vector) studentCollection.getState("StudentList");
             System.out.println("worker coll size: " + entryList.size());
             Enumeration entries = entryList.elements();
 

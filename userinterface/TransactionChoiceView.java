@@ -300,7 +300,7 @@ public class TransactionChoiceView extends View
 		if (key.equals("TransactionError") == true)
 		{
 			// display the passed text
-			displayErrorMessage((String)value);
+			//displayErrorMessage((String)value);
 		}
 	}
 

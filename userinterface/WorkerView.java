@@ -41,11 +41,10 @@ public class WorkerView extends View
     protected TextField password;
     protected TextField contactPhone;
     protected TextField email;
-    protected TextArea credentials;
+    protected ComboBox credentials;
     protected TextField dateOfLastCredentialsStatus;
     protected TextField dateOfHire;
-
-    //protected ComboBox statusBox;
+    protected ComboBox statusBox;
 
     protected Button doneButton;
     protected Button backButton;
@@ -195,8 +194,13 @@ public class WorkerView extends View
         credentialsLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(credentialsLabel, 0, 8);
 
-        credentials = new TextArea();
-        credentials.setEditable(true);
+        credentials = new ComboBox();
+        credentials.getItems().addAll(
+                "Ordinary",
+                "Administrator"
+        );
+
+        credentials.setValue("Ordinary");
         grid.add(credentials, 1, 8);
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -224,11 +228,17 @@ public class WorkerView extends View
         dateOfHire.setText(dtf.format(now));
         grid.add(dateOfHire, 1, 10);
 
-        /*statusBox = new ComboBox();
+        Text sta = new Text(" Worker Status : ");
+        sta.setFont(myFont);
+        sta.setWrappingWidth(150);
+        sta.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(sta, 0, 11);
+
+        statusBox = new ComboBox();
         statusBox.getItems().addAll("Active", "Inactive");
         statusBox.getSelectionModel().selectFirst();
 
-        grid.add(statusBox, 1, 11);*/
+        grid.add(statusBox, 1, 11);
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
@@ -240,10 +250,10 @@ public class WorkerView extends View
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("back", null);
+                myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
-        doneCont.getChildren().add(backButton);
+
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -263,20 +273,23 @@ public class WorkerView extends View
                 p.setProperty("password", password.getText());
                 p.setProperty("phone", contactPhone.getText());
                 p.setProperty("email", email.getText());
-                p.setProperty("credentials", credentials.getText());
+                p.setProperty("credentials", (String)credentials.getValue());
                 p.setProperty("dateOfLatestCredentials", dateOfLastCredentialsStatus.getText());
                 p.setProperty("dateOfHire", dateOfHire.getText());
+                p.setProperty("status", (String)statusBox.getValue());
 
                 if(bannerID.length() != 9){
                     displayErrorMessage("bannerID needs to be exactly 9 numbers long!");
                 }
                 else {
                     myModel.stateChangeRequest("WorkerData", p);
+                    displayMessage("Worker Successful Added!!");
                     clearText();
                 }
             }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
 
 
         vbox.getChildren().add(grid);
@@ -363,7 +376,7 @@ public class WorkerView extends View
         password.clear();
         contactPhone.clear();
         email.clear();
-        credentials.clear();
+        //credentials.clear();
         dateOfLastCredentialsStatus.clear();
         dateOfHire.clear();
         //statusBox.valueProperty().set("Active");

@@ -67,6 +67,9 @@ public class StudentBorrower extends EntityBase {
 
     @Override
     public Object getState(String key) {
+        if (key.equals("UpdateStatusMessage") == true) {
+            return updateStatusMessage;
+        }
         return persistentState.getProperty(key);
     }
 
@@ -117,7 +120,7 @@ public class StudentBorrower extends EntityBase {
                 Integer studentId = insertPersistentState(mySchema, persistentState);
                 persistentState.setProperty("bannerID", "" + studentId.intValue());
                 updateStatusMessage = "StudentBorrower data for new StudentBorrower : " +  persistentState.getProperty("bannerID")
-                        + "installed successfully in database!";
+                        + " installed successfully in database!";
             }
         }
         catch (SQLException ex)

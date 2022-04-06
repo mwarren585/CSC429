@@ -170,7 +170,7 @@ public class DeleteWorkerView extends View
                 myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
-        doneCont.getChildren().add(backButton);
+
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -182,7 +182,9 @@ public class DeleteWorkerView extends View
 
                 Properties p = new Properties();
 
-                p.setProperty("bannerID", (String)selectedWorker.getState("bannerID"));
+                String banid =  (String)selectedWorker.getState("bannerID");
+
+                p.setProperty("bannerID", banid);
                 p.setProperty("firstName", (String)selectedWorker.getState("firstName"));
                 p.setProperty("lastName", (String)selectedWorker.getState("lastName"));
                 p.setProperty("password", (String)selectedWorker.getState("password"));
@@ -195,10 +197,15 @@ public class DeleteWorkerView extends View
 
 
                 myModel.stateChangeRequest("InsertWorkerData", p);
+                displayMessage("Worker with BannerId: "+ banid +" Deleted Successfully!");
+                bannerId.clear();
+                firstName.clear();
+                lastName.clear();
 
             }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
 
 
         vbox.getChildren().add(grid);

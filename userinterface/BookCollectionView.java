@@ -192,13 +192,14 @@ public class BookCollectionView extends View {
         priceColumn.setMinWidth(100);
         priceColumn.setCellValueFactory(
                 new PropertyValueFactory<BookTableModel, String>("price"));
+
         TableColumn notesColumn = new TableColumn("Notes") ;
         priceColumn.setMinWidth(100);
         priceColumn.setCellValueFactory(
                 new PropertyValueFactory<BookTableModel, String>("notes"));
 
         tableOfBooks.getColumns().addAll(barcodeColumn, titleColumn, authColumn, auth2Column, auth3Column, auth4Column,
-                publisherColumn, pubYearColumn, iSBNColumn, priceColumn, notesColumn);
+                publisherColumn, pubYearColumn, iSBNColumn);
 
 
         tableOfBooks.setOnMousePressed(new EventHandler<MouseEvent>() {

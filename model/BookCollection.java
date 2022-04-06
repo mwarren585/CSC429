@@ -33,12 +33,22 @@ public class BookCollection extends EntityBase {
 
         }
     }
+    public void findBookWithBarcodeLike(String barcode){
+
+        //query
+
+        String query = "SELECT * FROM " + myTableName + " WHERE (barcode like '%" + barcode + "%')";
+
+        queryHelper(query);
+        System.out.println("Book Collection size right after query: " + books.size());
+
+    }
     public void findBooksOlderThanDate (String year) {
 
 
         String query = "SELECT * FROM " + myTableName + " WHERE (pubYear < " + year + ")";
         System.out.println(query);
-        queryHelper(query);
+       //queryHelper(query);
 
     }
 
@@ -46,7 +56,7 @@ public class BookCollection extends EntityBase {
 
         String query = "SELECT * FROM " + myTableName + " WHERE (pubYear > " + year + ")";
         System.out.println(query);
-        queryHelper(query);
+        //queryHelper(query);
 
     }
 
@@ -54,7 +64,7 @@ public class BookCollection extends EntityBase {
 
         String query = "SELECT * FROM " + myTableName + " WHERE (title LIKE '%"+ title +"%')";
         System.out.println(query);
-        queryHelper(query);
+        //queryHelper(query);
         System.out.println("Book Collection size right after query: " + books.size());
 
     }
@@ -63,7 +73,7 @@ public class BookCollection extends EntityBase {
 
         String query = "SELECT * FROM " + myTableName + " WHERE (author LIKE '%" + author + "%')";
         System.out.println(query);
-        queryHelper(query);
+        //queryHelper(query);
 
     }
 

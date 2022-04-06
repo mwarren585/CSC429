@@ -152,8 +152,8 @@ public class SearchStudentsView extends View{
     //-------------------------------------------------------------
     public void populateFields()
     {
-        firstName.setText((String)myModel.getState("firstName"));
-        lastName.setText((String)myModel.getState("lastName"));
+        //firstName.setText((String)myModel.getState("firstName"));
+        //lastName.setText((String)myModel.getState("lastName"));
 
     }
 

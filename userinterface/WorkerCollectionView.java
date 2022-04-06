@@ -72,7 +72,7 @@ public class WorkerCollectionView extends View {
         {
             WorkerCollection workerCollection = (WorkerCollection)myModel.getState("WorkerList");
 
-            Vector entryList = (Vector)workerCollection.getState("Workers");
+            Vector entryList = (Vector)workerCollection.getState("WorkerList");
             System.out.println("worker coll size: " + entryList.size());
             Enumeration entries = entryList.elements();
 

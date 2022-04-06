@@ -70,6 +70,7 @@ public class WorkerCollection extends EntityBase{
 
 
         }
+
     }
 
     //----------------------------------------------------------------------------------
@@ -116,7 +117,7 @@ public class WorkerCollection extends EntityBase{
 
 
     public Object getState(String key) {
-      if(key.equals("Workers")) {
+      if(key.equals("WorkerList")) {
           return workers;
       }
       else{

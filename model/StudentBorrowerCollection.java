@@ -168,7 +168,7 @@ public class StudentBorrowerCollection   extends EntityBase implements IView
     //----------------------------------------------------------
     public Object getState(String key)
     {
-        if (key.equals("StudentBorrowers")) {
+        if (key.equals("StudentList")) {
             return studentBorrowers;
         }
         else

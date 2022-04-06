@@ -45,8 +45,7 @@ public class ModifyStudentView extends View
     protected TextField dateOfLatestBorrowerStatus;
     protected TextField dateOfRegistration;
     protected TextField notes;
-    protected TextField status;
-    //protected ComboBox status;
+    protected ComboBox status;
 
 
     protected Button cancelButton;
@@ -222,17 +221,9 @@ public class ModifyStudentView extends View
         notes.setEditable(true);
         grid.add(notes, 1, 9);
 
-        Text statusLabel = new Text(" Status : ");
-        statusLabel.setFont(myFont);
-        statusLabel.setWrappingWidth(150);
-        statusLabel.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(statusLabel, 0, 10);
 
-        status = new TextField();
-        status.setEditable(true);
-        grid.add(status, 1, 10);
 
-        /*
+
         Text sta = new Text(" Students Borrower Status : ");
         sta.setFont(myFont);
         sta.setWrappingWidth(150);
@@ -248,7 +239,7 @@ public class ModifyStudentView extends View
         status.setValue("Active");
         grid.add(status, 1, 10);
 
-         */
+
 
 
 
@@ -260,7 +251,7 @@ public class ModifyStudentView extends View
             }
         });
 
-        cancelButton = new Button("Back");
+        cancelButton = new Button("Cancel");
         cancelButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -295,7 +286,7 @@ public class ModifyStudentView extends View
         String dateOfLatest = dateOfLatestBorrowerStatus.getText();
         String dateOfReg = dateOfRegistration.getText();
         String note = notes.getText();
-        String stat = status.getText();
+        String stat = (String)status.getValue();
 
         Properties p2 = new Properties();
 
@@ -314,7 +305,7 @@ public class ModifyStudentView extends View
             displayErrorMessage("BannerID needs to be 9 numbers long!");
         }else {
             myModel.stateChangeRequest("InsertStudentData", p2);
-            myModel.stateChangeRequest("done", null);
+            displayMessage("Student with BannerId: "+ banid +" Modified Successfully!");
             bannerId.clear();
             firstName.clear();
             lastName.clear();
@@ -348,7 +339,7 @@ public class ModifyStudentView extends View
         email.setText((String)selectedStudent.getState("email"));
         dateOfRegistration.setText((String)selectedStudent.getState("dateOfRegistration"));
         notes.setText((String)selectedStudent.getState("notes"));
-        status.setText((String)selectedStudent.getState("status"));
+
     }
 
     /**

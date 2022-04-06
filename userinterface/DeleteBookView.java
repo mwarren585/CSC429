@@ -118,13 +118,13 @@ public class DeleteBookView extends View{
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
-        backButton = new Button("Back");
+        backButton = new Button("Cancel");
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         backButton.setOnAction(e -> {
             clearErrorMessage();
             myModel.stateChangeRequest("CancelTransaction", null);
         });
-        doneCont.getChildren().add(backButton);
+
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -149,10 +149,12 @@ public class DeleteBookView extends View{
 
 
                 myModel.stateChangeRequest("InsertBookData", p);
-
+                displayMessage("Book with barcode: " + (String) boookSelction.getState("barcode")+ "Deleted Successfully!!!");
+                barcodeField.clear();
             }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
 
 
         vbox.getChildren().add(grid);

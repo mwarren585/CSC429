@@ -252,7 +252,7 @@ public class AddStudentBorrowerView extends View
             }
         });
 
-        cancelButton = new Button("Back");
+        cancelButton = new Button("Cancel");
         cancelButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -303,9 +303,10 @@ public class AddStudentBorrowerView extends View
         p2.setProperty("status", stat);
 
         if (banid.length() != 9){
-            databaseErrorBarcode();
+            displayErrorMessage("BannerID needs to be exactly 9 characters long");
         }else {
             myModel.stateChangeRequest("StudentData", p2);
+            displayMessage("Student Successful Added!!");
         }
 
         bannerId.clear();
@@ -380,25 +381,7 @@ public class AddStudentBorrowerView extends View
         statusLog.clearErrorMessage();
     }
 
-    public void databaseUpdated(){
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Database");
-        alert.setHeaderText(null);
-        alert.setHeaderText("Student Borrower Added To Database");
-
-        alert.showAndWait();
-    }
-
-    public void databaseErrorBarcode(){
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Database");
-        alert.setHeaderText("Could not connect");
-        alert.setContentText("Please make sure the barcode is correct.");
-
-        alert.showAndWait();
-    }
 
 }
 

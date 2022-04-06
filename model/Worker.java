@@ -182,14 +182,18 @@ public class Worker extends EntityBase {
     }
 
     //-----------------------------------------------------------------------------------
-    public boolean matchPassword(String givenPassword) {
+    public boolean matchPassword(String givenPassword) throws PasswordMismatchException {
 
         String dbPassword = persistentState.getProperty("password");
         if (givenPassword.equals(dbPassword) == true) {
             return true;
         }
-        else
-            return false;
+        else{
+            throw new PasswordMismatchException("Wrong Password! Try Again!");
+        }
+
+
+
     }
 
     //------------------------------------------------------------------------------------
