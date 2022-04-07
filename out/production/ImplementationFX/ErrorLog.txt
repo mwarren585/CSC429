@@ -152,3 +152,9 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 [4/4/22 2:29 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
 [4/4/22 2:32 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1062: Duplicate entry '53523552' for key 'PRIMARY'>
 [4/5/22 6:54 PM]|StudentBorrower|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
+[4/6/22 9:25 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1054: Unknown column 'cool' in 'field list'>
+[4/6/22 9:45 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' '1998' , 'publ' , 'auth' , 'Active' , '' , '343.53' , '' , '' , '' , 14234 , 't' at line 1>
+[4/6/22 9:47 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' '1998' , 'publ' , 'aut' , 'Active' , '' , '324.23' , '' , '' , '' , 3423 , 'tit' at line 1>
+[4/6/22 9:48 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' '1888' , 'publ' , 'aut' , 'Active' , '' , '99.99' , '' , '' , '' , 3234 , 'titl' at line 1>
+[4/6/22 9:56 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' '' , '' , '' , 'Active' , '' , '' , '' , '' , '' , 1234 , '' )' at line 1>
+[4/7/22 10:49 AM]|Worker|insertPersistentState|Error|NOTAG|null<SQL Exception: 1062: Duplicate entry '800000112' for key 'PRIMARY'>

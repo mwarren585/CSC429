@@ -199,7 +199,7 @@ public class WorkerCollectionView extends View {
 
 
         //TODO need to look into switching this
-        doneButton = new Button("Back");
+        doneButton = new Button("Cancel");
         doneButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override

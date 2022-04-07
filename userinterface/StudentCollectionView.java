@@ -199,14 +199,13 @@ public class StudentCollectionView extends View
         scrollPane.setPrefSize(115, 150);
         scrollPane.setContent(tableOfStudents);
 
-        update = new Button("Back");
+        update = new Button("Cancel");
         update.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                // do the inquiry
-                processAction();
+                myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
 

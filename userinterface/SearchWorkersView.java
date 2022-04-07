@@ -130,7 +130,7 @@ public class SearchWorkersView extends View{
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
-        doneButton = new Button("Done");
+        doneButton = new Button("Cancel");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         doneButton.setOnAction(new EventHandler<ActionEvent>() {
 

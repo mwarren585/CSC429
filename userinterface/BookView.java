@@ -1,5 +1,6 @@
 // specify the package
 package userinterface;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import javafx.scene.control.Alert.AlertType;
 
@@ -250,6 +251,8 @@ public class BookView extends View
             }
         });
 
+
+
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         doneButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -259,6 +262,19 @@ public class BookView extends View
                 clearErrorMessage();
 
                 Properties p = new Properties();
+
+                String barC = barcode.getText();
+                String title = bookTitle.getText();
+                String autho = author.getText();
+                String autho2 = author2.getText();
+                String autho3 = author3.getText();
+                String autho4 = author4.getText();
+                String pub = publisher.getText();
+                //int py = Integer.parseInt(pubYear.getText());
+                //double pric = Double.parseDouble(price.getText());
+                //DecimalFormat df = new DecimalFormat("0.00");
+                String isb = ISBN.getText();
+                String not = notes.getText();
 
 
                 p.setProperty("barcode", barcode.getText());
@@ -274,10 +290,58 @@ public class BookView extends View
                 p.setProperty("notes", notes.getText());
                 p.setProperty("status", (String)statusBox.getValue());
 
+                if((barC.length() < 3) || (barC == null) || (barC.length() == 0)){
+                    displayErrorMessage("Barcode must be at least 3 digits long ");
+                }
+                else if(barC.length() > 15 ){
+                    displayErrorMessage("Barcode cannot be more than 15 digits");
+                }
 
-                clearText();
-                myModel.stateChangeRequest("BookData", p);
-                displayMessage("Book Added to database successfully!");
+                /*else if((title.length() == 0)||(title == null)){
+                    displayErrorMessage("Please enter in Title!");
+                }
+                else if(title.length() > 50){
+                    displayErrorMessage("Title can be max 50 characters");
+                }
+                else if((autho.length() == 0) || (autho == null)){
+                    displayErrorMessage("Please enter author!");
+                }
+                else if(autho.length() > 40){
+                    displayErrorMessage("Author can be max 40 characters");
+                }
+                else if(autho2.length() > 40){
+                    displayErrorMessage("Author can be max 40 characters");
+                }
+                else if(autho3.length() > 40){
+                    displayErrorMessage("Author can be max 40 characters");
+                }
+                else if(autho4.length() > 40){
+                    displayErrorMessage("Author can be max 40 characters");
+                }
+                else if((pub.length() == 0) || (pub == null)){
+                    displayErrorMessage("Please enter publisher!");
+                }
+                else if(pub.length() > 40){
+                    displayErrorMessage("Publisher can be max 40 characters");
+                }
+                /*else if((py < 1) || (py > 2022)){
+                    displayErrorMessage("Please enter year between 1 and 2022");
+                }*/
+                /*
+                if(isb.length() < 3){
+                    displayErrorMessage("ISBN must be at least 3 digits long ");
+                }
+                else if(isb.length() > 10 ){
+                    displayErrorMessage("ISBN cannot be more than 10 digits");
+                }
+                else if(not.length() > 100){
+                    displayErrorMessage("Note can be max 100 characters");
+                }*/
+                else {
+                    myModel.stateChangeRequest("BookData", p);
+                    displayMessage("Book Added to database successfully!");
+                    clearText();
+                }
             }
         });
         doneCont.getChildren().add(doneButton);
@@ -366,6 +430,9 @@ public class BookView extends View
         barcode.clear();
         bookTitle.clear();
         author.clear();
+        author2.clear();
+        author3.clear();
+        author4.clear();
         publisher.clear();
         pubYear.clear();
         ISBN.clear();

@@ -122,13 +122,15 @@ public class SearchStudentsView extends View{
             public void handle(ActionEvent e) {
                 //clearErrorMessage();
                 processStudentSearchData();
+                firstName.clear();
+                lastName.clear();
 
             }
         });
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
-        doneButton = new Button("Done");
+        doneButton = new Button("Cancel");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         doneButton.setOnAction(new EventHandler<ActionEvent>() {
 

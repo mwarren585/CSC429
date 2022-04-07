@@ -307,14 +307,15 @@ public class AddStudentBorrowerView extends View
         }else {
             myModel.stateChangeRequest("StudentData", p2);
             displayMessage("Student Successful Added!!");
+            bannerId.clear();
+            firstName.clear();
+            lastName.clear();
+            contactPhone.clear();
+            email.clear();
+            notes.clear();
         }
 
-        bannerId.clear();
-        firstName.clear();
-        lastName.clear();
-        contactPhone.clear();
-        email.clear();
-        notes.clear();
+
         //borrowerStatus.setValue("Good Standing");
         //status.setValue("Active");
 

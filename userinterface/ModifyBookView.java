@@ -260,6 +260,7 @@ public class ModifyBookView extends View
             public void handle(ActionEvent e) {
                 clearErrorMessage();
 
+
                 Properties p = new Properties();
 
                 String barCode = barcode.getText();
@@ -276,10 +277,17 @@ public class ModifyBookView extends View
                 p.setProperty("notes", notes.getText());
                 p.setProperty("status", (String)statusBox.getValue());
 
-
-                clearText();
-                myModel.stateChangeRequest("InsertBookData", p);
-                displayMessage("Book with Barcode: "+ barCode +" Modified Succcessfully!");
+                if((barCode.length() < 3) || (barCode == null) || (barCode.length() == 0)){
+                    displayErrorMessage("Barcode must be at least 3 digits long ");
+                }
+                else if(barCode.length() > 15 ){
+                    displayErrorMessage("Barcode cannot be more than 15 digits");
+                }
+                else {
+                    clearText();
+                    myModel.stateChangeRequest("InsertBookData", p);
+                    displayMessage("Book with Barcode: " + barCode + " Modified Succcessfully!");
+                }
             }
         });
         doneCont.getChildren().add(doneButton);
