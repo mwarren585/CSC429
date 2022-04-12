@@ -38,7 +38,7 @@ public class WorkerView extends View
     protected TextField bannerId;
     protected TextField firstName;
     protected TextField lastName;
-    protected TextField password;
+    protected PasswordField password;
     protected TextField contactPhone;
     protected TextField email;
     protected ComboBox credentials;
@@ -164,7 +164,7 @@ public class WorkerView extends View
         passwordLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(passwordLabel, 0, 5);
 
-        password = new TextField();
+        password = new PasswordField();
         password.setEditable(true);
         grid.add(password, 1, 5);
 
@@ -206,7 +206,7 @@ public class WorkerView extends View
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
-        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status : ");
+        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status (info only) : ");
         dateOfLastCredentialsStatusLabel.setFont(myFont);
         dateOfLastCredentialsStatusLabel.setWrappingWidth(150);
         dateOfLastCredentialsStatusLabel.setTextAlignment(TextAlignment.RIGHT);
@@ -235,7 +235,7 @@ public class WorkerView extends View
         grid.add(sta, 0, 11);
 
         statusBox = new ComboBox();
-        statusBox.getItems().addAll("Active", "Inactive");
+        statusBox.getItems().addAll("Active");
         statusBox.getSelectionModel().selectFirst();
 
         grid.add(statusBox, 1, 11);

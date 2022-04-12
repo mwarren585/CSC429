@@ -207,7 +207,7 @@ public class ModifyWorkerView extends View
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
-        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status : ");
+        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status (info only) : ");
         dateOfLastCredentialsStatusLabel.setFont(myFont);
         dateOfLastCredentialsStatusLabel.setWrappingWidth(150);
         dateOfLastCredentialsStatusLabel.setTextAlignment(TextAlignment.RIGHT);

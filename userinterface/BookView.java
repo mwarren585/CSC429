@@ -232,7 +232,7 @@ public class BookView extends View
 
 
         statusBox = new ComboBox();
-        statusBox.getItems().addAll("Active", "Inactive");
+        statusBox.getItems().addAll("Active");
         statusBox.getSelectionModel().selectFirst();
 
         grid.add(statusBox, 1, 12);
@@ -327,16 +327,11 @@ public class BookView extends View
                 /*else if((py < 1) || (py > 2022)){
                     displayErrorMessage("Please enter year between 1 and 2022");
                 }*/
-                /*
-                if(isb.length() < 3){
-                    displayErrorMessage("ISBN must be at least 3 digits long ");
+
+                else if(isb.length() != 9){
+                    displayErrorMessage("ISBN must be exactly 9 digits long ");
                 }
-                else if(isb.length() > 10 ){
-                    displayErrorMessage("ISBN cannot be more than 10 digits");
-                }
-                else if(not.length() > 100){
-                    displayErrorMessage("Note can be max 100 characters");
-                }*/
+
                 else {
                     myModel.stateChangeRequest("BookData", p);
                     displayMessage("Book Added to database successfully!");

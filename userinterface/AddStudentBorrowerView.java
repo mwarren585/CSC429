@@ -180,8 +180,7 @@ public class AddStudentBorrowerView extends View
 
         borrowerStatus = new ComboBox();
         borrowerStatus.getItems().addAll(
-                "Good Standing",
-                "Delinquent"
+                "Good Standing"
         );
         borrowerStatus.setValue("Good Standing");
         grid.add(borrowerStatus, 1, 6);
@@ -233,8 +232,7 @@ public class AddStudentBorrowerView extends View
 
         status = new ComboBox();
         status.getItems().addAll(
-                "Active",
-                "Inactive"
+                "Active"
         );
 
         status.setValue("Active");

@@ -31,6 +31,7 @@ import model.Book;
 public class DeleteBookView extends View{
     // GUI components
     protected TextField barcodeField;
+    protected TextField title;
     private Book boookSelction = (Book)myModel.getState("Book");
 
 
@@ -115,6 +116,16 @@ public class DeleteBookView extends View{
         barcodeField.setEditable(true);
         grid.add(barcodeField, 1, 2);
 
+        Text titleLabel = new Text(" Title : ");
+        titleLabel.setFont(myFont);
+        titleLabel.setWrappingWidth(150);
+        titleLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(titleLabel, 0, 3);
+
+        title = new TextField();
+        title.setEditable(true);
+        grid.add(title, 1, 3);
+
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
@@ -150,7 +161,7 @@ public class DeleteBookView extends View{
 
                 myModel.stateChangeRequest("InsertBookData", p);
                 displayMessage("Book with barcode: " + (String) boookSelction.getState("barcode")+ "Deleted Successfully!!!");
-                barcodeField.clear();
+                clearText();
             }
         });
         doneCont.getChildren().add(doneButton);
@@ -179,6 +190,7 @@ public class DeleteBookView extends View{
     {
         Book boookSelction = (Book)myModel.getState("Book");
         barcodeField.setText((String)boookSelction.getState("barcode"));
+        title.setText((String)boookSelction.getState("title"));
 
     }
 
@@ -235,6 +247,7 @@ public class DeleteBookView extends View{
     public void clearText()
     {
         barcodeField.clear();
+        title.clear();
         //statusBox.valueProperty().set("Active");
     }
 
