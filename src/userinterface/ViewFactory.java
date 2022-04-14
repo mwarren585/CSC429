@@ -7,80 +7,48 @@ public class ViewFactory {
 
     public static View createView(String viewName, IModel model)
     {
-        if(viewName.equals("LibrarianView"))
-        {
-            return new LibrarianView(model);
+        switch (viewName) {
+            case "LibrarianView":
+                return new LibrarianView(model);
+            case "TransactionChoiceView":
+                return new TransactionChoiceView(model);
+            case "WorkerView":
+                return new WorkerView(model);
+            case "StudentView":
+                return new AddStudentBorrowerView(model);
+            case "BookView":
+                return new BookView(model);
+            case "SearchWorkerView":
+                return new SearchWorkersView(model);
+            case "SearchBooksView":
+                return new SearchBooksView(model);
+            case "WorkerCollectionView":
+                return new WorkerCollectionView(model);
+            case "BookCollectionView":
+                return new BookCollectionView(model);
+            case "WithdrawTransactionView":
+                return new WithdrawTransactionView(model);
+            case "TransferTransactionView":
+                return new TransferTransactionView(model);
+            case "BalanceInquiryTransactionView":
+                return new BalanceInquiryTransactionView(model);
+            case "BalanceInquiryReceipt":
+                return new BalanceInquiryReceipt(model);
+            case "WithdrawReceipt":
+                return new WithdrawReceipt(model);
+            case "DepositReceipt":
+                return new DepositReceipt(model);
+            case "TransferReceipt":
+                return new TransferReceipt(model);
+            case "ModifyWorkerView":
+                return new ModifyWorkerView(model);
+            case "ModifyBookView":
+                return new ModifyBookView(model);
+            case "CheckInBookView":
+                return new CheckInBookView(model);
+            default:
+                return null;
         }
-        else if(viewName.equals("TransactionChoiceView"))
-        {
-            return new TransactionChoiceView(model);
-        }
-        else if(viewName.equals("WorkerView"))
-        {
-            return new WorkerView(model);
-        }
-        else if(viewName.equals("StudentView"))
-        {
-            return new AddStudentBorrowerView(model);
-        }
-        else if(viewName.equals("BookView"))
-        {
-            return new BookView(model);
-        }
-        else if(viewName.equals("SearchWorkerView"))
-        {
-            return new SearchWorkersView(model);
-        }
-        else if(viewName.equals("SearchBooksView"))
-        {
-            return new SearchBooksView(model);
-        }
-        else if(viewName.equals("WorkerCollectionView"))
-        {
-            return new WorkerCollectionView(model);
-        }
-        else if(viewName.equals("BookCollectionView"))
-        {
-            return new BookCollectionView(model);
-        }
-        else if(viewName.equals("WithdrawTransactionView"))
-        {
-            return new WithdrawTransactionView(model);
-        }
-        else if(viewName.equals("TransferTransactionView"))
-        {
-            return new TransferTransactionView(model);
-        }
-        else if(viewName.equals("BalanceInquiryTransactionView"))
-        {
-            return new BalanceInquiryTransactionView(model);
-        }
-        else if(viewName.equals("BalanceInquiryReceipt"))
-        {
-            return new BalanceInquiryReceipt(model);
-        }
-        else if(viewName.equals("WithdrawReceipt"))
-        {
-            return new WithdrawReceipt(model);
-        }
-        else if(viewName.equals("DepositReceipt"))
-        {
-            return new DepositReceipt(model);
-        }
-        else if(viewName.equals("TransferReceipt"))
-        {
-            return new TransferReceipt(model);
-        }
-        else if(viewName.equals("ModifyWorkerView"))
-        {
-            return new ModifyWorkerView(model);
-        }
-        else if(viewName.equals("ModifyBookView"))
-        {
-            return new ModifyBookView(model);
-        }
-        else
-            return null;
     }
 
 
