@@ -43,9 +43,9 @@ public class WorkerView extends View
     protected TextField email;
     protected ComboBox credentials;
     protected TextField dateOfLastCredentialsStatus;
-    protected TextField dateOfHire;
+    //protected TextField dateOfHire;
     protected ComboBox statusBox;
-
+    protected DatePicker dateOfHire;
     protected Button doneButton;
     protected Button backButton;
     // For showing error message
@@ -223,9 +223,8 @@ public class WorkerView extends View
         dateOfHireLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(dateOfHireLabel, 0, 10);
 
-        dateOfHire = new TextField();
+        dateOfHire = new DatePicker();
         dateOfHire.setEditable(false);
-        dateOfHire.setText(dtf.format(now));
         grid.add(dateOfHire, 1, 10);
 
         Text sta = new Text(" Worker Status : ");
@@ -267,6 +266,8 @@ public class WorkerView extends View
 
                 Properties p = new Properties();
 
+                String date = dateOfHire.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
                 p.setProperty("bannerID", bannerId.getText());
                 p.setProperty("firstName", firstName.getText());
                 p.setProperty("lastName", lastName.getText());
@@ -275,7 +276,7 @@ public class WorkerView extends View
                 p.setProperty("email", email.getText());
                 p.setProperty("credentials", (String)credentials.getValue());
                 p.setProperty("dateOfLatestCredentials", dateOfLastCredentialsStatus.getText());
-                p.setProperty("dateOfHire", dateOfHire.getText());
+                p.setProperty("dateOfHire", date);
                 p.setProperty("status", (String)statusBox.getValue());
 
                 if(bannerID.length() != 9){
@@ -378,7 +379,7 @@ public class WorkerView extends View
         email.clear();
         //credentials.clear();
         dateOfLastCredentialsStatus.clear();
-        dateOfHire.clear();
+        //dateOfHire.clear();
         //statusBox.valueProperty().set("Active");
     }
 

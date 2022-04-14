@@ -42,7 +42,7 @@ public class AddStudentBorrowerView extends View
     protected TextField email;
     protected ComboBox borrowerStatus;
     protected TextField dateOfLatestBorrowerStatus;
-    protected TextField dateOfRegistration;
+    protected DatePicker dateOfRegistration;
     protected TextField notes;
     protected ComboBox status;
 
@@ -206,9 +206,9 @@ public class AddStudentBorrowerView extends View
         dateOfReg.setTextAlignment(TextAlignment.RIGHT);
         grid.add(dateOfReg, 0, 8);
 
-        dateOfRegistration = new TextField();
+        dateOfRegistration = new DatePicker();
         dateOfRegistration.setEditable(false);
-        dateOfRegistration.setText(dtf.format(now));
+
         grid.add(dateOfRegistration, 1, 8);
 
         Text not = new Text(" Notes : ");
@@ -283,7 +283,7 @@ public class AddStudentBorrowerView extends View
         String eml = email.getText();
         String borrowerStat = (String)borrowerStatus.getValue();
         String dateOfLatest = dateOfLatestBorrowerStatus.getText();
-        String dateOfReg = dateOfRegistration.getText();
+        String date = dateOfRegistration.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String note = notes.getText();
         String stat = (String)status.getValue();
 
@@ -296,7 +296,7 @@ public class AddStudentBorrowerView extends View
         p2.setProperty("email", eml);
         p2.setProperty("borrowerStatus", borrowerStat);
         p2.setProperty("dateOfLatestBorrower", dateOfLatest);
-        p2.setProperty("dateOfRegistration", dateOfReg);
+        p2.setProperty("dateOfRegistration", date);
         p2.setProperty("notes", note);
         p2.setProperty("status", stat);
 
