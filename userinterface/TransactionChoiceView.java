@@ -47,6 +47,7 @@ public class TransactionChoiceView extends View
     private Button deleteWorkerButton;
     private Button deleteStudentButton;
     private Button deleteBookButton;
+    private Button delinquencyCheckButton;
 
 	private Button cancelButton;
 
@@ -242,21 +243,20 @@ public class TransactionChoiceView extends View
         grid.setHalignment(deleteBookButton, HPos.CENTER);
         grid.add(deleteBookButton, 0, 6);
 
+		delinquencyCheckButton = new Button("Delinquency Check");
+		delinquencyCheckButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		delinquencyCheckButton.setOnAction(new EventHandler<ActionEvent>() {
 
-		/*HBox iscCont = new HBox(10);
-		iscCont.setAlignment(Pos.CENTER);
-		imposeServiceChargeButton = new Button("Impose Service Charge");
-		imposeServiceChargeButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-		imposeServiceChargeButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				myModel.stateChangeRequest("Delinquency Check", null);
+			}
+		});
+		grid.setHalignment(delinquencyCheckButton, HPos.CENTER);
+		grid.add(delinquencyCheckButton, 1, 6);
 
-       		     @Override
-       		     public void handle(ActionEvent e) {
-       		     	 myModel.stateChangeRequest("ImposeServiceCharge", null);
-            	     }
-        	});
-		iscCont.getChildren().add(imposeServiceChargeButton);
 
-		container.getChildren().add(iscCont);*/
+
 
 
 		cancelButton = new Button("Logout");
@@ -269,7 +269,7 @@ public class TransactionChoiceView extends View
             	     }
         	});
 		grid.setHalignment(cancelButton, HPos.CENTER);
-		grid.add(cancelButton, 1, 6);
+		grid.add(cancelButton, 1, 7);
 
 
 		container.getChildren().add(grid);

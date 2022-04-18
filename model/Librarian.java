@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 
 // project imports
 import impresario.IModel;
-import impresario.ISlideShow;
 import impresario.IView;
 import impresario.ModelRegistry;
 
@@ -46,6 +45,8 @@ public class Librarian implements IView, IModel
     private WorkerCollection myWorkers;
     private BookCollection myBooks;
     private StudentBorrowerCollection myStudents;
+
+    private DelinquencyCheckTransaction dCt;
 
     // GUI Components
     private Hashtable<String, Scene> myViews;
@@ -151,58 +152,7 @@ public class Librarian implements IView, IModel
     }
 
     //----------------------------------------------------------------
-    /*public void stateChangeRequest(String key, Object value)
-    {
-        // STEP 4: Write the sCR method component for the key you
-        // just set up dependencies for
-        // DEBUG System.out.println("Teller.sCR: key = " + key);
 
-        if (key.equals("Login") == true)
-        {
-            if (value != null)
-            {
-                loginErrorMessage = "";
-
-                boolean flag = loginWorker((Properties)value);
-                if (flag == true)
-                {
-                    createAndShowTransactionChoiceView();
-                }
-            }
-        }
-        else
-        if (key.equals("CancelTransaction") == true)
-        {
-            createAndShowTransactionChoiceView();
-        }
-        else
-        if ((key.equals("Add Book") == true) || (key.equals("Add Student Borrower") == true) ||
-                (key.equals("Add Worker") == true) || (key.equals("Modify Worker") == true) ||
-                (key.equals("ImposeServiceCharge") == true))
-        {
-            String transType = key;
-
-            if (myWorker != null)
-            {
-                doTransaction(transType);
-            }
-            else
-            {
-                transactionErrorMessage = "Transaction impossible: Customer not identified";
-            }
-
-        }
-        else
-        if (key.equals("Logout") == true)
-        {
-            myWorker = null;
-            myViews.remove("TransactionChoiceView");
-
-            createAndShowLibrarianView();
-        }
-
-        myRegistry.updateSubscribers(key, this);
-    }*/
    public void createNewWorker(Properties props){
         Worker worker = new Worker(props);
         worker.save();
@@ -398,6 +348,11 @@ public class Librarian implements IView, IModel
             modifyStudent.setExistsTrue();
             modifyStudent.update();
             modifyStudent.getState("UpdateStatusMessage");
+        }
+        else if(key.equals("Delinquency Check")){
+            dCt = new DelinquencyCheckTransaction();
+            dCt.subscribe("CancelTransaction", this);
+            dCt.stateChangeRequest("delCheck", null);
         }
 
 

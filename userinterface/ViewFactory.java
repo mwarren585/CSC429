@@ -76,6 +76,9 @@ public class ViewFactory {
 		{
 			return new DeleteStudentView(model);
 		}
+		else if(viewName.equals("DelCheck")){
+			return new DelinquencyCheckCompleteView(model);
+		}
 		else
 			return null;
 	}

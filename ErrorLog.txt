@@ -159,3 +159,4 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 [4/6/22 9:56 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' '' , '' , '' , 'Active' , '' , '' , '' , '' , '' , 1234 , '' )' at line 1>
 [4/7/22 10:49 AM]|Worker|insertPersistentState|Error|NOTAG|null<SQL Exception: 1062: Duplicate entry '800000112' for key 'PRIMARY'>
 [4/12/22 1:06 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' '' , '' , '' , 'Active' , '' , '' , '' , '' , '' , 234425555 , '' )' at line 1>
+[4/18/22 5:17 PM]|RentalCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'spr22_csc429_mwarr3.Rental' doesn't exist>
