@@ -19,7 +19,6 @@ import model.Book;
 import java.util.Properties;
 // project imports
 
-import java.util.Properties;
 
 public class CheckInBookView extends View {
     // GUI components
@@ -38,8 +37,8 @@ public class CheckInBookView extends View {
     //----------------------------------------------------------
     public CheckInBookView(IModel Book)
     {
-        super(Book, "BookView");
-
+        super(Book, "CheckInBookView");
+         System.out.println("Help I am trapped in a view");
         // create a container for showing the conCents
         VBox container = new VBox(10);
         container.setPadding(new Insets(15, 5, 5, 5));
@@ -52,9 +51,10 @@ public class CheckInBookView extends View {
 
         container.getChildren().add(createStatusLog("             "));
 
-        //container.getChildren().add(container);
+        System.out.println("Help I am trapped in a diwb here agan");
+        // add the container to the scene
+        getChildren().add(container);
 
-        populateFields();
 
         myModel.subscribe("TransactionErrorMessage", this);
     }
@@ -81,6 +81,8 @@ public class CheckInBookView extends View {
     //-------------------------------------------------------------
     private VBox createFormContent()
     {
+        System.out.println("HelpI am in hell");
+//        createTitle();
         VBox vbox = new VBox(10);
 
         GridPane grid = new GridPane();
@@ -88,7 +90,7 @@ public class CheckInBookView extends View {
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-
+        System.out.println("HelpI am in hell2");
         Text prompt = new Text("BOOK INFORMATION");
         prompt.setWrappingWidth(400);
         prompt.setTextAlignment(TextAlignment.CENTER);
@@ -97,7 +99,7 @@ public class CheckInBookView extends View {
 
 
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
-
+        System.out.println("HelpI am in hell 3");
         Text bannerIdLabel = new Text(" Barcode : ");
         bannerIdLabel.setFont(myFont);
         bannerIdLabel.setWrappingWidth(150);
@@ -107,7 +109,7 @@ public class CheckInBookView extends View {
         barcodeField = new TextField();
         barcodeField.setEditable(true);
         grid.add(barcodeField, 1, 2);
-
+        System.out.println("HelpI am in hell 4");
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
@@ -118,23 +120,22 @@ public class CheckInBookView extends View {
             myModel.stateChangeRequest("BookCollection", null);
         });
         doneCont.getChildren().add(backButton);
-
+        System.out.println("HelpI am in hell 5");
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         doneButton.setOnAction(e -> {
             System.out.println("BUTTON PRESSED");
             clearErrorMessage();
-
             Properties p = new Properties();
             //String status = "inactive";
             p.setProperty("barcode", barcodeField.getText());
-
+            System.out.println("Barcode: " + barcodeField.getText());
             clearText();
             myModel.stateChangeRequest("checkInBook", p);
             myModel.stateChangeRequest("done", null);
         });
         doneCont.getChildren().add(doneButton);
-
+        System.out.println("HelpI am in hell 6");
 
         vbox.getChildren().add(grid);
         vbox.getChildren().add(doneCont);
@@ -164,7 +165,8 @@ public void checkInBook() {
     //-------------------------------------------------------------
     public void populateFields()
     {
-        Book b = (Book) myModel.getState("Book");
+        System.out.println("I am trapped on populateFields");
+        //Book b = (Book) myModel.getState("Book");
         //barcodeField.setText(b.getBarcode());
     }
 

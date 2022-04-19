@@ -92,6 +92,10 @@ public class Worker extends EntityBase {
         oldFlag = false;
     }
 
+    public String getWorkerId(){
+        return persistentState.getProperty("bannerID");
+    }
+
     public void save(){
         updateStateInDatabase();
     }

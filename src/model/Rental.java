@@ -147,25 +147,52 @@ public class Rental extends EntityBase {
         }
     }
 
+    public String getUpdateStatusMessage()
+    {
+        return updateStatusMessage;
+    }
+    public void setCheckInDate(String date)
+    {
+        persistentState.setProperty("checkInDate", date);
+    }
+    public void setCheckInWorkerId(String id)
+    {
+        persistentState.setProperty("checkInWorkerId", id);
+    }
+    public void setNullDueDate()
+    {
+        persistentState.setProperty("dueDate", null);
+    }
+
+
+
     public Vector<String> getEntryListView()
     {
         Vector<String> v = new Vector<String>();
 
-        v.addElement(persistentState.getProperty("barcode"));
-        v.addElement(persistentState.getProperty("title"));
-        //v.addElement(persistentState.getProperty("discipline"));
-        v.addElement(persistentState.getProperty("author"));
-        v.addElement(persistentState.getProperty("author2"));
-        v.addElement(persistentState.getProperty("author3"));
-        v.addElement(persistentState.getProperty("author4"));
-        v.addElement(persistentState.getProperty("publisher"));
-        v.addElement(persistentState.getProperty("pubYear"));
-        v.addElement(persistentState.getProperty("ISBN"));
-        //v.addElement(persistentState.getProperty("condition"));
-        v.addElement(persistentState.getProperty("price"));
-        v.addElement(persistentState.getProperty("notes"));
-        v.addElement(persistentState.getProperty("status"));
+//        v.addElement(persistentState.getProperty("barcode"));
+//        v.addElement(persistentState.getProperty("title"));
+//        //v.addElement(persistentState.getProperty("discipline"));
+//        v.addElement(persistentState.getProperty("author"));
+//        v.addElement(persistentState.getProperty("author2"));
+//        v.addElement(persistentState.getProperty("author3"));
+//        v.addElement(persistentState.getProperty("author4"));
+//        v.addElement(persistentState.getProperty("publisher"));
+//        v.addElement(persistentState.getProperty("pubYear"));
+//        v.addElement(persistentState.getProperty("ISBN"));
+//        //v.addElement(persistentState.getProperty("condition"));
+//        v.addElement(persistentState.getProperty("price"));
+//        v.addElement(persistentState.getProperty("notes"));
+//        v.addElement(persistentState.getProperty("status"));
 
+        v.addElement(persistentState.getProperty("ID"));
+        v.addElement(persistentState.getProperty("borrowerID"));
+        v.addElement(persistentState.getProperty("bookID"));
+        v.addElement(persistentState.getProperty("checkOutDate"));
+        v.addElement(persistentState.getProperty("checkOutWorkerID"));
+        v.addElement(persistentState.getProperty("dueDate"));
+        v.addElement(persistentState.getProperty("checkInDate"));
+        v.addElement(persistentState.getProperty("checkInWorkerID"));
         return v;
     }
 

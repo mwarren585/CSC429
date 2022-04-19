@@ -37,6 +37,7 @@ public class Librarian implements IView, IModel
     private Book modifyBook;
     private StudentBorrower selectedStudent;
     private StudentBorrower modifyStudent;
+    private Rental myRental;
 
 
     private WorkerCollection myWorkers;
@@ -262,6 +263,20 @@ public class Librarian implements IView, IModel
             myBooks.findBookWithBarcodeLike(barcode);
             createAndShowBookCollectionView();
         }
+        else if(key.equals("FindBook")){
+            Properties p = (Properties)value;
+            String barcode = p.getProperty("barcode");
+            try {
+                myRental = new Rental(barcode);
+                myRental.setCheckInDate();
+                myRental.setCheckInWorkerId(myWorker.getWorkerId());
+                myRental.setNullDueDate();
+                myRental.update();
+            }catch(Exception e){
+                System.out.println("Rental not found");
+            }
+
+        }
         else if(key.equals("FindStudents")){
             Properties p = (Properties)value;
             String first = p.getProperty("firstName");
@@ -354,8 +369,10 @@ public class Librarian implements IView, IModel
             dCt.subscribe("CancelTransaction", this);
             dCt.stateChangeRequest("delCheck", null);
         }
-        else if (key.equals("Check In")){
+        else if (key.equals("checkInView")){
+           System.out.println("checkInView");
             createAndShowCheckInBookView();
+
         }
         else if(key.equals("checkInBook")){
             Properties p = (Properties)value;
@@ -717,7 +734,7 @@ public class Librarian implements IView, IModel
     }
     private void createAndShowCheckInBookView(){
         Scene currentScene = (Scene)myViews.get("CheckInBookView");
-
+        System.out.println("EWJDCVHBJKCSDABHJCASBJKHC");
         if (currentScene == null)
         {
             // create our initial view
@@ -725,6 +742,7 @@ public class Librarian implements IView, IModel
             currentScene = new Scene(newView);
             myViews.put("CheckInBookView", currentScene);
         }
+        swapToView(currentScene);
     }
 
     private void createAndShowDeleteStudentBorrowerView()
@@ -737,6 +755,22 @@ public class Librarian implements IView, IModel
             View newView = ViewFactory.createView("DeleteStudentView", this); // USE VIEW FACTORY
             currentScene = new Scene(newView);
             myViews.put("DeleteStudentView", currentScene);
+        }
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+    }
+
+    private void createAndShowCheckOutBookView()
+    {
+        Scene currentScene = (Scene)myViews.get("CheckOutBookView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("CheckOutBookView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("CheckOutBookView", currentScene);
         }
 
 

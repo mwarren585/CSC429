@@ -263,7 +263,7 @@ public class TransactionChoiceView extends View
         checkInButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent e) { myModel.stateChangeRequest("che", null);}
+            public void handle(ActionEvent e) { myModel.stateChangeRequest("checkInView", null);}
             });
             grid.setHalignment(checkInButton, HPos.CENTER);
             grid.add(checkInButton, 0, 7);
