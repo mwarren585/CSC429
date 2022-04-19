@@ -46,6 +46,10 @@ public class ViewFactory {
                 return new ModifyBookView(model);
             case "CheckInBookView":
                 return new CheckInBookView(model);
+//            case "CheckOutBookView":
+//                return new CheckOutBookView(model);
+            case "Delcheck":
+                return new DelinquencyCheckCompleteView(model);
             default:
                 return null;
         }

@@ -67,6 +67,9 @@ public class StudentBorrower extends EntityBase {
 
     @Override
     public Object getState(String key) {
+        if (key.equals("UpdateStatusMessage") == true) {
+            return updateStatusMessage;
+        }
         return persistentState.getProperty(key);
     }
 
@@ -84,11 +87,6 @@ public class StudentBorrower extends EntityBase {
     public static int compare(StudentBorrower a, StudentBorrower b) {
         String ba = (String)a.getState("firstName");
         String bb = (String)b.getState("firstName");
-        return ba.compareTo(bb);
-    }
-    public static int compareID(StudentBorrower a, StudentBorrower b) {
-        String ba = (String)a.getState("bannerID");
-        String bb = (String)b.getState("bannerID");
         return ba.compareTo(bb);
     }
 
@@ -122,7 +120,7 @@ public class StudentBorrower extends EntityBase {
                 Integer studentId = insertPersistentState(mySchema, persistentState);
                 persistentState.setProperty("bannerID", "" + studentId.intValue());
                 updateStatusMessage = "StudentBorrower data for new StudentBorrower : " +  persistentState.getProperty("bannerID")
-                        + "installed successfully in database!";
+                        + " installed successfully in database!";
             }
         }
         catch (SQLException ex)
@@ -143,61 +141,6 @@ public class StudentBorrower extends EntityBase {
         }
     }
 
-    //------------------------------------------------------------------------------------
-    public void delete()
-    {
-        try
-        {
-            Properties whereClause = new Properties();
-            whereClause.setProperty("bannerID", persistentState.getProperty("bannerID"));
-            deletePersistentState(mySchema, whereClause);
-            updateStatusMessage = "StudentBorrower data for StudentBorrower : " + persistentState.getProperty("bannerID") + " deleted successfully from database!";
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error: " + ex.toString());
-            updateStatusMessage = "Error deleting StudentBorrower data from database!";
-        }
-        //DEBUG System.out.println("delete " + updateStatusMessage);
-    }
-
-    //------------------------------------------------------------------------------------
-
-
-    //------------------------------------------------------------------------------------
-    public void add()
-    {
-        try
-        {
-            Integer studentId = insertPersistentState(mySchema, persistentState);
-            persistentState.setProperty("bannerID", "" + studentId.intValue());
-            updateStatusMessage = "StudentBorrower data for new StudentBorrower : " +  persistentState.getProperty("bannerID")
-                    + "installed successfully in database!";
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error: " + ex.toString());
-            updateStatusMessage = "Error adding StudentBorrower data in database!";
-        }
-        //DEBUG System.out.println("add " + updateStatusMessage);
-    }
-
-    //------------------------------------------------------------------------------------
-    public void updateState(Properties cmpState)
-    {
-        try
-        {
-            Properties whereClause = new Properties();
-            whereClause.setProperty("bannerID", persistentState.getProperty("bannerID"));
-            updatePersistentState(mySchema, cmpState, whereClause);
-            updateStatusMessage = "StudentBorrower data for StudentBorrower : " + persistentState.getProperty("bannerID") + " updated successfully in database!";
-        }
-        catch (SQLException ex) {
-            System.out.println("Error: " + ex.toString());
-        }
-        //DEBUG System.out.println("updateState " + updateStatusMessage);
-    }
-
     public Vector<String> getEntryListView()
     {
         Vector<String> v = new Vector<String>();
@@ -207,11 +150,11 @@ public class StudentBorrower extends EntityBase {
         v.addElement(persistentState.getProperty("lastName"));
         v.addElement(persistentState.getProperty("phone"));
         v.addElement(persistentState.getProperty("email"));
-        //v.addElement(persistentState.getProperty("borrowerStatus"));
+        v.addElement(persistentState.getProperty("borrowerStatus"));
         v.addElement(persistentState.getProperty("dateOfLatestBorrower"));
         v.addElement(persistentState.getProperty("dateOfRegistration"));
         v.addElement(persistentState.getProperty("notes"));
-        //v.addElement(persistentState.getProperty("status"));
+        v.addElement(persistentState.getProperty("status"));
 
         return v;
     }

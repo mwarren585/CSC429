@@ -1,7 +1,7 @@
 package userinterface;
 
 import impresario.IModel;
-import javafx.*;
+//import javafx.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -24,7 +24,7 @@ import java.util.Properties;
 public class CheckInBookView extends View {
     // GUI components
     protected TextField barcodeField;
-    private Book boookSelction = (Book)myModel.getState("barcode");
+    //private Book boookSelction = (Book)myModel.getState("barcode");
 
 
     //protected ComboBox statusBox;
@@ -38,7 +38,7 @@ public class CheckInBookView extends View {
     //----------------------------------------------------------
     public CheckInBookView(IModel Book)
     {
-        super(Book, "CheckInBookView");
+        super(Book, "BookView");
 
         // create a container for showing the conCents
         VBox container = new VBox(10);
@@ -52,7 +52,7 @@ public class CheckInBookView extends View {
 
         container.getChildren().add(createStatusLog("             "));
 
-        container.getChildren().add(container);
+        //container.getChildren().add(container);
 
         populateFields();
 
@@ -122,22 +122,15 @@ public class CheckInBookView extends View {
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         doneButton.setOnAction(e -> {
+            System.out.println("BUTTON PRESSED");
             clearErrorMessage();
 
             Properties p = new Properties();
             //String status = "inactive";
-
-            p.setProperty("barcode", (String)boookSelction.getState("barcode"));
-            p.setProperty("title", (String)boookSelction.getState("title"));
-            p.setProperty("author", (String)boookSelction.getState("author"));
-            p.setProperty("publisher", (String)boookSelction.getState("publisher"));
-            p.setProperty("pubYear", (String)boookSelction.getState("pubYear"));
-            p.setProperty("ISBN", (String)boookSelction.getState("ISBN"));
-            p.setProperty("price", (String)boookSelction.getState("price"));
-            p.setProperty("notes", (String)boookSelction.getState("notes"));
+            p.setProperty("barcode", barcodeField.getText());
 
             clearText();
-            myModel.stateChangeRequest("insertBookData", p);
+            myModel.stateChangeRequest("checkInBook", p);
             myModel.stateChangeRequest("done", null);
         });
         doneCont.getChildren().add(doneButton);
@@ -159,14 +152,24 @@ public class CheckInBookView extends View {
 
         return statusLog;
     }
+//-------------------------------------------------------------
+public void checkInBook() {
+    String input = barcodeField.getText();
+    Properties p = new Properties();
+    p.setProperty("barcode", input);
+    myModel.stateChangeRequest("FindBooks", p);
+    System.out.println(p);
 
+}
     //-------------------------------------------------------------
     public void populateFields()
     {
-        Book boookSelction = (Book)myModel.getState("Book");
-        barcodeField.setText((String)boookSelction.getState("barcode"));
-
+        Book b = (Book) myModel.getState("Book");
+        //barcodeField.setText(b.getBarcode());
     }
+
+
+
 
     /**
      * Update method

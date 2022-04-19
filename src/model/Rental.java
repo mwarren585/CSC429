@@ -1,3 +1,4 @@
+
 package model;
 import exception.InvalidPrimaryKeyException;
 import java.util.Properties;
@@ -64,10 +65,11 @@ public class Rental extends EntityBase {
 
     public Rental() {
         super(myTableName);
-        this.setDependencies();
+
+        setDependencies();
+        persistentState = new Properties();
+        exists = false;
     }
-
-
 
     public void setExistsTrue()
     {
