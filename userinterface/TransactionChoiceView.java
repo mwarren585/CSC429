@@ -48,6 +48,7 @@ public class TransactionChoiceView extends View
     private Button deleteStudentButton;
     private Button deleteBookButton;
     private Button delinquencyCheckButton;
+    private Button checkOutBookButton;
 
 	private Button cancelButton;
 
@@ -254,6 +255,18 @@ public class TransactionChoiceView extends View
 		});
 		grid.setHalignment(delinquencyCheckButton, HPos.CENTER);
 		grid.add(delinquencyCheckButton, 1, 6);
+
+		checkOutBookButton = new Button("Check Out Book");
+		checkOutBookButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		checkOutBookButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+				myModel.stateChangeRequest("checkOutBook", 3);
+			}
+		});
+		grid.setHalignment(checkOutBookButton, HPos.CENTER);
+		grid.add(checkOutBookButton, 0, 7);
 
 
 

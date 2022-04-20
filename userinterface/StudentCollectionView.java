@@ -244,6 +244,11 @@ public class StudentCollectionView extends View
         return statusLog;
     }
 
+    public void displayErrorMessage(String message)
+    {
+        statusLog.displayErrorMessage(message);
+    }
+
 
     /**
      * Display info message
@@ -268,12 +273,22 @@ public class StudentCollectionView extends View
 
     protected void processStudentSelected()
     {
+        int x = (int)myModel.getState("searchMode");
         StudentBorrowerTableModel selectedStudent = tableOfStudents.getSelectionModel().getSelectedItem();
 
-        if(selectedStudent != null)
+        if((selectedStudent != null) &&(x != 3))
         {
 
             myModel.stateChangeRequest("StudentSelected", selectedStudent.getBannerID());
+        }
+        else if((selectedStudent != null) && (x == 3)){
+
+            if(selectedStudent.getBorrowerStatus().equals("Delinquent") || selectedStudent.getStatus().equals("Inactive")){
+                displayErrorMessage("Student is not eligable to check out a book!");
+            }
+            else{
+                myModel.stateChangeRequest("StudentSelected", selectedStudent.getBannerID());
+            }
         }
     }
 

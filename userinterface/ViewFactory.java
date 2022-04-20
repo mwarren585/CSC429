@@ -79,6 +79,14 @@ public class ViewFactory {
 		else if(viewName.equals("DelCheck")){
 			return new DelinquencyCheckCompleteView(model);
 		}
+		else if(viewName.equals("CheckoutBook") == true)
+		{
+			return new coSearchStudentView(model);
+		}
+		else if(viewName.equals("RentBook") == true)
+		{
+			return new rentalView(model);
+		}
 		else
 			return null;
 	}

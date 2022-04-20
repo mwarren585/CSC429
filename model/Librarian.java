@@ -38,6 +38,7 @@ public class Librarian implements IView, IModel
     private Worker modifyWorker;
     private Book selectedBook;
     private Book modifyBook;
+
     private StudentBorrower selectedStudent;
     private StudentBorrower modifyStudent;
 
@@ -47,6 +48,8 @@ public class Librarian implements IView, IModel
     private StudentBorrowerCollection myStudents;
 
     private DelinquencyCheckTransaction dCt;
+    private checkOutTransaction cOut;
+    private checkedOutBooksTransaction cObT;
 
     // GUI Components
     private Hashtable<String, Scene> myViews;
@@ -54,6 +57,8 @@ public class Librarian implements IView, IModel
 
     private String loginErrorMessage = "";
     private String transactionErrorMessage = "";
+    private String fName = "";
+    private String lName = "";
 
     private int searchMode = 1;
 
@@ -124,6 +129,9 @@ public class Librarian implements IView, IModel
             else
                 return "Undefined";
         }
+        if(key.equals("getWorker")){
+            return myWorker;
+        }
         else
         if(key.equals("WorkerList")){
             return myWorkers;
@@ -146,6 +154,9 @@ public class Librarian implements IView, IModel
         }
         else if (key.equals("Student")){
             return selectedStudent;
+        }
+        else if (key.equals("searchMode")){
+            return searchMode;
         }
         else
             return "";
@@ -271,7 +282,7 @@ public class Librarian implements IView, IModel
 
             createAndShowStudentCollectionView();
         }
-        else if (key.equals("WorkerSelected"))
+        else if (key.equals("WorkerSelected") && value != null)
         {
             if(searchMode == 1){
                 try {
@@ -308,7 +319,17 @@ public class Librarian implements IView, IModel
                 }
                 createAndShowDeleteBookView();
             }
+            else if(searchMode == 3){
+                try {
+                    getBook((String) value);
+                }catch (InvalidPrimaryKeyException e){
+                    e.printStackTrace();
+                }
+            }
+
         }
+
+
         else if (key.equals("StudentSelected"))
         {
             if(searchMode == 1){
@@ -326,6 +347,14 @@ public class Librarian implements IView, IModel
                     e.printStackTrace();
                 }
                 createAndShowDeleteStudentBorrowerView();
+            }
+            else if(searchMode == 3){
+                try{
+                    getStudent((String)value);
+                } catch (InvalidPrimaryKeyException e) {
+                     e.printStackTrace();
+                }
+                createAndShowSearchBookView();
             }
         }
         else if(key.equals("InsertWorkerData")){
@@ -349,10 +378,16 @@ public class Librarian implements IView, IModel
             modifyStudent.update();
             modifyStudent.getState("UpdateStatusMessage");
         }
+
         else if(key.equals("Delinquency Check")){
             dCt = new DelinquencyCheckTransaction();
             dCt.subscribe("CancelTransaction", this);
             dCt.stateChangeRequest("delCheck", null);
+        }
+        else if(key.equals("checkOutBook")){
+            searchMode = (int)value;
+            cOut = new checkOutTransaction();
+            cOut.stateChangeRequest("checkOutTrans", myWorker);
         }
 
 

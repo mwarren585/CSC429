@@ -38,13 +38,14 @@ public class Rental extends EntityBase {
                     }
                 }
 
+                exists = true;
             }
         }
         else {
             //System.out.println("This failed here 3");
             throw new InvalidPrimaryKeyException("No Books matching: " + barcode + " found.");
         }
-        exists = true;
+
     }
 
     public Rental(Properties props) {

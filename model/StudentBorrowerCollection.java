@@ -42,7 +42,7 @@ public class StudentBorrowerCollection   extends EntityBase implements IView
                     ("UNEXPECTED ERROR: StudentBorrowerCollection.<init>: worker information is null");
         }
 
-        String studentId = (String)student.getState("bannerId");
+        String studentId = (String)student.getState("bannerID");
 
         if (studentId == null)
         {
@@ -52,7 +52,7 @@ public class StudentBorrowerCollection   extends EntityBase implements IView
                     ("UNEXPECTED ERROR: StudentBorrowerCollection.<init>: Data corrupted: Worker has no id in repository");
         }
 
-        String query = "SELECT * FROM " + myTableName + " WHERE (bannerId = " + studentId + ")";
+        String query = "SELECT * FROM " + myTableName + " WHERE (bannerID = " + studentId + ")";
 
         Vector allDataRetrieved = getSelectQueryResult(query);
 
@@ -223,4 +223,14 @@ public class StudentBorrowerCollection   extends EntityBase implements IView
 
         }
     }
+    public void getFirstAndLastName(String fName, String lName) {
+        String query = "SELECT * FROM " + myTableName + " WHERE firstName LIKE '%" + fName + "%' AND lastName LIKE '%" + lName + "%'";
+        System.out.println(query);
+        try {
+            queryer(query);
+        } catch (Exception x) {
+            System.out.println("Error: " + x);
+        }
+    }
+
 }

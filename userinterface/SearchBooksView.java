@@ -205,11 +205,21 @@ public class SearchBooksView extends View{
 
     //---------------------------------------------------------
     public void processBookSearchData() {
-        String input = bookSearch.getText();
-        Properties p = new Properties();
-        p.setProperty("barcode", input);
-        myModel.stateChangeRequest("FindBooks", p);
-        System.out.println(p);
+        int x = (int)myModel.getState("searchMode");
+        if(x != 3){
+            String input = bookSearch.getText();
+            Properties p = new Properties();
+            p.setProperty("barcode", input);
+            myModel.stateChangeRequest("FindBooks", p);
+            System.out.println(p);
+        }
+        else if(x == 3){
+            String bCode = bookSearch.getText();
+            if((bCode.length() > 15) || (bCode.length() < 3)){
+                displayErrorMessage("Barcode mistyped!");
+            }
+            myModel.stateChangeRequest("BookSelected", bCode);
+        }
 
     }
 }
