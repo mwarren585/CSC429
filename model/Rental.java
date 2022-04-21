@@ -90,7 +90,7 @@ public class Rental extends EntityBase {
 
     @Override
     public void stateChangeRequest(String key, Object value) {
-
+            persistentState.setProperty(key, (String)value);
     }
 
     public String toString()
@@ -120,13 +120,14 @@ public class Rental extends EntityBase {
             if (exists == true)
             {
                 Properties whereClause = new Properties();
-                whereClause.setProperty("id", persistentState.getProperty("id"));
+                whereClause.setProperty("ID", persistentState.getProperty("ID"));
                 updatePersistentState(mySchema, persistentState, whereClause);
                 updateStatusMessage = "Book data for book barcode number : " + persistentState.getProperty("barcode") + " updated successfully in database!";
             }
             else
             {
-                insertPersistentState(mySchema, persistentState);
+                int idRet = insertAutoIncrementalPersistentState(mySchema, persistentState);
+                persistentState.setProperty("ID", idRet + "");
                 updateStatusMessage = "Book data for new Book : " +  persistentState.getProperty("barcode")
                         + "installed successfully in database!";
             }
@@ -152,13 +153,14 @@ public class Rental extends EntityBase {
     public Vector<String> getEntryListView()
     {
         Vector<String> v = new Vector<String>();
-
+/*
         v.addElement(persistentState.getProperty("barcode"));
         v.addElement(persistentState.getProperty("title"));
         //v.addElement(persistentState.getProperty("discipline"));
         v.addElement(persistentState.getProperty("author"));
         v.addElement(persistentState.getProperty("author2"));
         v.addElement(persistentState.getProperty("author3"));
+        v.addElement(persistentState.getProperty("status"));
         v.addElement(persistentState.getProperty("author4"));
         v.addElement(persistentState.getProperty("publisher"));
         v.addElement(persistentState.getProperty("pubYear"));
@@ -166,8 +168,16 @@ public class Rental extends EntityBase {
         //v.addElement(persistentState.getProperty("condition"));
         v.addElement(persistentState.getProperty("price"));
         v.addElement(persistentState.getProperty("notes"));
-        v.addElement(persistentState.getProperty("status"));
+*/
 
+        v.addElement(persistentState.getProperty("ID"));
+        v.addElement(persistentState.getProperty("borrowerID"));
+        v.addElement(persistentState.getProperty("bookID"));
+        v.addElement(persistentState.getProperty("checkOutDate"));
+        v.addElement(persistentState.getProperty("checkOutWorkerID"));
+        v.addElement(persistentState.getProperty("dueDate"));
+        v.addElement(persistentState.getProperty("checkInDate"));
+        v.addElement(persistentState.getProperty("checkInWorkerID"));
         return v;
     }
 

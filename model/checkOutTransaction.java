@@ -142,6 +142,8 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
 
     private void insertRental(Properties p) {
         Rental r = new Rental(p);
+        r.stateChangeRequest("checkInWorkerID", "0");
+        System.out.println("About to insert rental");
         r.update();
     }
 
