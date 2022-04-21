@@ -29,6 +29,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
     private Worker w;
     private String fName = "";
     private String lName = "";
+    private int mode = 0;
 
     protected checkOutTransaction(){
         myStage = MainStageContainer.getInstance();
@@ -46,7 +47,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
 
     @Override
     public Object getState(String key) {
-        if (key.equals("StudentBorrowerList") == true)
+        if (key.equals("StudentList") == true)
         {
             return sc;
         }
@@ -61,6 +62,9 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
         else if (key.equals("worker") == true)
         {
             return w;
+        }
+        else if (key.equals("searchMode")){
+            return mode;
         }
         else
             return null;
@@ -78,12 +82,15 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
 
     @Override
     public void stateChangeRequest(String key, Object value) {
-        if(key.equals("checkOutTrans")){
+        if(key.equals("search")){
+            mode = (int)value;
+        }
+        else if(key.equals("checkOutTrans")){
             w = (Worker)value;
             createAndShowCheckOutBookView();
         }
         else
-        if (key.equals("SelectStudentView") == true && value != null)
+        if (key.equals("SearchStudents") == true && value != null)
         {
             try {
                 searchStudents((Properties)value);
@@ -101,7 +108,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
             }
         }
         else
-        if (key.equals("BookModification")){
+        if (key.equals("BookSelected")){
             try{
                 b = new Book((String)value);
                 String status = (String) b.getState("status");
@@ -136,7 +143,6 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
     private void insertRental(Properties p) {
         Rental r = new Rental(p);
         r.update();
-        databaseUpdated();
     }
 
     private void createRental() {
@@ -168,7 +174,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
         Scene currentScene = null;
 
         // create our initial view
-        View newView = ViewFactory.createView("StudentSelectionView", this); // USE VIEW FACTORY
+        View newView = ViewFactory.createView("StudentCollectionView", this); // USE VIEW FACTORY
         currentScene = new Scene(newView);
 
         // make the view visible by installing it into the frame
@@ -180,7 +186,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
         Scene currentScene = null;
 
         // create our initial view
-        View newView = ViewFactory.createView("BarcodeSearchView", this); // USE VIEW FACTORY
+        View newView = ViewFactory.createView("SearchBookView", this); // USE VIEW FACTORY
         currentScene = new Scene(newView);
 
         // make the view visible by installing it into the frame
@@ -200,12 +206,13 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
     }
 
     private void searchStudents(Properties z) throws InvalidPrimaryKeyException {
+
         sc = new StudentBorrowerCollection();
-        sc.getFirstAndLastName(z.getProperty("firstName"), z.getProperty("lastName"));
-        createAndShowStudentSelectionView();
+
         fName = z.getProperty("firstName");
         lName = z.getProperty("lastName");
-
+        sc.findStudentsWithNameLike(fName, lName);
+        createAndShowStudentSelectionView();
     }
 
     public void swapToView(Scene newScene)

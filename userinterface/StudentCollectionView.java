@@ -273,7 +273,7 @@ public class StudentCollectionView extends View
 
     protected void processStudentSelected()
     {
-        int x = (int)myModel.getState("searchMode");
+        int x = (Integer)myModel.getState("searchMode");
         StudentBorrowerTableModel selectedStudent = tableOfStudents.getSelectionModel().getSelectedItem();
 
         if((selectedStudent != null) &&(x != 3))

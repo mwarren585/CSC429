@@ -176,7 +176,7 @@ public class coSearchStudentView extends View {
         p.setProperty("firstName", fName.getText());
         p.setProperty("lastName", lName.getText());
 
-        myModel.stateChangeRequest("FindStudents", p);
+        myModel.stateChangeRequest("SearchStudents", p);
 
 
         fName.clear();

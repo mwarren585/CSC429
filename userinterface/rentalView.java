@@ -154,30 +154,30 @@ public class rentalView extends View{
 
 
 
-        StudentBorrower s = (StudentBorrower) myModel.getState("Student");
-        Worker w = (Worker) myModel.getState("getWorker");
+        StudentBorrower s = (StudentBorrower) myModel.getState("student");
+        Worker w = (Worker) myModel.getState("worker");
         clearErrorMessage();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime ret = now.plusDays(14);
 
         String bid = bookId.getText();
-        String borid = (String)s.getState("bannerId");
+        String borid = (String)s.getState("bannerID");
         String cod = dtf.format(now);
-        String workid = (String)w.getState("bannerId");
+        String workid = (String)w.getState("bannerID");
         String dD = dueDate.getText();
         String ciw = "";
 
 
         Properties p2 = new Properties();
 
-        p2.setProperty("bookId", bid);
-        p2.setProperty("borrowerId", borid);
+        p2.setProperty("borrowerID", borid);
+        p2.setProperty("bookID", bid);
         p2.setProperty("checkOutDate", cod);
-        p2.setProperty("checkOutWorkerId", workid);
+        p2.setProperty("checkOutWorkerID", workid);
         p2.setProperty("dueDate", dD);
 
-        p2.setProperty("checkinWorkerId", ciw);
+        p2.setProperty("checkInWorkerID", ciw);
 
 
         myModel.stateChangeRequest("InsertRental", p2);

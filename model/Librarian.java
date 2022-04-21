@@ -387,7 +387,9 @@ public class Librarian implements IView, IModel
         else if(key.equals("checkOutBook")){
             searchMode = (int)value;
             cOut = new checkOutTransaction();
+            cOut.stateChangeRequest("search", searchMode);
             cOut.stateChangeRequest("checkOutTrans", myWorker);
+
         }
 
 
