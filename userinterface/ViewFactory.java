@@ -76,12 +76,17 @@ public class ViewFactory {
 		{
 			return new DeleteStudentView(model);
 		}
-		else if(viewName.equals("DelCheck")){
+		else if(viewName.equals("DelCheck"))
+		{
 			return new DelinquencyCheckCompleteView(model);
 		}
 		else if(viewName.equals("CheckoutBook") == true)
 		{
 			return new coSearchStudentView(model);
+		}
+		else if(viewName.equals("CheckInBook") == true)
+		{
+			return new CheckInView(model);
 		}
 		else if(viewName.equals("RentBook") == true)
 		{

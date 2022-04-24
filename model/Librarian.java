@@ -48,8 +48,9 @@ public class Librarian implements IView, IModel
     private StudentBorrowerCollection myStudents;
 
     private DelinquencyCheckTransaction dCt;
-    private checkOutTransaction cOut;
+    private checkOutTransaction checkOutTrans;
     private checkedOutBooksTransaction cObT;
+    private checkInTransaction checkInTrans;
 
     // GUI Components
     private Hashtable<String, Scene> myViews;
@@ -381,16 +382,19 @@ public class Librarian implements IView, IModel
 
         else if(key.equals("Delinquency Check")){
             dCt = new DelinquencyCheckTransaction();
-            dCt.subscribe("CancelTransaction", this);
             dCt.stateChangeRequest("delCheck", null);
         }
         else if(key.equals("checkOutBook")){
             searchMode = (int)value;
-            cOut = new checkOutTransaction();
-            cOut.stateChangeRequest("search", searchMode);
-            cOut.stateChangeRequest("checkOutTrans", myWorker);
+            checkOutTrans= new checkOutTransaction();
+            checkOutTrans.stateChangeRequest("search", searchMode);
+            checkOutTrans.stateChangeRequest("checkOutTrans", myWorker);
 
         }
+        else if(key.equals("checkInBook")){
+            searchMode = (int)value;
+            checkInTrans = new checkInTransaction();
+            checkInTrans.stateChangeRequest("checkInTrans", myWorker);       }
 
 
         else if (key.equals("back") == true)
