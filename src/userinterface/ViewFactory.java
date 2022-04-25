@@ -50,6 +50,8 @@ public class ViewFactory {
 //                return new CheckOutBookView(model);
             case "Delcheck":
                 return new DelinquencyCheckCompleteView(model);
+            case "RentBook":
+                return new rentalView(model);
             default:
                 return null;
         }

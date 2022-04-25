@@ -81,7 +81,6 @@ public class CheckInBookView extends View {
     //-------------------------------------------------------------
     private VBox createFormContent()
     {
-        System.out.println("HelpI am in hell");
 //        createTitle();
         VBox vbox = new VBox(10);
 
@@ -90,7 +89,6 @@ public class CheckInBookView extends View {
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-        System.out.println("HelpI am in hell2");
         Text prompt = new Text("BOOK INFORMATION");
         prompt.setWrappingWidth(400);
         prompt.setTextAlignment(TextAlignment.CENTER);
@@ -99,7 +97,6 @@ public class CheckInBookView extends View {
 
 
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
-        System.out.println("HelpI am in hell 3");
         Text bannerIdLabel = new Text(" Barcode : ");
         bannerIdLabel.setFont(myFont);
         bannerIdLabel.setWrappingWidth(150);
@@ -109,7 +106,6 @@ public class CheckInBookView extends View {
         barcodeField = new TextField();
         barcodeField.setEditable(true);
         grid.add(barcodeField, 1, 2);
-        System.out.println("HelpI am in hell 4");
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
@@ -120,7 +116,6 @@ public class CheckInBookView extends View {
             myModel.stateChangeRequest("BookCollection", null);
         });
         doneCont.getChildren().add(backButton);
-        System.out.println("HelpI am in hell 5");
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         doneButton.setOnAction(e -> {
@@ -128,14 +123,14 @@ public class CheckInBookView extends View {
             clearErrorMessage();
             Properties p = new Properties();
             //String status = "inactive";
-            p.setProperty("barcode", barcodeField.getText());
+            p.setProperty("bookID", barcodeField.getText());
             System.out.println("Barcode: " + barcodeField.getText());
             clearText();
-            myModel.stateChangeRequest("checkInBook", p);
+            myModel.stateChangeRequest("FindBook", p);
             myModel.stateChangeRequest("done", null);
+            checkInBook();
         });
         doneCont.getChildren().add(doneButton);
-        System.out.println("HelpI am in hell 6");
 
         vbox.getChildren().add(grid);
         vbox.getChildren().add(doneCont);
@@ -154,12 +149,12 @@ public class CheckInBookView extends View {
         return statusLog;
     }
 //-------------------------------------------------------------
-public void checkInBook() {
-    String input = barcodeField.getText();
-    Properties p = new Properties();
-    p.setProperty("barcode", input);
-    myModel.stateChangeRequest("FindBooks", p);
-    System.out.println(p);
+    public void checkInBook() {
+        String input = barcodeField.getText();
+        Properties p = new Properties();
+        p.setProperty("bookID", input);
+        myModel.stateChangeRequest("FindBook", p);
+        System.out.println(p);
 
 }
     //-------------------------------------------------------------

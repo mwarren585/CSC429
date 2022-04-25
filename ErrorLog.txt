@@ -43,3 +43,7 @@
 [3/31/22 1:38 PM]|Book|insertPersistentState|Error|NOTAG|null<SQL Exception: 0: Data truncation: Data too long for column 'title' at row 1>
 [4/19/22 6:34 PM]|Worker|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
 [4/19/22 6:35 PM]|Worker|insertPersistentState|Error|NOTAG|null<SQL Exception: 1364: Field 'status' doesn't have a default value>
+[4/21/22 1:29 PM]|Rental|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and checkinDate IS NULL' at line 1>
+[4/21/22 1:35 PM]|Rental|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and checkinDate IS NULL' at line 1>
+[4/21/22 1:39 PM]|Rental|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and checkinDate IS NULL' at line 1>
+[4/21/22 1:44 PM]|Rental|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and checkinDate IS NULL' at line 1>

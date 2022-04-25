@@ -19,6 +19,7 @@ import exception.PasswordMismatchException;
 import event.Event;
 import userinterface.*;
 
+
 /** The class containing the Teller  for the ATM application */
 //==============================================================
 public class Librarian implements IView, IModel
@@ -265,7 +266,8 @@ public class Librarian implements IView, IModel
         }
         else if(key.equals("FindBook")){
             Properties p = (Properties)value;
-            String barcode = p.getProperty("barcode");
+            String barcode = p.getProperty("bookID");
+            System.out.println("Just a test"    + barcode);
             try {
                 myRental = new Rental(barcode);
                 myRental.setCheckInDate();
@@ -376,10 +378,10 @@ public class Librarian implements IView, IModel
         }
         else if(key.equals("checkInBook")){
             Properties p = (Properties)value;
-            String barcode = p.getProperty("barcode");
+            String barcode = p.getProperty("bookID");
             myBooks = new BookCollection();
             myBooks.findBookWithBarcodeLike(barcode);
-            createAndShowBookCollectionView();
+            createAndShowCheckInBookView();
 
         }
 
@@ -734,7 +736,7 @@ public class Librarian implements IView, IModel
     }
     private void createAndShowCheckInBookView(){
         Scene currentScene = (Scene)myViews.get("CheckInBookView");
-        System.out.println("EWJDCVHBJKCSDABHJCASBJKHC");
+        System.out.println("Swapping to CheckInBookView");
         if (currentScene == null)
         {
             // create our initial view
