@@ -205,8 +205,8 @@ public class SearchBooksView extends View{
 
     //---------------------------------------------------------
     public void processBookSearchData() {
-        int x = (int)myModel.getState("searchMode");
-        if((x != 3)||(x != 4)){
+        int x = (Integer) myModel.getState("searchMode");
+        if((x == 1)||(x == 2)){
             String input = bookSearch.getText();
             Properties p = new Properties();
             p.setProperty("barcode", input);
@@ -225,6 +225,7 @@ public class SearchBooksView extends View{
             if((bCode.length() > 15) || (bCode.length() < 3)){
                 displayErrorMessage("Barcode mistyped!");
             }
+            System.out.println("Getting here!!!");
             myModel.stateChangeRequest("RentalModification", bCode);
 
         }

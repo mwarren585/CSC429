@@ -23,8 +23,9 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
     private Hashtable<String, Scene> myViews;
     private Stage myStage;
     private Properties dependencies;
-    private Rental b;
+    private Rental r;
     private Worker w;
+    private int mode;
 
     protected checkInTransaction() {
         myStage = MainStageContainer.getInstance();
@@ -44,9 +45,14 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
     public Object getState(String key) {
         if (key.equals("worker")) {
             return w;
-        } else if (key.equals(("rental"))) {
-            return b;
-        } else
+        }
+        else if (key.equals(("rental"))) {
+            return r;
+        }
+        else if (key.equals(("searchMode"))) {
+            return mode;
+        }
+        else
             return null;
     }
 
@@ -65,16 +71,24 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
         if (key.equals("checkInTrans")) {
             w = (Worker) value;
             createAndShowCheckOutBookView();
-        } else if (key.equals("RentalModification")) {
+        }
+        else if (key.equals("RentalModification")) {
             try {
-                b = new Rental((String) value);
+                System.out.print("getting here");
+                r = new Rental((String)value);
                 createAndShowRentBook();
-            } catch (InvalidPrimaryKeyException e) {
-
             }
-        } else if (key.equals("InsertRental")) {
+            catch(InvalidPrimaryKeyException e){
+                e.printStackTrace();
+            }
+
+        }
+        else if (key.equals("InsertRental")) {
             updateRental((Properties) value);
             //STOPPPPPPED HERE DONT FORGET
+        }
+        else if (key.equals("search")){
+            mode = (int)value;
         }
         myRegistry.updateSubscribers(key, this);
     }

@@ -122,20 +122,20 @@ public class Rental extends EntityBase {
                 Properties whereClause = new Properties();
                 whereClause.setProperty("ID", persistentState.getProperty("ID"));
                 updatePersistentState(mySchema, persistentState, whereClause);
-                updateStatusMessage = "Book data for book barcode number : " + persistentState.getProperty("barcode") + " updated successfully in database!";
+                updateStatusMessage = "Rental data for book barcode number : " + persistentState.getProperty("bookID") + " updated successfully in database!";
             }
             else
             {
                 int idRet = insertAutoIncrementalPersistentState(mySchema, persistentState);
                 persistentState.setProperty("ID", idRet + "");
-                updateStatusMessage = "Book data for new Book : " +  persistentState.getProperty("barcode")
+                updateStatusMessage = "Rental data for new Book : " +  persistentState.getProperty("bookID")
                         + "installed successfully in database!";
             }
         }
         catch (SQLException ex)
         {
             System.out.println("Error: " + ex.toString());
-            updateStatusMessage = "Error in installing StudentBorrower data in database!";
+            updateStatusMessage = "Error in installing Rental data in database!";
         }
         //DEBUG System.out.println("updateStateInDatabase " + updateStatusMessage);
     }

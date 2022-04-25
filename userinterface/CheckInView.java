@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
-public class CheckInView extends View{
+public class CheckInView extends View {
     // GUI components
     protected TextField bookId;
     protected TextField checkInDate;
@@ -39,8 +39,7 @@ public class CheckInView extends View{
 
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public CheckInView(IModel book)
-    {
+    public CheckInView(IModel book) {
         super(book, "RentBook");
 
         // create a container for showing the contents
@@ -66,8 +65,7 @@ public class CheckInView extends View{
 
     // Create the title container
     //-------------------------------------------------------------
-    private Node createTitle()
-    {
+    private Node createTitle() {
         HBox container = new HBox();
         container.setAlignment(Pos.CENTER);
 
@@ -83,8 +81,7 @@ public class CheckInView extends View{
 
     // Create the main form content
     //-------------------------------------------------------------
-    private VBox createFormContent()
-    {
+    private VBox createFormContent() {
         VBox vbox = new VBox(10);
 
         GridPane grid = new GridPane();
@@ -154,28 +151,28 @@ public class CheckInView extends View{
 
 
         clearErrorMessage();
-        Worker w = (Worker)myModel.getState("worker");
-        Rental rent =(Rental) myModel.getState("rental");
+        Worker w = (Worker) myModel.getState("worker");
+        Rental rent = (Rental) myModel.getState("rental");
         String bid = bookId.getText();
-        String borid = (String)rent.getState("borrowerId");
-        String cod = (String)rent.getState("checkOutDate");
-        String cow = (String)rent.getState("checkOutWorkerId");
+        String borid = (String) rent.getState("borrowerID");
+        String cod = (String) rent.getState("checkOutDate");
+        String cow = (String) rent.getState("checkOutWorkerID");
         String cID = checkInDate.getText();
-        String dD = (String)rent.getState("dueDate");
-        String ciw = (String)w.getState("bannerId");
+        String dD = (String) rent.getState("dueDate");
+        String ciw = (String) w.getState("bannerID");
 
 
         Properties p2 = new Properties();
 
-        p2.setProperty("id", (String)rent.getState("id"));
-        p2.setProperty("bookId", bid);
-        p2.setProperty("borrowerId", borid);
-        p2.setProperty("checkinDate", cID);
+        p2.setProperty("ID", (String) rent.getState("ID"));
+        p2.setProperty("bookID", bid);
+        p2.setProperty("borrowerID", borid);
+        p2.setProperty("checkInDate", cID);
         p2.setProperty("checkOutDate", cod);
-        p2.setProperty("checkOutWorkerId", cow);
+        p2.setProperty("checkOutWorkerID", cow);
         p2.setProperty("dueDate", dD);
 
-        p2.setProperty("checkinWorkerId", ciw);
+        p2.setProperty("checkinWorkerID", ciw);
 
 
         myModel.stateChangeRequest("InsertRental", p2);
@@ -187,27 +184,24 @@ public class CheckInView extends View{
 
     // Create the status log field
     //-------------------------------------------------------------
-    protected MessageView createStatusLog(String initialMessage)
-    {
+    protected MessageView createStatusLog(String initialMessage) {
         statusLog = new MessageView(initialMessage);
 
         return statusLog;
     }
 
     //-------------------------------------------------------------
-    public void populateFields()
-    {
+    public void populateFields() {
 
         //date object
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
 
-        Rental r = (Rental)myModel.getState("rental");
+        Rental r = (Rental) myModel.getState("rental");
 
-        bookId.setText((String) r.getState("bookId"));
+        bookId.setText((String) r.getState("bookID"));
         checkInDate.setText(dtf.format(now));
-
 
 
     }
@@ -216,13 +210,11 @@ public class CheckInView extends View{
      * Update method
      */
     //---------------------------------------------------------
-    public void updateState(String key, Object value)
-    {
+    public void updateState(String key, Object value) {
         clearErrorMessage();
 
-        if (key.equals("PopulateAddBookMessage") == true)
-        {
-            displayMessage((String)value);
+        if (key.equals("PopulateAddBookMessage") == true) {
+            displayMessage((String) value);
         }
     }
 
@@ -230,8 +222,7 @@ public class CheckInView extends View{
      * Display error message
      */
     //----------------------------------------------------------
-    public void displayErrorMessage(String message)
-    {
+    public void displayErrorMessage(String message) {
         statusLog.displayErrorMessage(message);
     }
 
@@ -239,8 +230,7 @@ public class CheckInView extends View{
      * Display info message
      */
     //----------------------------------------------------------
-    public void displayMessage(String message)
-    {
+    public void displayMessage(String message) {
         statusLog.displayMessage(message);
     }
 
@@ -248,28 +238,8 @@ public class CheckInView extends View{
      * Clear error message
      */
     //----------------------------------------------------------
-    public void clearErrorMessage()
-    {
+    public void clearErrorMessage() {
         statusLog.clearErrorMessage();
     }
-
-    public void databaseUpdated(){
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Database");
-        alert.setHeaderText(null);
-        alert.setHeaderText("Book Added to Database");
-
-        alert.showAndWait();
-    }
-
-    public void databaseErrorYear(){
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Database");
-        alert.setHeaderText("Ooops, there was an issue adding to the database!");
-        alert.setContentText("Cannot add to database. Check year/barcode.");
-
-        alert.showAndWait();
-    }
 }
+

@@ -278,8 +278,8 @@ public class TransactionChoiceView extends View
 				myModel.stateChangeRequest("checkInBook", 4);
 			}
 		});
-		grid.setHalignment(checkOutBookButton, HPos.CENTER);
-		grid.add(checkOutBookButton, 0, 7);
+		grid.setHalignment(checkInBookButton, HPos.CENTER);
+		grid.add(checkInBookButton, 1, 7);
 
 
 

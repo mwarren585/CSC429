@@ -394,6 +394,7 @@ public class Librarian implements IView, IModel
         else if(key.equals("checkInBook")){
             searchMode = (int)value;
             checkInTrans = new checkInTransaction();
+            checkInTrans.stateChangeRequest("search", searchMode);
             checkInTrans.stateChangeRequest("checkInTrans", myWorker);       }
 
 
