@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/JDBCBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/JDBCBroker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Librarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Librarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Rental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/checkInTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/checkInTransaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userinterface/CheckInView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/CheckInView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userinterface/SearchBooksView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/SearchBooksView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,10 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/Rental.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="-195">
               <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
               <folding>
                 <element signature="e#2958#2959#0" expanded="true" />
@@ -108,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/checkInTransaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="-25">
               <caret line="86" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -129,13 +122,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/userinterface/CheckInView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="123" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="212">
+              <caret line="172" column="38" lean-forward="true" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3930#3931#0" expanded="true" />
                 <element signature="e#3978#3979#0" expanded="true" />
               </folding>
             </state>
@@ -209,8 +203,8 @@
         <option value="$PROJECT_DIR$/model/checkInTransaction.java" />
         <option value="$PROJECT_DIR$/userinterface/SearchBooksView.java" />
         <option value="$PROJECT_DIR$/model/Librarian.java" />
-        <option value="$PROJECT_DIR$/userinterface/CheckInView.java" />
         <option value="$PROJECT_DIR$/model/Rental.java" />
+        <option value="$PROJECT_DIR$/userinterface/CheckInView.java" />
       </list>
     </option>
   </component>
@@ -274,7 +268,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1650918523547" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1650923240424" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-5.1.7-bin.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -404,7 +398,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.33358547" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.33358547" />
       <window_info id="Structure" order="1" weight="0.24920635" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -413,7 +407,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977098" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29623568" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29623568" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -974,9 +968,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model/Rental.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
+          <folding>
+            <element signature="e#2958#2959#0" expanded="true" />
+            <element signature="e#3025#3026#0" expanded="true" />
+            <element signature="e#3463#3464#0" expanded="true" />
+            <element signature="e#3502#3503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/checkInTransaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="-25">
           <caret line="86" selection-start-line="86" selection-end-line="86" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -986,24 +993,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/CheckInView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="212">
+          <caret line="172" column="38" lean-forward="true" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3930#3931#0" expanded="true" />
             <element signature="e#3978#3979#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Rental.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
-          <folding>
-            <element signature="e#2958#2959#0" expanded="true" />
-            <element signature="e#3025#3026#0" expanded="true" />
-            <element signature="e#3463#3464#0" expanded="true" />
-            <element signature="e#3502#3503#0" expanded="true" />
           </folding>
         </state>
       </provider>

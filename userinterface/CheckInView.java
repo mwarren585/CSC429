@@ -172,7 +172,7 @@ public class CheckInView extends View {
         p2.setProperty("checkOutWorkerID", cow);
         p2.setProperty("dueDate", dD);
 
-        p2.setProperty("checkinWorkerID", ciw);
+        p2.setProperty("checkInWorkerID", ciw);
 
 
         myModel.stateChangeRequest("InsertRental", p2);
