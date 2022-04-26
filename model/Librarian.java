@@ -387,6 +387,7 @@ public class Librarian implements IView, IModel
         else if(key.equals("checkOutBook")){
             searchMode = (int)value;
             checkOutTrans= new checkOutTransaction();
+            checkOutTrans.subscribe("CancelTransaction", this);
             checkOutTrans.stateChangeRequest("search", searchMode);
             checkOutTrans.stateChangeRequest("checkOutTrans", myWorker);
 
@@ -394,6 +395,7 @@ public class Librarian implements IView, IModel
         else if(key.equals("checkInBook")){
             searchMode = (int)value;
             checkInTrans = new checkInTransaction();
+            checkInTrans.subscribe("CancelTransaction", this);
             checkInTrans.stateChangeRequest("search", searchMode);
             checkInTrans.stateChangeRequest("checkInTrans", myWorker);       }
 

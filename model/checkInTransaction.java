@@ -90,6 +90,7 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
         else if (key.equals("search")){
             mode = (int)value;
         }
+
         myRegistry.updateSubscribers(key, this);
     }
 
@@ -121,6 +122,23 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
         swapToView(currentScene);
     }
 
+    private void createAndShowTransactionChoiceView()
+    {
+        Scene currentScene = (Scene)myViews.get("TransactionChoiceView");
+
+        if (currentScene == null)
+        {
+            // create our initial view
+            View newView = ViewFactory.createView("TransactionChoiceView", this); // USE VIEW FACTORY
+            currentScene = new Scene(newView);
+            myViews.put("TransactionChoiceView", currentScene);
+        }
+
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+
+    }
 
     public void swapToView(Scene newScene) {
 
