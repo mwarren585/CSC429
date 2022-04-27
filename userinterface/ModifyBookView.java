@@ -47,6 +47,7 @@ public class ModifyBookView extends View
     protected TextField price;
     protected TextField notes;
     protected ComboBox statusBox;
+    protected ComboBox checkedOutBox;
 
     protected Button doneButton;
     protected Button backButton;
@@ -238,6 +239,19 @@ public class ModifyBookView extends View
         statusBox.getSelectionModel().selectFirst();
         grid.add(statusBox, 1, 12);
 
+        /*Text co = new Text(" Checked Out : ");
+        co.setFont(myFont);
+        co.setWrappingWidth(150);
+        co.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(co, 0, 13);
+
+
+        checkedOutBox = new ComboBox();
+        checkedOutBox.getItems().addAll("Yes", "No");
+        checkedOutBox.getSelectionModel().selectFirst();
+
+        grid.add(checkedOutBox, 1, 13);*/
+
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
@@ -276,6 +290,7 @@ public class ModifyBookView extends View
                 p.setProperty("price", price.getText());
                 p.setProperty("notes", notes.getText());
                 p.setProperty("status", (String)statusBox.getValue());
+                //p.setProperty("checkedOut", (String)checkedOutBox.getValue());
 
                 if((barCode.length() < 3) || (barCode == null) || (barCode.length() == 0)){
                     displayErrorMessage("Barcode must be at least 3 digits long ");
@@ -327,6 +342,7 @@ public class ModifyBookView extends View
         ISBN.setText((String)selectedBook.getState("ISBN"));
         price.setText((String)selectedBook.getState("price"));
         notes.setText((String)selectedBook.getState("notes"));
+
 
     }
 

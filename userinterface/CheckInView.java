@@ -176,7 +176,7 @@ public class CheckInView extends View {
 
 
         myModel.stateChangeRequest("InsertRental", p2);
-        myModel.stateChangeRequest("CancelTransaction", null);
+        displayMessage("Book has been checked in!");
 
 
     }

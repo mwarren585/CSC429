@@ -78,7 +78,7 @@ public class DelinquencyCheckTransaction implements IView, IModel, ISlideShow {
             check = runDelinquency();
 
             if (check == false) {
-                databaseDelCheckError();
+                createAndShowNoStudentsDelinquent();
             } else {
                 createAndShowDelinquencyCheckTransaction();
             }
@@ -126,6 +126,16 @@ public class DelinquencyCheckTransaction implements IView, IModel, ISlideShow {
         swapToView(currentScene);
     }
 
+    private void createAndShowNoStudentsDelinquent(){
+        Scene currentScene = null;
+
+        // create our initial view
+        View newView = ViewFactory.createView("NoDel", this); // USE VIEW FACTORY
+        currentScene = new Scene(newView);
+
+        // make the view visible by installing it into the frame
+        swapToView(currentScene);
+    }
     public void swapToView(Scene newScene)
     {
 
@@ -157,13 +167,5 @@ public class DelinquencyCheckTransaction implements IView, IModel, ISlideShow {
 
     }
 
-    public void databaseDelCheckError(){
 
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Database");
-        alert.setHeaderText("Ooops, there was an issue comleting your request.");
-        alert.setContentText("There are no students eligible for delinquency status.");
-
-        alert.showAndWait();
-    }
 }

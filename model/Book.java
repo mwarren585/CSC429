@@ -10,6 +10,7 @@ public class Book extends EntityBase {
     private static final String myTableName = "book";
     protected Properties dependencies;
     private String updateStatusMessage = "";
+    private Book book;
 
     public Book(String bookID) throws exception.InvalidPrimaryKeyException {
         super(myTableName);
@@ -176,10 +177,30 @@ public class Book extends EntityBase {
         v.addElement(persistentState.getProperty("price"));
         v.addElement(persistentState.getProperty("notes"));
         v.addElement(persistentState.getProperty("status"));
+        //v.addElement(persistentState.getProperty("checkedOut"));
 
         return v;
     }
     public void setOldFlagTrue(){
         oldFlag = true;
     }
+
+    /*public void queryHelper(String query) {
+
+
+        Vector allDataRetrieved = getSelectQueryResult(query);
+
+        if (allDataRetrieved != null) {
+
+
+            for (int cnt = 0; cnt < allDataRetrieved.size(); cnt++) {
+                Properties nextBookData = (Properties) allDataRetrieved.elementAt(cnt);
+
+                book = new Book(nextBookData);
+
+
+            }
+
+        }
+    }*/
 }

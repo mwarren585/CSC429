@@ -30,7 +30,7 @@ import model.Worker;
 
 /** The class containing the Teller View  for the ATM application */
 //==============================================================
-public class DelinquencyCheckCompleteView extends View
+public class NoStudentDelinquentView extends View
 {
 
     // GUI stuff
@@ -47,7 +47,7 @@ public class DelinquencyCheckCompleteView extends View
 
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public DelinquencyCheckCompleteView( IModel librarian)
+    public NoStudentDelinquentView( IModel librarian)
     {
 
         super(librarian, "Librarian");
@@ -98,7 +98,7 @@ public class DelinquencyCheckCompleteView extends View
 
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
 
-        Text name = new Text(" Student borrower table updated with relevant delinquency status! ");
+        Text name = new Text(" There were no student borrowers that needed updated delinquency status! ");
         name.setFont(myFont);
         name.setWrappingWidth(300);
         name.setTextAlignment(TextAlignment.CENTER);

@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
-public class rentalView extends View{
+public class rentalView extends View {
     // GUI components
     protected TextField bookId;
     protected TextField dueDate;
@@ -39,8 +39,7 @@ public class rentalView extends View{
 
     // constructor for this class -- takes a model object
     //----------------------------------------------------------
-    public rentalView(IModel book)
-    {
+    public rentalView(IModel book) {
         super(book, "rental");
 
         // create a container for showing the contents
@@ -66,8 +65,7 @@ public class rentalView extends View{
 
     // Create the title container
     //-------------------------------------------------------------
-    private Node createTitle()
-    {
+    private Node createTitle() {
         HBox container = new HBox();
         container.setAlignment(Pos.CENTER);
 
@@ -83,8 +81,7 @@ public class rentalView extends View{
 
     // Create the main form content
     //-------------------------------------------------------------
-    private VBox createFormContent()
-    {
+    private VBox createFormContent() {
         VBox vbox = new VBox(10);
 
         GridPane grid = new GridPane();
@@ -153,7 +150,7 @@ public class rentalView extends View{
     private void processAction(ActionEvent e) {
 
 
-
+        Book bk = (Book) myModel.getState("book");
         StudentBorrower s = (StudentBorrower) myModel.getState("student");
         Worker w = (Worker) myModel.getState("worker");
         clearErrorMessage();
@@ -162,34 +159,40 @@ public class rentalView extends View{
         LocalDateTime ret = now.plusDays(14);
 
         String bid = bookId.getText();
-        String borid = (String)s.getState("bannerID");
+        String borid = (String) s.getState("bannerID");
         String cod = dtf.format(now);
-        String workid = (String)w.getState("bannerID");
+        String workid = (String) w.getState("bannerID");
         String dD = dueDate.getText();
         String ciw = "";
 
 
         Properties p2 = new Properties();
 
-        p2.setProperty("borrowerID", borid);
-        p2.setProperty("bookID", bid);
-        p2.setProperty("checkOutDate", cod);
-        p2.setProperty("checkOutWorkerID", workid);
-        p2.setProperty("dueDate", dD);
+        String status = (String) bk.getState("status");
+        if(status.equals("Inactive")){
+            displayErrorMessage("Book Not Active");
+        }
+        else {
 
-        p2.setProperty("checkInWorkerID", ciw);
+            p2.setProperty("borrowerID", borid);
+            p2.setProperty("bookID", bid);
+            p2.setProperty("checkOutDate", cod);
+            p2.setProperty("checkOutWorkerID", workid);
+            p2.setProperty("dueDate", dD);
+
+            p2.setProperty("checkInWorkerID", ciw);
 
 
-        myModel.stateChangeRequest("InsertRental", p2);
-        myModel.stateChangeRequest("CancelTransaction", null);
+            myModel.stateChangeRequest("InsertRental", p2);
+            displayMessage("Rental inserted successfully");
+        }
 
     }
 
 
     // Create the status log field
     //-------------------------------------------------------------
-    protected MessageView createStatusLog(String initialMessage)
-    {
+    protected MessageView createStatusLog(String initialMessage) {
         statusLog = new MessageView(initialMessage);
 
         return statusLog;
@@ -216,13 +219,11 @@ public class rentalView extends View{
      * Update method
      */
     //---------------------------------------------------------
-    public void updateState(String key, Object value)
-    {
+    public void updateState(String key, Object value) {
         clearErrorMessage();
 
-        if (key.equals("PopulateAddBookMessage") == true)
-        {
-            displayMessage((String)value);
+        if (key.equals("PopulateAddBookMessage") == true) {
+            displayMessage((String) value);
         }
     }
 
@@ -230,8 +231,7 @@ public class rentalView extends View{
      * Display error message
      */
     //----------------------------------------------------------
-    public void displayErrorMessage(String message)
-    {
+    public void displayErrorMessage(String message) {
         statusLog.displayErrorMessage(message);
     }
 
@@ -239,8 +239,7 @@ public class rentalView extends View{
      * Display info message
      */
     //----------------------------------------------------------
-    public void displayMessage(String message)
-    {
+    public void displayMessage(String message) {
         statusLog.displayMessage(message);
     }
 
@@ -248,31 +247,12 @@ public class rentalView extends View{
      * Clear error message
      */
     //----------------------------------------------------------
-    public void clearErrorMessage()
-    {
+    public void clearErrorMessage() {
         statusLog.clearErrorMessage();
     }
-
-    public void databaseUpdated(){
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Database");
-        alert.setHeaderText(null);
-        alert.setHeaderText("Book Added to Database");
-
-        alert.showAndWait();
-    }
-
-    public void databaseErrorYear(){
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Database");
-        alert.setHeaderText("Ooops, there was an issue adding to the database!");
-        alert.setContentText("Cannot add to database. Check year/barcode.");
-
-        alert.showAndWait();
-    }
 }
+
+
 
 //---------------------------------------------------------------
 //	Revision History:

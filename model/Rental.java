@@ -22,10 +22,16 @@ public class Rental extends EntityBase {
         if (allDataFromDB != null) {
                 System.out.println("This didn't fail yet 2");
             int dataLen = allDataFromDB.size();
-            if (dataLen != 1) {
-                    System.out.println("This failed : " + dataLen);
+            if (dataLen > 1) {
+                System.out.println("This failed : " + dataLen);
                 throw new InvalidPrimaryKeyException("Multiple rentals matching id : " + barcode + " found.");
-            } else {
+            }
+            else if (dataLen < 1)
+                {
+                    throw new InvalidPrimaryKeyException("No book matching id : "
+                            + barcode + " found.");
+                }
+            else {
                 Properties bookData = (Properties) allDataFromDB.elementAt(0);
                 this.persistentState = new Properties();
                 Enumeration bookKeys = bookData.propertyNames();

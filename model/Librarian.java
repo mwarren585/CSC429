@@ -382,6 +382,7 @@ public class Librarian implements IView, IModel
 
         else if(key.equals("Delinquency Check")){
             dCt = new DelinquencyCheckTransaction();
+            dCt.subscribe("CancelTransaction", this);
             dCt.stateChangeRequest("delCheck", null);
         }
         else if(key.equals("checkOutBook")){

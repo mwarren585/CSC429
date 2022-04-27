@@ -80,6 +80,9 @@ public class ViewFactory {
 		{
 			return new DelinquencyCheckCompleteView(model);
 		}
+		else if(viewName.equals("NoDel")){
+			return new NoStudentDelinquentView(model);
+		}
 		else if(viewName.equals("CheckoutBook") == true)
 		{
 			return new coSearchStudentView(model);

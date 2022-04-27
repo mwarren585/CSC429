@@ -26,6 +26,7 @@ public class SearchBooksView extends View{
 
     protected Button submitButton;
     protected Button doneButton;
+    private String lastBook = "";
 
     // For showing error message
     protected MessageView statusLog;
@@ -205,6 +206,7 @@ public class SearchBooksView extends View{
 
     //---------------------------------------------------------
     public void processBookSearchData() {
+
         int x = (Integer) myModel.getState("searchMode");
         if((x == 1)||(x == 2)){
             String input = bookSearch.getText();
@@ -218,16 +220,20 @@ public class SearchBooksView extends View{
             if((bCode.length() > 15) || (bCode.length() < 3)){
                 displayErrorMessage("Barcode mistyped!");
             }
+            displayErrorMessage("Book barcode not right try again");
             myModel.stateChangeRequest("BookSelected", bCode);
+
         }
         else if(x == 4){
             String bCode = bookSearch.getText();
-            if((bCode.length() > 15) || (bCode.length() < 3)){
+            if ((bCode.length() > 15) || (bCode.length() < 3)) {
                 displayErrorMessage("Barcode mistyped!");
             }
-            System.out.println("Getting here!!!");
-            myModel.stateChangeRequest("RentalModification", bCode);
 
+            else{
+                displayErrorMessage("Book barcode not right try again");
+                myModel.stateChangeRequest("RentalModification", bCode);
+            }
         }
     }
 }

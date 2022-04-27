@@ -25,7 +25,9 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
     private Properties dependencies;
     private StudentBorrowerCollection sc;
     private StudentBorrower sB;
+    private Book nb;
     private Book b;
+    private Book modifyBook;
     private Worker w;
     private String fName = "";
     private String lName = "";
@@ -109,18 +111,21 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
         }
         else
         if (key.equals("BookSelected")){
-            try{
-                b = new Book((String)value);
-                String status = (String) b.getState("status");
-                if (status.equals("Active"))
-                    createRental();
-                else
-                    databaseError();
 
-            } catch (InvalidPrimaryKeyException e) {
-                databaseError();
+            try {
+                b = new Book((String) value);
+                String status = (String) b.getState("status");
+                createRental();
             }
+            catch(InvalidPrimaryKeyException e){
+                e.printStackTrace();
+            }
+            createRental();
+
+
+
         }
+
         else
         if (key.equals("RentBook")){
             try{
@@ -155,6 +160,45 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
             } catch (InvalidPrimaryKeyException e) {
             createAndShowRentBook();
         }
+    }
+    private void updateBook(){
+
+        Properties p = new Properties();
+
+        String barCode = (String)b.getState("barcode");
+        String titl = (String)b.getState("title");
+        String aut = (String)b.getState("author");
+        String aut2 = (String)b.getState("author2");
+        String aut3 = (String)b.getState("author3");
+        String aut4 = (String)b.getState("author4");
+        String pub = (String)b.getState("publisher");
+        String py = (String)b.getState("pubYear");
+        String isb = (String)b.getState("ISBN");
+        String pr = (String)b.getState("price");
+        String not = (String)b.getState("notes");
+        String stat = (String)b.getState("status");
+
+
+
+
+        p.setProperty("barcode", barCode);
+        p.setProperty("title", titl);
+        p.setProperty("author", aut);
+        p.setProperty("author2", aut2);
+        p.setProperty("author3", aut3);
+        p.setProperty("author4", aut4);
+        p.setProperty("publisher", pub);
+        p.setProperty("pubYear", py);
+        p.setProperty("ISBN", isb);
+        p.setProperty("price", pr);
+        p.setProperty("notes", not);
+        p.setProperty("status", stat);
+        p.setProperty("checkedOut", "Yes");
+
+
+        modifyBook = new Book(p);
+        modifyBook.setOldFlagTrue();
+        modifyBook.save();
     }
 
 
@@ -250,22 +294,5 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
 
 
 
-    public void databaseUpdated(){
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Database");
-        alert.setHeaderText("Book Check Out Successful ");
-
-        alert.showAndWait();
-    }
-
-    public void databaseError(){
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Database");
-        alert.setHeaderText("Ooops, there was an error accessing the database.");
-        alert.setContentText("Please make sure everything is filled out correctly and try again.");
-
-        alert.showAndWait();
-    }
 }

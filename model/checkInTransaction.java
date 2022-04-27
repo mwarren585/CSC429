@@ -1,5 +1,6 @@
 package model;
 
+//import com.sun.java.swing.plaf.windows.TMSchema;
 import event.Event;
 import exception.InvalidPrimaryKeyException;
 import impresario.IModel;
@@ -14,6 +15,7 @@ import userinterface.View;
 import userinterface.ViewFactory;
 import userinterface.WindowPosition;
 
+import javax.rmi.PortableRemoteObject;
 import java.util.Hashtable;
 import java.util.Properties;
 
@@ -26,6 +28,7 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
     private Rental r;
     private Worker w;
     private int mode;
+    private String loginErrorMessage = "";
 
     protected checkInTransaction() {
         myStage = MainStageContainer.getInstance();
@@ -52,6 +55,9 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
         else if (key.equals(("searchMode"))) {
             return mode;
         }
+        else if(key.equals("BookError")){
+            return loginErrorMessage;
+        }
         else
             return null;
     }
@@ -73,14 +79,16 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
             createAndShowCheckOutBookView();
         }
         else if (key.equals("RentalModification")) {
-            try {
-                System.out.print("getting here");
-                r = new Rental((String)value);
-                createAndShowRentBook();
-            }
-            catch(InvalidPrimaryKeyException e){
-                e.printStackTrace();
-            }
+                try {
+                    r = new Rental((String) value);
+                    createAndShowRentBook();
+                }
+                catch (InvalidPrimaryKeyException e){
+                    loginErrorMessage = e.getMessage();
+                }
+
+
+
 
         }
         else if (key.equals("InsertRental")) {
@@ -99,7 +107,12 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
         rental.setExistsTrue();
         rental.update();
     }
+    /*private void createRental(Properties value){
+        String barC = value.getProperty("");
 
+            r = new Rental(value);
+
+    }*/
     private void createAndShowCheckOutBookView() {
         Scene currentScene = null;
 
@@ -162,6 +175,7 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
     private void setDependencies() {
         dependencies = new Properties();
         myRegistry.setDependencies(dependencies);
+        dependencies.setProperty("RentalModification", "BookError");
     }
 
     @Override
