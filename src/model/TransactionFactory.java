@@ -10,15 +10,15 @@ package model;
 public class TransactionFactory
 {
 
-    /**
-     *
-     */
-    //----------------------------------------------------------
-    public static Transaction createTransaction(String transType,
+	/**
+	 *
+	 */
+	//----------------------------------------------------------
+	public static Transaction createTransaction(String transType,
                                                 Worker cust)
-            throws Exception
-    {
-        Transaction retValue = null;
+		throws Exception
+	{
+		Transaction retValue = null;
 
 		/*if (transType.equals("Deposit") == true)
 		{
@@ -45,6 +45,6 @@ public class TransactionFactory
 			retValue = new ImposeServiceChargeTransaction(cust);
 		}
           */
-        return retValue;
-    }
+		return retValue;
+	}
 }

@@ -40,11 +40,12 @@ public class AddStudentBorrowerView extends View
     protected TextField lastName;
     protected TextField contactPhone;
     protected TextField email;
-    //protected ComboBox borrowerStatus;
+    protected ComboBox borrowerStatus;
     protected TextField dateOfLatestBorrowerStatus;
-    protected TextField dateOfRegistration;
+    protected DatePicker dateOfRegistration;
     protected TextField notes;
-    //protected ComboBox status;
+    protected ComboBox status;
+
 
 
     protected Button cancelButton;
@@ -169,7 +170,7 @@ public class AddStudentBorrowerView extends View
         email.setEditable(true);
         grid.add(email, 1, 5);
 
-        /*
+
         Text borrowersta = new Text(" Students Borrower Status : ");
         borrowersta.setFont(myFont);
         borrowersta.setWrappingWidth(150);
@@ -179,13 +180,12 @@ public class AddStudentBorrowerView extends View
 
         borrowerStatus = new ComboBox();
         borrowerStatus.getItems().addAll(
-                "Good Standing",
-                "Delinquent"
+                "Good Standing"
         );
         borrowerStatus.setValue("Good Standing");
         grid.add(borrowerStatus, 1, 6);
 
-        */
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
@@ -206,9 +206,9 @@ public class AddStudentBorrowerView extends View
         dateOfReg.setTextAlignment(TextAlignment.RIGHT);
         grid.add(dateOfReg, 0, 8);
 
-        dateOfRegistration = new TextField();
+        dateOfRegistration = new DatePicker();
         dateOfRegistration.setEditable(false);
-        dateOfRegistration.setText(dtf.format(now));
+
         grid.add(dateOfRegistration, 1, 8);
 
         Text not = new Text(" Notes : ");
@@ -221,7 +221,9 @@ public class AddStudentBorrowerView extends View
         notes.setEditable(true);
         grid.add(notes, 1, 9);
 
-        /*
+
+
+
         Text sta = new Text(" Students Borrower Status : ");
         sta.setFont(myFont);
         sta.setWrappingWidth(150);
@@ -230,14 +232,13 @@ public class AddStudentBorrowerView extends View
 
         status = new ComboBox();
         status.getItems().addAll(
-                "Active",
-                "Inactive"
+                "Active"
         );
 
         status.setValue("Active");
         grid.add(status, 1, 10);
 
-         */
+
 
 
 
@@ -249,7 +250,7 @@ public class AddStudentBorrowerView extends View
             }
         });
 
-        cancelButton = new Button("Back");
+        cancelButton = new Button("Cancel");
         cancelButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -280,11 +281,11 @@ public class AddStudentBorrowerView extends View
         String last = lastName.getText();
         String phone = contactPhone.getText();
         String eml = email.getText();
-        //String borrowerStat = (String)borrowerStatus.getValue();
+        String borrowerStat = (String)borrowerStatus.getValue();
         String dateOfLatest = dateOfLatestBorrowerStatus.getText();
-        String dateOfReg = dateOfRegistration.getText();
+        String date = dateOfRegistration.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String note = notes.getText();
-        //String stat = (String)status.getValue();
+        String stat = (String)status.getValue();
 
         Properties p2 = new Properties();
 
@@ -293,24 +294,26 @@ public class AddStudentBorrowerView extends View
         p2.setProperty("lastName", last);
         p2.setProperty("phone", phone);
         p2.setProperty("email", eml);
-        //p2.setProperty("borrowerStatus", borrowerStat);
+        p2.setProperty("borrowerStatus", borrowerStat);
         p2.setProperty("dateOfLatestBorrower", dateOfLatest);
-        p2.setProperty("dateOfRegistration", dateOfReg);
+        p2.setProperty("dateOfRegistration", date);
         p2.setProperty("notes", note);
-        //p2.setProperty("status", stat);
+        p2.setProperty("status", stat);
 
         if (banid.length() != 9){
-            databaseErrorBarcode();
+            displayErrorMessage("BannerID needs to be exactly 9 characters long");
         }else {
             myModel.stateChangeRequest("StudentData", p2);
+            displayMessage("Student Successful Added!!");
+            bannerId.clear();
+            firstName.clear();
+            lastName.clear();
+            contactPhone.clear();
+            email.clear();
+            notes.clear();
         }
 
-        bannerId.clear();
-        firstName.clear();
-        lastName.clear();
-        contactPhone.clear();
-        email.clear();
-        notes.clear();
+
         //borrowerStatus.setValue("Good Standing");
         //status.setValue("Active");
 
@@ -377,25 +380,7 @@ public class AddStudentBorrowerView extends View
         statusLog.clearErrorMessage();
     }
 
-    public void databaseUpdated(){
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Database");
-        alert.setHeaderText(null);
-        alert.setHeaderText("Student Borrower Added To Database");
-
-        alert.showAndWait();
-    }
-
-    public void databaseErrorBarcode(){
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Database");
-        alert.setHeaderText("Could not connect");
-        alert.setContentText("Please make sure the barcode is correct.");
-
-        alert.showAndWait();
-    }
 
 }
 

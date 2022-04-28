@@ -91,7 +91,7 @@ public class SearchBooksView extends View{
         prompt.setFill(Color.BLACK);
         grid.add(prompt, 0, 0, 2, 1);
 
-        Text accNumLabel = new Text(" Book Title : ");
+        Text accNumLabel = new Text(" Book Barcode : ");
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
         accNumLabel.setFont(myFont);
         accNumLabel.setWrappingWidth(150);
@@ -111,6 +111,7 @@ public class SearchBooksView extends View{
             public void handle(ActionEvent e) {
                 //clearErrorMessage();
                 processBookSearchData();
+                bookSearch.clear();
 
 
 
@@ -120,7 +121,7 @@ public class SearchBooksView extends View{
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
-        doneButton = new Button("Done");
+        doneButton = new Button("Cancel");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         doneButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -144,7 +145,7 @@ public class SearchBooksView extends View{
     //-------------------------------------------------------------
     public void populateFields()
     {
-        bookSearch.setText((String)myModel.getState("bookTitle"));
+        //bookSearch.setText((String)myModel.getState("bookTitle"));
 
     }
 
@@ -204,11 +205,29 @@ public class SearchBooksView extends View{
 
     //---------------------------------------------------------
     public void processBookSearchData() {
-        String input = bookSearch.getText();
-        Properties p = new Properties();
-        p.setProperty("bookTitle", input);
-        myModel.stateChangeRequest("FindBooks", p);
-        System.out.println(p);
+        int x = (Integer) myModel.getState("searchMode");
+        if((x == 1)||(x == 2)){
+            String input = bookSearch.getText();
+            Properties p = new Properties();
+            p.setProperty("barcode", input);
+            myModel.stateChangeRequest("FindBooks", p);
+            System.out.println(p);
+        }
+        else if(x == 3){
+            String bCode = bookSearch.getText();
+            if((bCode.length() > 15) || (bCode.length() < 3)){
+                displayErrorMessage("Barcode mistyped!");
+            }
+            myModel.stateChangeRequest("BookSelected", bCode);
+        }
+        else if(x == 4){
+            String bCode = bookSearch.getText();
+            if((bCode.length() > 15) || (bCode.length() < 3)){
+                displayErrorMessage("Barcode mistyped!");
+            }
+            System.out.println("Getting here!!!");
+            myModel.stateChangeRequest("RentalModification", bCode);
 
+        }
     }
 }

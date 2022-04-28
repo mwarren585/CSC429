@@ -23,7 +23,7 @@ public class Book extends EntityBase {
         if (allDataRetrieved != null) {
             int size = allDataRetrieved.size();
             // There should be EXACTLY one Book. More than that is an error
-            if (size > 1) {
+            if (size != 1) {
                 throw new exception.InvalidPrimaryKeyException("Multiple Objects matching id : "
                         + bookID + " found.");
             } else {
@@ -124,7 +124,7 @@ public class Book extends EntityBase {
     }
     /**
      * TODO:Work on getting the compare functions into proper use and intergration.
-     **/
+    **/
     public static int compare(Book a, Book b) {
         String aNum = (String) a.getState("barcode");
         String bNum = (String) b.getState("barcode");
@@ -150,7 +150,7 @@ public class Book extends EntityBase {
             mySchema = getSchemaInfo(tableName);
         }
     }
-    //Todo:Figure out where this would be useful
+//Todo:Figure out where this would be useful
     public void processNewBook(Properties p) {
 
         /*persistentState.setProperty("bookTitle", );
@@ -167,12 +167,19 @@ public class Book extends EntityBase {
         v.addElement(persistentState.getProperty("barcode"));
         v.addElement(persistentState.getProperty("title"));
         v.addElement(persistentState.getProperty("author"));
+        v.addElement(persistentState.getProperty("author2"));
+        v.addElement(persistentState.getProperty("author3"));
+        v.addElement(persistentState.getProperty("author4"));
         v.addElement(persistentState.getProperty("publisher"));
         v.addElement(persistentState.getProperty("pubYear"));
         v.addElement(persistentState.getProperty("ISBN"));
         v.addElement(persistentState.getProperty("price"));
         v.addElement(persistentState.getProperty("notes"));
+        v.addElement(persistentState.getProperty("status"));
 
         return v;
+    }
+    public void setOldFlagTrue(){
+        oldFlag = true;
     }
 }

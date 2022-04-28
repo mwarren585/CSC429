@@ -61,7 +61,7 @@ public class WorkerCollection extends EntityBase{
                 Properties nextWorkerData = (Properties)allDataRetrieved.elementAt(cnt);
 
 
-                Worker worker = new Worker(nextWorkerData);
+               Worker worker = new Worker(nextWorkerData);
 
                 if (workers != null) {
                     addWorker(worker);
@@ -70,6 +70,7 @@ public class WorkerCollection extends EntityBase{
 
 
         }
+
     }
 
     //----------------------------------------------------------------------------------
@@ -92,7 +93,7 @@ public class WorkerCollection extends EntityBase{
         {
             middle = (low+high)/2;
 
-            Worker midSession = workers.elementAt(middle);
+            Worker midSession = (Worker) workers.elementAt(middle);
 
             int result = Worker.compare(a,midSession);
 
@@ -116,14 +117,14 @@ public class WorkerCollection extends EntityBase{
 
 
     public Object getState(String key) {
-        if(key.equals("Workers")) {
-            return workers;
-        }
-        else{
-            return null;
-        }
+      if(key.equals("WorkerList")) {
+          return workers;
+      }
+      else{
+          return null;
+      }
     }
-
+    
     public void stateChangeRequest(String key, Object value) {
     }
 

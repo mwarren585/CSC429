@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 // project imports
 import event.Event;
 
+import model.Librarian;
 import model.Teller;
 import userinterface.MainStageContainer;
 import userinterface.WindowPosition;
@@ -20,7 +21,7 @@ import userinterface.WindowPosition;
 public class ATM extends Application
 {
 
-	private Teller myTeller;		// the main behavior for the application
+	private Librarian myLibrarian;		// the main behavior for the application
 
 	/** Main frame of the application */
 	private Stage mainStage;
@@ -30,8 +31,8 @@ public class ATM extends Application
 	//----------------------------------------------------------
 	public void start(Stage primaryStage)
 	{
-	   System.out.println("ATM Version 3.00");
-	   System.out.println("Copyright 2004/2015 Sandeep Mitra and T M Rao");
+	   System.out.println("Brockport Library");
+	   System.out.println("Copyright 2022 Matthew Warren");
 
            // Create the top-level container (main frame) and add contents to it.
 	   MainStageContainer.setStage(primaryStage, "Brockport Bank ATM Version 3.00");
@@ -48,11 +49,11 @@ public class ATM extends Application
 
            try
 	   {
-		myTeller = new Teller();
+		myLibrarian = new Librarian();
 	   }
 	   catch(Exception exc)
 	   {
-		System.err.println("ATM.ATM - could not create Teller!");
+		System.err.println("ATM.ATM - could not create Librarian!");
 		new Event(Event.getLeafLevelClassName(this), "ATM.<init>", "Unable to create Teller object", Event.ERROR);
 		exc.printStackTrace();
 	   }

@@ -23,6 +23,8 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 // project imports
@@ -36,15 +38,14 @@ public class WorkerView extends View
     protected TextField bannerId;
     protected TextField firstName;
     protected TextField lastName;
-    protected TextField password;
+    protected PasswordField password;
     protected TextField contactPhone;
     protected TextField email;
-    protected TextArea credentials;
+    protected ComboBox credentials;
     protected TextField dateOfLastCredentialsStatus;
-    protected TextField dateOfHire;
-
-    //protected ComboBox statusBox;
-
+    //protected TextField dateOfHire;
+    protected ComboBox statusBox;
+    protected DatePicker dateOfHire;
     protected Button doneButton;
     protected Button backButton;
     // For showing error message
@@ -163,7 +164,7 @@ public class WorkerView extends View
         passwordLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(passwordLabel, 0, 5);
 
-        password = new TextField();
+        password = new PasswordField();
         password.setEditable(true);
         grid.add(password, 1, 5);
 
@@ -193,18 +194,27 @@ public class WorkerView extends View
         credentialsLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(credentialsLabel, 0, 8);
 
-        credentials = new TextArea();
-        credentials.setEditable(true);
+        credentials = new ComboBox();
+        credentials.getItems().addAll(
+                "Ordinary",
+                "Administrator"
+        );
+
+        credentials.setValue("Ordinary");
         grid.add(credentials, 1, 8);
 
-        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status : ");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime now = LocalDateTime.now();
+
+        Text dateOfLastCredentialsStatusLabel = new Text(" Date of Last Credential Status (info only) : ");
         dateOfLastCredentialsStatusLabel.setFont(myFont);
         dateOfLastCredentialsStatusLabel.setWrappingWidth(150);
         dateOfLastCredentialsStatusLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(dateOfLastCredentialsStatusLabel, 0, 9);
 
         dateOfLastCredentialsStatus = new TextField();
-        dateOfLastCredentialsStatus.setEditable(true);
+        dateOfLastCredentialsStatus.setEditable(false);
+        dateOfLastCredentialsStatus.setText(dtf.format(now));
         grid.add(dateOfLastCredentialsStatus, 1, 9);
 
         Text dateOfHireLabel = new Text(" Date of Hire : ");
@@ -213,30 +223,36 @@ public class WorkerView extends View
         dateOfHireLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(dateOfHireLabel, 0, 10);
 
-        dateOfHire = new TextField();
-        dateOfHire.setEditable(true);
+        dateOfHire = new DatePicker();
+        dateOfHire.setEditable(false);
         grid.add(dateOfHire, 1, 10);
 
-        /*statusBox = new ComboBox();
-        statusBox.getItems().addAll("Active", "Inactive");
+        Text sta = new Text(" Worker Status : ");
+        sta.setFont(myFont);
+        sta.setWrappingWidth(150);
+        sta.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(sta, 0, 11);
+
+        statusBox = new ComboBox();
+        statusBox.getItems().addAll("Active");
         statusBox.getSelectionModel().selectFirst();
 
-        grid.add(statusBox, 1, 11);*/
+        grid.add(statusBox, 1, 11);
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
-        backButton = new Button("Back");
+        backButton = new Button("Cancel");
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         backButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("back", null);
+                myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
-        doneCont.getChildren().add(backButton);
+
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -246,7 +262,11 @@ public class WorkerView extends View
             public void handle(ActionEvent e) {
                 clearErrorMessage();
 
+                String bannerID = bannerId.getText();
+
                 Properties p = new Properties();
+
+                String date = dateOfHire.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
                 p.setProperty("bannerID", bannerId.getText());
                 p.setProperty("firstName", firstName.getText());
@@ -254,15 +274,23 @@ public class WorkerView extends View
                 p.setProperty("password", password.getText());
                 p.setProperty("phone", contactPhone.getText());
                 p.setProperty("email", email.getText());
-                p.setProperty("credentials", credentials.getText());
+                p.setProperty("credentials", (String)credentials.getValue());
                 p.setProperty("dateOfLatestCredentials", dateOfLastCredentialsStatus.getText());
-                p.setProperty("dateOfHire", dateOfHire.getText());
+                p.setProperty("dateOfHire", date);
+                p.setProperty("status", (String)statusBox.getValue());
 
-                clearText();
-                myModel.stateChangeRequest("WorkerData", p);
+                if(bannerID.length() != 9){
+                    displayErrorMessage("bannerID needs to be exactly 9 numbers long!");
+                }
+                else {
+                    myModel.stateChangeRequest("WorkerData", p);
+                    displayMessage("Worker Successful Added!!");
+                    clearText();
+                }
             }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
 
 
         vbox.getChildren().add(grid);
@@ -349,9 +377,9 @@ public class WorkerView extends View
         password.clear();
         contactPhone.clear();
         email.clear();
-        credentials.clear();
+        //credentials.clear();
         dateOfLastCredentialsStatus.clear();
-        dateOfHire.clear();
+        //dateOfHire.clear();
         //statusBox.valueProperty().set("Active");
     }
 

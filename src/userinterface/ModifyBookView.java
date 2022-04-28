@@ -27,6 +27,8 @@ import java.util.Properties;
 
 // project imports
 import impresario.IModel;
+import model.Book;
+import model.Worker;
 
 /** The class containing the Account View  for the ATM application */
 //==============================================================
@@ -36,12 +38,15 @@ public class ModifyBookView extends View
     protected TextField barcode;
     protected TextField bookTitle;
     protected TextField author;
+    protected TextField author2;
+    protected TextField author3;
+    protected TextField author4;
     protected TextField publisher;
     protected TextField pubYear;
     protected TextField ISBN;
     protected TextField price;
     protected TextField notes;
-    //protected ComboBox statusBox;
+    protected ComboBox statusBox;
 
     protected Button doneButton;
     protected Button backButton;
@@ -141,66 +146,102 @@ public class ModifyBookView extends View
         author.setEditable(true);
         grid.add(author, 1, 3);
 
+        Text auth2Lab = new Text(" Author #2 : ");
+        auth2Lab.setFont(myFont);
+        auth2Lab.setWrappingWidth(150);
+        auth2Lab.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(auth2Lab, 0, 4);
+
+        author2 = new TextField();
+        author2.setEditable(true);
+        grid.add(author2, 1, 4);
+
+        Text auth3Lab = new Text(" Author #3 : ");
+        auth3Lab.setFont(myFont);
+        auth3Lab.setWrappingWidth(150);
+        auth3Lab.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(auth3Lab, 0, 5);
+
+        author3 = new TextField();
+        author3.setEditable(true);
+        grid.add(author3, 1, 5);
+
+        Text auth4Lab = new Text(" Author #4 : ");
+        auth4Lab.setFont(myFont);
+        auth4Lab.setWrappingWidth(150);
+        auth4Lab.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(auth4Lab, 0, 6);
+
+        author4 = new TextField();
+        author4.setEditable(true);
+        grid.add(author4, 1, 6);
+
+
         Text publishLab = new Text(" Publisher : ");
         publishLab.setFont(myFont);
         publishLab.setWrappingWidth(150);
         publishLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(publishLab, 0, 4);
+        grid.add(publishLab, 0, 7);
 
         publisher = new TextField();
         publisher.setEditable(true);
-        grid.add(publisher, 1, 4);
+        grid.add(publisher, 1, 7);
 
         Text pYearLab = new Text(" Publish Year : ");
         pYearLab.setFont(myFont);
         pYearLab.setWrappingWidth(150);
         pYearLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(pYearLab, 0, 5);
+        grid.add(pYearLab, 0, 8);
 
         pubYear = new TextField();
         pubYear.setEditable(true);
-        grid.add(pubYear, 1, 5);
+        grid.add(pubYear, 1, 8);
 
         Text ISBNLab = new Text(" ISBN : ");
         ISBNLab.setFont(myFont);
         ISBNLab.setWrappingWidth(150);
         ISBNLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(ISBNLab, 0, 6);
+        grid.add(ISBNLab, 0, 9);
 
         ISBN = new TextField();
         ISBN.setEditable(true);
-        grid.add(ISBN, 1, 6);
+        grid.add(ISBN, 1, 9);
 
         Text priceLab = new Text(" Price : ");
         priceLab.setFont(myFont);
         priceLab.setWrappingWidth(150);
         priceLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(priceLab, 0, 7);
+        grid.add(priceLab, 0, 10);
 
         price = new TextField();
         price.setEditable(true);
-        grid.add(price, 1, 7);
+        grid.add(price, 1, 10);
 
         Text notesLab = new Text(" Notes : ");
         notesLab.setFont(myFont);
         notesLab.setWrappingWidth(150);
         notesLab.setTextAlignment(TextAlignment.RIGHT);
-        grid.add(notesLab, 0, 8);
+        grid.add(notesLab, 0, 11);
 
         notes = new TextField();
         notes.setEditable(true);
-        grid.add(notes, 1, 8);
+        grid.add(notes, 1, 11);
 
-        /*statusBox = new ComboBox();
+        Text sta = new Text(" Book Status : ");
+        sta.setFont(myFont);
+        sta.setWrappingWidth(150);
+        sta.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(sta, 0, 12);
+
+        statusBox = new ComboBox();
         statusBox.getItems().addAll("Active", "Inactive");
         statusBox.getSelectionModel().selectFirst();
-
-        grid.add(statusBox, 1, 11);*/
+        grid.add(statusBox, 1, 12);
 
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
-        backButton = new Button("Back");
+        backButton = new Button("Cancel");
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         backButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -210,7 +251,6 @@ public class ModifyBookView extends View
                 myModel.stateChangeRequest("back", null);
             }
         });
-        doneCont.getChildren().add(backButton);
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -220,25 +260,39 @@ public class ModifyBookView extends View
             public void handle(ActionEvent e) {
                 clearErrorMessage();
 
+
                 Properties p = new Properties();
 
-
-                p.setProperty("barcode", barcode.getText());
+                String barCode = barcode.getText();
+                p.setProperty("barcode", barCode);
                 p.setProperty("title", bookTitle.getText());
                 p.setProperty("author", author.getText());
+                p.setProperty("author2", author2.getText());
+                p.setProperty("author3", author3.getText());
+                p.setProperty("author4", author4.getText());
                 p.setProperty("publisher", publisher.getText());
                 p.setProperty("pubYear", pubYear.getText());
                 p.setProperty("ISBN", ISBN.getText());
                 p.setProperty("price", price.getText());
                 p.setProperty("notes", notes.getText());
+                p.setProperty("status", (String)statusBox.getValue());
 
-
-                clearText();
-                myModel.stateChangeRequest("BookData", p);
-                myModel.stateChangeRequest("done", null);
+                if((barCode.length() < 3) || (barCode == null) || (barCode.length() == 0)){
+                    displayErrorMessage("Barcode must be at least 3 digits long ");
+                }
+                else if(barCode.length() > 15 ){
+                    displayErrorMessage("Barcode cannot be more than 15 digits");
+                }
+                else {
+                    clearText();
+                    myModel.stateChangeRequest("InsertBookData", p);
+                    displayMessage("Book with Barcode: " + barCode + " Modified Succcessfully!");
+                }
             }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
+
 
 
         vbox.getChildren().add(grid);
@@ -261,10 +315,19 @@ public class ModifyBookView extends View
     //-------------------------------------------------------------
     public void populateFields()
     {
-        //accountNumber.setText((String)myModel.getState("AccountNumber"));
-        //acctType.setText((String)myModel.getState("Type"));
-        //balance.setText((String)myModel.getState("Balance"));
-        //serviceCharge.setText((String)myModel.getState("ServiceCharge"));
+        Book selectedBook = (Book)myModel.getState("Book");
+        barcode.setText((String)selectedBook.getState("barcode"));
+        bookTitle.setText((String)selectedBook.getState("title"));
+        author.setText((String)selectedBook.getState("author"));
+        author2.setText((String)selectedBook.getState("author2"));
+        author3.setText((String)selectedBook.getState("author3"));
+        author4.setText((String)selectedBook.getState("author4"));
+        publisher.setText((String)selectedBook.getState("publisher"));
+        pubYear.setText((String)selectedBook.getState("pubYear"));
+        ISBN.setText((String)selectedBook.getState("ISBN"));
+        price.setText((String)selectedBook.getState("price"));
+        notes.setText((String)selectedBook.getState("notes"));
+
     }
 
     /**
@@ -323,6 +386,9 @@ public class ModifyBookView extends View
         barcode.setText("");
         bookTitle.setText("");
         author.setText("");
+        author2.setText("");
+        author3.setText("");
+        author4.setText("");
         publisher.setText("");
         pubYear.setText("");
         ISBN.setText("");

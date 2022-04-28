@@ -92,10 +92,6 @@ public class Worker extends EntityBase {
         oldFlag = false;
     }
 
-    public String getWorkerId(){
-        return persistentState.getProperty("bannerID");
-    }
-
     public void save(){
         updateStateInDatabase();
     }
@@ -154,7 +150,7 @@ public class Worker extends EntityBase {
         System.out.println(toString());
     }
 
-
+    
     public static int compare(Worker a, Worker b)
     {
         String aNum = (String)a.getState("bannerID");
@@ -162,7 +158,7 @@ public class Worker extends EntityBase {
 
         return aNum.compareTo(bNum);
     }
-
+    
     public Object getState(String key) {
         if (key.equals("UpdateStatusMessage") == true)
         {
@@ -186,14 +182,18 @@ public class Worker extends EntityBase {
     }
 
     //-----------------------------------------------------------------------------------
-    public boolean matchPassword(String givenPassword) {
+    public boolean matchPassword(String givenPassword) throws PasswordMismatchException {
 
         String dbPassword = persistentState.getProperty("password");
         if (givenPassword.equals(dbPassword) == true) {
             return true;
         }
-        else
-            return false;
+        else{
+            throw new PasswordMismatchException("Wrong Password! Try Again!");
+        }
+
+
+
     }
 
     //------------------------------------------------------------------------------------

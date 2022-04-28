@@ -48,7 +48,7 @@ public class BookCollection extends EntityBase {
 
         String query = "SELECT * FROM " + myTableName + " WHERE (pubYear < " + year + ")";
         System.out.println(query);
-        //queryHelper(query);
+       //queryHelper(query);
 
     }
 

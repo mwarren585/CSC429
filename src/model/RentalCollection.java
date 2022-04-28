@@ -14,19 +14,19 @@ import java.util.Vector;
 
 
 // system imports
-import java.util.Properties;
-import java.util.Vector;
-import javafx.scene.Scene;
+        import java.util.Properties;
+        import java.util.Vector;
+        import javafx.scene.Scene;
 
 // project imports
-import exception.InvalidPrimaryKeyException;
-import event.Event;
-import database.*;
+        import exception.InvalidPrimaryKeyException;
+        import event.Event;
+        import database.*;
 
-import impresario.IView;
+        import impresario.IView;
 
-import userinterface.View;
-import userinterface.ViewFactory;
+        import userinterface.View;
+        import userinterface.ViewFactory;
 public class RentalCollection   extends EntityBase implements IView
 {
     private static final String myTableName = "Rental";

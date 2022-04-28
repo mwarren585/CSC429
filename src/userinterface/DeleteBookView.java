@@ -31,6 +31,7 @@ import model.Book;
 public class DeleteBookView extends View{
     // GUI components
     protected TextField barcodeField;
+    protected TextField title;
     private Book boookSelction = (Book)myModel.getState("Book");
 
 
@@ -115,39 +116,56 @@ public class DeleteBookView extends View{
         barcodeField.setEditable(true);
         grid.add(barcodeField, 1, 2);
 
+        Text titleLabel = new Text(" Title : ");
+        titleLabel.setFont(myFont);
+        titleLabel.setWrappingWidth(150);
+        titleLabel.setTextAlignment(TextAlignment.RIGHT);
+        grid.add(titleLabel, 0, 3);
+
+        title = new TextField();
+        title.setEditable(true);
+        grid.add(title, 1, 3);
+
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
-        backButton = new Button("Back");
+        backButton = new Button("Cancel");
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         backButton.setOnAction(e -> {
             clearErrorMessage();
-            myModel.stateChangeRequest("BookCollection", null);
+            myModel.stateChangeRequest("CancelTransaction", null);
         });
-        doneCont.getChildren().add(backButton);
+
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        doneButton.setOnAction(e -> {
-            clearErrorMessage();
+        doneButton.setOnAction(new EventHandler<ActionEvent>() {
 
-            Properties p = new Properties();
-            //String status = "inactive";
+            @Override
+            public void handle(ActionEvent e){
+                clearErrorMessage();
 
-            p.setProperty("barcode", (String)boookSelction.getState("barcode"));
-            p.setProperty("title", (String)boookSelction.getState("title"));
-            p.setProperty("author", (String)boookSelction.getState("author"));
-            p.setProperty("publisher", (String)boookSelction.getState("publisher"));
-            p.setProperty("pubYear", (String)boookSelction.getState("pubYear"));
-            p.setProperty("ISBN", (String)boookSelction.getState("ISBN"));
-            p.setProperty("price", (String)boookSelction.getState("price"));
-            p.setProperty("notes", (String)boookSelction.getState("notes"));
+                Properties p = new Properties();
 
-            clearText();
-            myModel.stateChangeRequest("insertBookData", p);
-            myModel.stateChangeRequest("done", null);
+
+                p.setProperty("barcode", (String) boookSelction.getState("barcode"));
+                p.setProperty("title", (String) boookSelction.getState("title"));
+                p.setProperty("author", (String) boookSelction.getState("author"));
+                p.setProperty("publisher", (String) boookSelction.getState("publisher"));
+                p.setProperty("pubYear", (String) boookSelction.getState("pubYear"));
+                p.setProperty("ISBN", (String) boookSelction.getState("ISBN"));
+                p.setProperty("price", (String) boookSelction.getState("price"));
+                p.setProperty("notes", (String) boookSelction.getState("notes"));
+                p.setProperty("status", "Inactive");
+
+
+                myModel.stateChangeRequest("InsertBookData", p);
+                displayMessage("Book with barcode: " + (String) boookSelction.getState("barcode")+ "Deleted Successfully!!!");
+                clearText();
+            }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
 
 
         vbox.getChildren().add(grid);
@@ -172,6 +190,7 @@ public class DeleteBookView extends View{
     {
         Book boookSelction = (Book)myModel.getState("Book");
         barcodeField.setText((String)boookSelction.getState("barcode"));
+        title.setText((String)boookSelction.getState("title"));
 
     }
 
@@ -228,6 +247,7 @@ public class DeleteBookView extends View{
     public void clearText()
     {
         barcodeField.clear();
+        title.clear();
         //statusBox.valueProperty().set("Active");
     }
 

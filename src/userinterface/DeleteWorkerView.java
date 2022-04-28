@@ -160,17 +160,17 @@ public class DeleteWorkerView extends View
         HBox doneCont = new HBox(10);
         doneCont.setAlignment(Pos.CENTER);
 
-        backButton = new Button("Back");
+        backButton = new Button("Cancel");
         backButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         backButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
                 clearErrorMessage();
-                myModel.stateChangeRequest("WorkerCollection", null);
+                myModel.stateChangeRequest("CancelTransaction", null);
             }
         });
-        doneCont.getChildren().add(backButton);
+
 
         doneButton = new Button("Submit");
         doneButton.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -181,9 +181,10 @@ public class DeleteWorkerView extends View
                 clearErrorMessage();
 
                 Properties p = new Properties();
-                String status = "inactive";
 
-                p.setProperty("bannerID", (String)selectedWorker.getState("bannerID"));
+                String banid =  (String)selectedWorker.getState("bannerID");
+
+                p.setProperty("bannerID", banid);
                 p.setProperty("firstName", (String)selectedWorker.getState("firstName"));
                 p.setProperty("lastName", (String)selectedWorker.getState("lastName"));
                 p.setProperty("password", (String)selectedWorker.getState("password"));
@@ -192,15 +193,19 @@ public class DeleteWorkerView extends View
                 p.setProperty("credentials", (String)selectedWorker.getState("credentials"));
                 p.setProperty("dateOfLatestCredentials", (String)selectedWorker.getState("dateOfLatestCredentials"));
                 p.setProperty("dateOfHire", (String)selectedWorker.getState("dateOfHire"));
-                p.setProperty("status", status);
+                p.setProperty("status", "Inactive");
 
 
-                clearText();
                 myModel.stateChangeRequest("InsertWorkerData", p);
-                myModel.stateChangeRequest("done", null);
+                displayMessage("Worker with BannerId: "+ banid +" Deleted Successfully!");
+                bannerId.clear();
+                firstName.clear();
+                lastName.clear();
+
             }
         });
         doneCont.getChildren().add(doneButton);
+        doneCont.getChildren().add(backButton);
 
 
         vbox.getChildren().add(grid);

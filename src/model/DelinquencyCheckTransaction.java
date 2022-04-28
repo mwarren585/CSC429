@@ -85,7 +85,7 @@ public class DelinquencyCheckTransaction implements IView, IModel, ISlideShow {
         }
         else
 
-            myRegistry.updateSubscribers(key, this);
+        myRegistry.updateSubscribers(key, this);
     }
 
     private boolean runDelinquency() {
@@ -99,17 +99,17 @@ public class DelinquencyCheckTransaction implements IView, IModel, ISlideShow {
         }
         else
             run = true;
-        Vector<Rental> col = (Vector) r.getState("Rentals");
-        for (int i = 0; i < col.size(); i++) {
-            try {
-                StudentBorrower s = new StudentBorrower((String) col.elementAt(i).getState("borrowerID"));
-                s.stateChangeRequest("borrowerStatus", "Delinquent");
-                s.update();
+            Vector<Rental> col = (Vector) r.getState("Rentals");
+            for (int i = 0; i < col.size(); i++) {
+                try {
+                    StudentBorrower s = new StudentBorrower((String) col.elementAt(i).getState("borrowerID"));
+                    s.stateChangeRequest("borrowerStatus", "Delinquent");
+                    s.update();
 
-            } catch (InvalidPrimaryKeyException e) {
-                e.printStackTrace();
+                } catch (InvalidPrimaryKeyException e) {
+                    e.printStackTrace();
+                }
             }
-        }
         return run;
     }
 

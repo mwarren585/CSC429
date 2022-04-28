@@ -31,15 +31,15 @@ public class WorkerTableModel {
     }
 
     //----------------------------------------------------------------------------
-    public String getWorkerId() {
+    public String getBannerID() {
         return bannerID.get();
     }
 
     //----------------------------------------------------------------------------
-    public void setWorkerId(String number) { bannerID.set(number); }
+    public void setBannerID(String number) { bannerID.set(number); }
 
     //----------------------------------------------------------------------------
-    public String getfirstName() {
+    public String getFirstName() {
         return firstName.get();
     }
 
@@ -100,3 +100,4 @@ public class WorkerTableModel {
 
 
 }
+
