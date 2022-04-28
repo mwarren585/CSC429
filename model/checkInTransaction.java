@@ -27,6 +27,7 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
     private Properties dependencies;
     private Rental r;
     private Worker w;
+    private StudentBorrower s;
     private int mode;
     private String loginErrorMessage = "";
 
@@ -171,6 +172,8 @@ public class checkInTransaction implements IView, IModel, ISlideShow {
         WindowPosition.placeCenter(myStage);
 
     }
+
+
 
     private void setDependencies() {
         dependencies = new Properties();

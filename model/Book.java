@@ -24,10 +24,15 @@ public class Book extends EntityBase {
         if (allDataRetrieved != null) {
             int size = allDataRetrieved.size();
             // There should be EXACTLY one Book. More than that is an error
-            if (size != 1) {
+            if (size > 1) {
                 throw new exception.InvalidPrimaryKeyException("Multiple Objects matching id : "
                         + bookID + " found.");
-            } else {
+            }
+            if (size < 1) {
+                throw new exception.InvalidPrimaryKeyException("No Objects matching id : "
+                        + bookID + " found.");
+            }
+            else {
                 // copy all the retrieved data into persistent state
                 Properties retrievedAccountData = (Properties) allDataRetrieved.elementAt(0);
                 persistentState = new Properties();

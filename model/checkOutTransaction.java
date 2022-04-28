@@ -32,6 +32,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
     private String fName = "";
     private String lName = "";
     private int mode = 0;
+    private String errorMessage;
 
     protected checkOutTransaction(){
         myStage = MainStageContainer.getInstance();
@@ -67,6 +68,9 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
         }
         else if (key.equals("searchMode")){
             return mode;
+        }
+        else if (key.equals("bookError")){
+            return errorMessage;
         }
         else
             return null;
@@ -118,9 +122,8 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
                 createRental();
             }
             catch(InvalidPrimaryKeyException e){
-                e.printStackTrace();
+                errorMessage = e.getMessage();
             }
-            createRental();
 
 
 
@@ -158,6 +161,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
             Rental r = new Rental(bar);
             //create a view that says rental already exists
             } catch (InvalidPrimaryKeyException e) {
+            errorMessage = e.getMessage();
             createAndShowRentBook();
         }
     }
@@ -285,6 +289,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
     private void setDependencies(){
         dependencies = new Properties();
         myRegistry.setDependencies(dependencies);
+        dependencies.setProperty("BookSelected", "bookError");
     }
 
     @Override

@@ -163,6 +163,7 @@ public class CheckInView extends View {
 
 
         Properties p2 = new Properties();
+        Properties p3 = new Properties();
 
         p2.setProperty("ID", (String) rent.getState("ID"));
         p2.setProperty("bookID", bid);
@@ -173,6 +174,8 @@ public class CheckInView extends View {
         p2.setProperty("dueDate", dD);
 
         p2.setProperty("checkInWorkerID", ciw);
+
+        p3.setProperty("borrowerStatus", "Good Standing");
 
 
         myModel.stateChangeRequest("InsertRental", p2);
