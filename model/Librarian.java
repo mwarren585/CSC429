@@ -51,6 +51,7 @@ public class Librarian implements IView, IModel
     private checkOutTransaction checkOutTrans;
     private checkedOutBooksTransaction cObT;
     private checkInTransaction checkInTrans;
+    private studentsWithCheckedOutBooksTransaction listSB;
 
     // GUI Components
     private Hashtable<String, Scene> myViews;
@@ -398,7 +399,15 @@ public class Librarian implements IView, IModel
             checkInTrans = new checkInTransaction();
             checkInTrans.subscribe("CancelTransaction", this);
             checkInTrans.stateChangeRequest("search", searchMode);
-            checkInTrans.stateChangeRequest("checkInTrans", myWorker);       }
+            checkInTrans.stateChangeRequest("checkInTrans", myWorker);
+        }
+        else if(key.equals("listStudents")){
+            searchMode = (int)value;
+            listSB = new studentsWithCheckedOutBooksTransaction();
+            listSB.subscribe("CancelTransaction", this);
+            listSB.stateChangeRequest("search", searchMode);
+            listSB.stateChangeRequest("listSB", null);
+        }
 
 
         else if (key.equals("back") == true)

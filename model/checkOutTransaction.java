@@ -140,6 +140,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
         else
         if (key.equals("InsertRental")){
             try{
+                //try with insertRental with a string value
                 insertRental((Properties)value);
             } catch (Exception e) {
                 e.printStackTrace();

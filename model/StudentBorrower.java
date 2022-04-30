@@ -20,7 +20,11 @@ public class StudentBorrower extends EntityBase {
         Vector allDataFromDB = this.getSelectQueryResult(query);
         if (allDataFromDB != null) {
             int dataLen = allDataFromDB.size();
-            if (dataLen != 1) {
+            if (dataLen < 1){
+                throw new InvalidPrimaryKeyException("No StudentBorrowerIds matching id : " + bannerId + " found.");
+
+            }
+            else if (dataLen > 1) {
                 throw new InvalidPrimaryKeyException("Multiple StudentBorrowerIds matching id : " + bannerId + " found.");
             } else {
                 Properties borrowerIdData = (Properties)allDataFromDB.elementAt(0);

@@ -55,7 +55,7 @@ public class RentalCollection   extends EntityBase implements IView
                     ("UNEXPECTED ERROR: RentalCollection.<init>: rental information is null");
         }
 
-        String id = (String)rental.getState("id");
+        String id = (String)rental.getState("ID");
 
         if (id == null)
         {
@@ -65,7 +65,7 @@ public class RentalCollection   extends EntityBase implements IView
                     ("UNEXPECTED ERROR: RentalCollection.<init>: Data corrupted: Rental has no id in repository");
         }
 
-        String query = "SELECT * FROM " + myTableName + " WHERE (rentalId = " + id + ")";
+        String query = "SELECT * FROM " + myTableName + " WHERE (ID = " + id + ")";
 
         Vector allDataRetrieved = getSelectQueryResult(query);
 
@@ -89,14 +89,14 @@ public class RentalCollection   extends EntityBase implements IView
         else
         {
             throw new InvalidPrimaryKeyException("No id for rental : "
-                    + id + ". BorrowerID : " + rental.getState("borrowerId"));
+                    + id + ". borrowerID : " + rental.getState("borrowerID"));
         }
 
     }
 
     public void getDelinquencyCheck() {
 
-        String query = "SELECT * FROM " + myTableName + " WHERE dueDate < " + "CURRENT_DATE()" + " AND checkinDate IS " + "NULL";
+        String query = "SELECT * FROM " + myTableName + " WHERE dueDate < " + "CURRENT_DATE()" + " AND checkInDate IS " + "NULL";
         System.out.println(query);
 
         try {
@@ -108,7 +108,7 @@ public class RentalCollection   extends EntityBase implements IView
 
     public void getCheckedOutRentals () {
 
-        String query = "SELECT * FROM " + myTableName + " WHERE checkinDate IS " + "NULL";
+        String query = "SELECT * FROM " + myTableName + " WHERE checkInDate IS " + "NULL";
         System.out.println(query);
 
         try {

@@ -4,12 +4,11 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/JDBCBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/JDBCBroker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/checkInTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/checkInTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Librarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Librarian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/RentalCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/RentalCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/StudentBorrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/StudentBorrower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/checkOutTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/checkOutTransaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/model/checkInTransaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/model/checkInTransaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/CheckInView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImplementationFX/userinterface/CheckInView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userinterface/CheckInView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/CheckInView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,38 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Librarian.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5240">
-              <caret line="397" column="52" selection-start-line="397" selection-start-column="52" selection-end-line="397" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model/checkOutTransaction.java">
+        <entry file="file://$PROJECT_DIR$/model/studentsWithCheckedOutBooksTransaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/checkInTransaction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="180" column="68" selection-start-line="180" selection-start-column="68" selection-end-line="180" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1683">
+              <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -105,20 +77,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
+            <state relative-caret-position="294">
               <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Worker.java">
+        <entry file="file://$PROJECT_DIR$/model/StudentBorrower.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="23" column="62" lean-forward="true" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+            <state relative-caret-position="-244">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
-                <element signature="e#2985#2986#0" expanded="true" />
-                <element signature="e#3024#3025#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,8 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/userinterface/ModWorkerView.java" />
-        <option value="$PROJECT_DIR$/model/AccountCatalog.java" />
         <option value="$PROJECT_DIR$/model/TransactionFactory.java" />
         <option value="$PROJECT_DIR$/model/DepositTransaction.java" />
         <option value="$PROJECT_DIR$/ATM.java" />
@@ -158,7 +127,6 @@
         <option value="$PROJECT_DIR$/userinterface/BookTableModel.java" />
         <option value="$PROJECT_DIR$/userinterface/StudentBorrowerTableModel.java" />
         <option value="$PROJECT_DIR$/model/BookCollection.java" />
-        <option value="$PROJECT_DIR$/model/StudentBorrower.java" />
         <option value="$PROJECT_DIR$/userinterface/LibrarianView.java" />
         <option value="$PROJECT_DIR$/model/Worker.java" />
         <option value="$PROJECT_DIR$/userinterface/BookCollectionView.java" />
@@ -179,7 +147,6 @@
         <option value="$PROJECT_DIR$/userinterface/coSearchStudentView.java" />
         <option value="$PROJECT_DIR$/userinterface/StudentCollectionView.java" />
         <option value="$PROJECT_DIR$/database/Persistable.java" />
-        <option value="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" />
         <option value="$PROJECT_DIR$/userinterface/BookView.java" />
         <option value="$PROJECT_DIR$/userinterface/ModifyBookView.java" />
         <option value="$PROJECT_DIR$/userinterface/rentalView.java" />
@@ -189,12 +156,16 @@
         <option value="$PROJECT_DIR$/userinterface/NoStudentDelinquentView.java" />
         <option value="$PROJECT_DIR$/model/DelinquencyCheckTransaction.java" />
         <option value="$PROJECT_DIR$/userinterface/ViewFactory.java" />
-        <option value="$PROJECT_DIR$/model/Librarian.java" />
         <option value="$PROJECT_DIR$/userinterface/CheckInView.java" />
-        <option value="$PROJECT_DIR$/database/JDBCBroker.java" />
         <option value="$PROJECT_DIR$/model/Book.java" />
         <option value="$PROJECT_DIR$/model/checkInTransaction.java" />
         <option value="$PROJECT_DIR$/model/checkOutTransaction.java" />
+        <option value="$PROJECT_DIR$/database/JDBCBroker.java" />
+        <option value="$PROJECT_DIR$/model/StudentBorrower.java" />
+        <option value="$PROJECT_DIR$/model/RentalCollection.java" />
+        <option value="$PROJECT_DIR$/userinterface/TransactionChoiceView.java" />
+        <option value="$PROJECT_DIR$/model/Librarian.java" />
+        <option value="$PROJECT_DIR$/model/studentsWithCheckedOutBooksTransaction.java" />
       </list>
     </option>
   </component>
@@ -214,8 +185,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,7 +229,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1651158033587" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1651355524259" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-5.1.7-bin.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -388,7 +359,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3494705" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3547655" />
       <window_info id="Structure" order="1" weight="0.24920635" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -397,7 +368,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977098" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3633388" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3633388" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -534,13 +505,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_231/javafx-src.zip!/javafx/scene/layout/GridPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="964" selection-start-line="964" selection-end-line="964" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/SQLInsertStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -667,20 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/RentalCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/StudentBorrowerCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="234" selection-start-line="234" selection-end-line="234" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/AddStudentBorrowerView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -702,27 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/StudentBorrower.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-499">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1674#1675#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3501#3502#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/TransactionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -774,33 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/TransactionChoiceView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="281" column="37" selection-start-line="281" selection-start-column="37" selection-end-line="281" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/SearchStudentsView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1946">
-          <caret line="149" lean-forward="true" selection-start-line="148" selection-start-column="40" selection-end-line="149" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/StudentCollectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="294" column="1" lean-forward="true" selection-start-line="294" selection-start-column="1" selection-end-line="294" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -866,19 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Rental.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#2958#2959#0" expanded="true" />
-            <element signature="e#3025#3026#0" expanded="true" />
-            <element signature="e#3463#3464#0" expanded="true" />
-            <element signature="e#3502#3503#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/LibrarianView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-468">
@@ -921,38 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userinterface/ViewFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="83" column="54" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/JDBCBroker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="23" column="62" lean-forward="true" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-          <folding>
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3024#3025#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userinterface/CheckInView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="847">
@@ -963,33 +820,139 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Librarian.java">
+    <entry file="file://$PROJECT_DIR$/model/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5240">
-          <caret line="397" column="52" selection-start-line="397" selection-start-column="52" selection-end-line="397" selection-end-column="52" />
+        <state relative-caret-position="255">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/checkInTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="180" column="68" selection-start-line="180" selection-start-column="68" selection-end-line="180" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2985#2986#0" expanded="true" />
+            <element signature="e#3024#3025#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/checkOutTransaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+        <state relative-caret-position="106">
+          <caret line="142" column="59" selection-start-line="142" selection-start-column="59" selection-end-line="142" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Rental.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/TransactionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/JDBCBroker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="87" column="31" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/checkInTransaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="99" column="15" lean-forward="true" selection-start-line="98" selection-start-column="5" selection-end-line="100" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/TransactionChoiceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="290" column="60" selection-start-line="290" selection-start-column="60" selection-end-line="290" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9595#9596#0" expanded="true" />
+            <element signature="e#9654#9655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/RentalCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/SearchStudentsView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="149" lean-forward="true" selection-start-line="148" selection-start-column="40" selection-end-line="149" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Librarian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5787">
+          <caret line="404" column="12" lean-forward="true" selection-start-line="404" selection-start-column="12" selection-end-line="404" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/StudentCollectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2778">
+          <caret line="294" column="1" lean-forward="true" selection-start-line="294" selection-start-column="1" selection-end-line="294" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/StudentBorrowerCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="94" column="48" lean-forward="true" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/StudentBorrower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userinterface/ViewFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="56" column="45" lean-forward="true" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/studentsWithCheckedOutBooksTransaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683">
+          <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
         </state>
       </provider>
     </entry>
