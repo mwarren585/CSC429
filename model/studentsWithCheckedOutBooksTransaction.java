@@ -45,7 +45,7 @@ public class studentsWithCheckedOutBooksTransaction implements IView, IModel, IS
 
     @Override
     public Object getState(String key) {
-        if (key.equals("StudentBorrowerList") == true)
+        if (key.equals("StudentList") == true)
         {
             return sc;
         }

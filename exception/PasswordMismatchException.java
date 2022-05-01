@@ -38,7 +38,7 @@ public class PasswordMismatchException
 	/**
 	 * Constructor with message
 	 *
-	 * @param mesg The message associated with the exception
+	 * @param /mesg The message associated with the exception
 	 */
 	//--------------------------------------------------------
 	public PasswordMismatchException(String message)
