@@ -77,7 +77,7 @@ public class BookCollection extends EntityBase {
 
     }
 
-    private void addBook (Book b)
+    protected void addBook (Book b)
     {
         //users.add(u);
         int index = findIndexToAdd(b);
@@ -92,6 +92,7 @@ public class BookCollection extends EntityBase {
 
     public void stateChangeRequest(String key, Object value) {
     }
+
 
     private int findIndexToAdd(Book a)
     {

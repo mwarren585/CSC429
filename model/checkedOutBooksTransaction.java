@@ -99,8 +99,8 @@ public class checkedOutBooksTransaction implements IView, IModel, ISlideShow {
             Vector<Rental> col = (Vector) r.getState("Rentals");
             for (int i = 0; i < col.size(); i++) {
                 try {
-                    Book b = new Book((String) col.elementAt(i).getState("bookId"));
-                    //bc.insertBook(b);
+                    Book b = new Book((String) col.elementAt(i).getState("bookID"));
+                    bc.addBook(b);
                 } catch (InvalidPrimaryKeyException e) {
                     e.printStackTrace();
                 }

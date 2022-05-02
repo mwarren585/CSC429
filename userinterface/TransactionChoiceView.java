@@ -51,6 +51,7 @@ public class TransactionChoiceView extends View
     private Button checkOutBookButton;
     private Button checkInBookButton;
     private Button listStudentBorrowers;
+    private Button listBooks;
 
 	private Button cancelButton;
 
@@ -294,6 +295,17 @@ public class TransactionChoiceView extends View
 		grid.setHalignment(listStudentBorrowers, HPos.CENTER);
 		grid.add(listStudentBorrowers, 0, 8);
 
+		listBooks = new Button("Books Checked out");
+		listBooks.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+		listBooks.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+				myModel.stateChangeRequest("listBooks", null);
+			}
+		});
+		grid.setHalignment(listBooks, HPos.CENTER);
+		grid.add(listBooks, 1, 8);
 
 
 		cancelButton = new Button("Logout");

@@ -49,7 +49,7 @@ public class Librarian implements IView, IModel
 
     private DelinquencyCheckTransaction dCt;
     private checkOutTransaction checkOutTrans;
-    private checkedOutBooksTransaction cObT;
+    private checkedOutBooksTransaction listBooks;
     private checkInTransaction checkInTrans;
     private studentsWithCheckedOutBooksTransaction listSB;
 
@@ -407,6 +407,11 @@ public class Librarian implements IView, IModel
             listSB.subscribe("CancelTransaction", this);
             listSB.stateChangeRequest("search", searchMode);
             listSB.stateChangeRequest("listSB", null);
+        }
+        else if(key.equals("listBooks")) {
+            listBooks = new checkedOutBooksTransaction();
+            listBooks.subscribe("CancelTransaction", this);
+            listBooks.stateChangeRequest("checkedOutBooks", null);
         }
 
 
