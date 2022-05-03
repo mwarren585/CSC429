@@ -165,6 +165,7 @@ public class checkOutTransaction implements IView, IModel, ISlideShow {
             errorMessage = e.getMessage();
             createAndShowRentBook();
         }
+
     }
     private void updateBook(){
 
