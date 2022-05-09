@@ -170,3 +170,5 @@ Caused by: java.net.SocketException: Connection reset by peer: socket write erro
 [4/21/22 12:43 PM]|Rental|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1>
 [4/21/22 12:45 PM]|Rental|insertPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1>
 [4/21/22 12:51 PM]|Rental|insertAutoIncrementalPersistentState|Error|NOTAG|null<SQL Exception: 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1>
+[5/9/22 7:48 PM]|Worker|insertPersistentState|Error|NOTAG|null<SQL Exception: 1062: Duplicate entry '800999777' for key 'PRIMARY'>
+[5/9/22 7:50 PM]|Worker|insertPersistentState|Error|NOTAG|null<SQL Exception: 1062: Duplicate entry '800999777' for key 'PRIMARY'>
