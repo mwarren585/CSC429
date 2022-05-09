@@ -508,6 +508,8 @@ public class Librarian implements IView, IModel
     {
         Scene currentScene = (Scene)myViews.get("WorkerCollectionView");
 
+        currentScene = null;
+
         if (currentScene == null)
         {
             // create our initial view
@@ -542,6 +544,8 @@ public class Librarian implements IView, IModel
     private void createAndShowSearchWorkerView(){
         Scene currentScene = (Scene)myViews.get("SearchWorkerView");
 
+        currentScene = null;
+
         if (currentScene == null)
         {
             // create our initial view
@@ -555,6 +559,8 @@ public class Librarian implements IView, IModel
     }
     private void createAndShowSearchBookView(){
         Scene currentScene = (Scene)myViews.get("SearchBookView");
+
+        currentScene = null;
 
         if (currentScene == null)
         {
@@ -570,6 +576,8 @@ public class Librarian implements IView, IModel
     private void createAndShowSearchStudentView(){
         Scene currentScene = (Scene)myViews.get("SearchStudentView");
 
+        currentScene = null;
+
         if (currentScene == null)
         {
             // create our initial view
@@ -583,6 +591,8 @@ public class Librarian implements IView, IModel
     }
     private void createAndShowBookCollectionView(){
         Scene currentScene = (Scene)myViews.get("BookCollectionView");
+
+        currentScene = null;
 
         if (currentScene == null)
         {
@@ -598,6 +608,7 @@ public class Librarian implements IView, IModel
     private void createAndShowStudentCollectionView(){
         Scene currentScene = (Scene)myViews.get("StudentCollectionView");
 
+        currentScene = null;
         if (currentScene == null)
         {
             // create our initial view
@@ -630,6 +641,8 @@ public class Librarian implements IView, IModel
     {
         Scene currentScene = (Scene)myViews.get("WorkerView");
 
+        currentScene = null;
+
         if (currentScene == null)
         {
             // create our initial view
@@ -644,6 +657,8 @@ public class Librarian implements IView, IModel
     private void createAndShowBookView()
     {
         Scene currentScene = (Scene)myViews.get("BookView");
+
+        currentScene = null;
 
         if (currentScene == null)
         {
@@ -664,6 +679,8 @@ public class Librarian implements IView, IModel
     {
         Scene currentScene = (Scene)myViews.get("StudentView");
 
+        currentScene = null;
+
         if (currentScene == null)
         {
             // create our initial view
@@ -681,6 +698,8 @@ public class Librarian implements IView, IModel
     {
         Scene currentScene = (Scene)myViews.get("ModifyWorkerView");
 
+        currentScene = null;
+
         if (currentScene == null)
         {
             // create our initial view
@@ -696,15 +715,15 @@ public class Librarian implements IView, IModel
     }
     private void createAndShowModifyBookView()
     {
-        Scene currentScene = (Scene)myViews.get("ModifyBookView");
+        //Scene currentScene = (Scene)myViews.get("ModifyBookView");
 
-        if (currentScene == null)
-        {
+        //if (currentScene == null)
+        //{
             // create our initial view
             View newView = ViewFactory.createView("ModifyBookView", this); // USE VIEW FACTORY
-            currentScene = new Scene(newView);
+            Scene currentScene = new Scene(newView);
             myViews.put("ModifyBookView", currentScene);
-        }
+        //}
 
 
         // make the view visible by installing it into the frame
@@ -713,15 +732,15 @@ public class Librarian implements IView, IModel
     }
     private void createAndShowModifyStudentBorrowerView()
     {
-        Scene currentScene = (Scene)myViews.get("ModifyStudentView");
+        //Scene currentScene = (Scene)myViews.get("ModifyStudentView");
 
-        if (currentScene == null)
-        {
+        //if (currentScene == null)
+        //{
             // create our initial view
             View newView = ViewFactory.createView("ModifyStudentView", this); // USE VIEW FACTORY
-            currentScene = new Scene(newView);
+            Scene currentScene = new Scene(newView);
             myViews.put("ModifyStudentView", currentScene);
-        }
+        //}
 
 
         // make the view visible by installing it into the frame
@@ -731,6 +750,8 @@ public class Librarian implements IView, IModel
     private void createAndShowDeleteWorkerView()
     {
         Scene currentScene = (Scene)myViews.get("DeleteWorkerView");
+
+        currentScene = null;
 
         if (currentScene == null)
         {
@@ -748,6 +769,8 @@ public class Librarian implements IView, IModel
     private void createAndShowDeleteBookView()
     {
         Scene currentScene = (Scene)myViews.get("DeleteBookView");
+
+        currentScene = null;
 
         if (currentScene == null)
         {

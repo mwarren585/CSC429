@@ -220,7 +220,7 @@ public class SearchBooksView extends View{
             if((bCode.length() > 15) || (bCode.length() < 3)){
                 displayErrorMessage("Barcode mistyped!");
             }
-            displayErrorMessage("Book barcode not right try again");
+            displayErrorMessage("Book barcode invalid!");
             myModel.stateChangeRequest("BookSelected", bCode);
 
         }
@@ -231,7 +231,7 @@ public class SearchBooksView extends View{
             }
 
             else{
-                displayErrorMessage("Book barcode not right try again");
+                displayErrorMessage("Book barcode invalid!");
                 myModel.stateChangeRequest("RentalModification", bCode);
             }
         }

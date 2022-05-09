@@ -103,13 +103,12 @@ public class studentsWithCheckedOutBooksTransaction implements IView, IModel, IS
             Vector<Rental> col = (Vector) r.getState("Rentals");
             for (int i = 0; i < col.size(); i++) {
                 try {
-                    StudentBorrower s = new StudentBorrower((String)col.elementAt(i).getState("borrowerID"));
+                    StudentBorrower s = new StudentBorrower((String) col.elementAt(i).getState("borrowerID"));
 
                     if (i == 0) {
                         System.out.println("Student " + s.getState("bannerID"));
                         sc.addStudent(s);
-                    }
-                    else {
+                    } else {
                         Vector<StudentBorrower> v1 = ((Vector) sc.getState("StudentList"));
                         int checker = 0;
                         for (int y = 0; y < v1.size(); y++) {
@@ -122,11 +121,12 @@ public class studentsWithCheckedOutBooksTransaction implements IView, IModel, IS
                             }
 
                         }
-                        if (checker == 0)
+                        if (checker == 0) {
                             System.out.println("Student " + s.getState("bannerID"));
                             sc.addStudent(s);
+                        }
                     }
-                } catch (InvalidPrimaryKeyException e) {
+                }catch (InvalidPrimaryKeyException e) {
                     e.printStackTrace();
                 }
             }

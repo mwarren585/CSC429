@@ -24,6 +24,7 @@ import javafx.scene.control.TextArea;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Properties;
 
 // project imports
@@ -43,7 +44,7 @@ public class ModifyStudentView extends View
     protected TextField email;
     protected ComboBox borrowerStatus;
     protected TextField dateOfLatestBorrowerStatus;
-    protected TextField dateOfRegistration;
+    protected DatePicker dateOfRegistration;
     protected TextField notes;
     protected ComboBox status;
 
@@ -190,7 +191,7 @@ public class ModifyStudentView extends View
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
-        Text dateOfLate = new Text(" Students Date Of Latest Borrowing Status : ");
+        Text dateOfLate = new Text(" Students Date Of Latest Borrowing Status (info only) : ");
         dateOfLate.setFont(myFont);
         dateOfLate.setWrappingWidth(150);
         dateOfLate.setTextAlignment(TextAlignment.RIGHT);
@@ -207,8 +208,8 @@ public class ModifyStudentView extends View
         dateOfReg.setTextAlignment(TextAlignment.RIGHT);
         grid.add(dateOfReg, 0, 8);
 
-        dateOfRegistration = new TextField();
-        dateOfRegistration.setEditable(true);
+        dateOfRegistration = new DatePicker();
+        dateOfRegistration.setEditable(false);
         grid.add(dateOfRegistration, 1, 8);
 
         Text not = new Text(" Notes : ");
@@ -284,7 +285,7 @@ public class ModifyStudentView extends View
         String eml = email.getText();
         String borrowerStat = (String)borrowerStatus.getValue();
         String dateOfLatest = dateOfLatestBorrowerStatus.getText();
-        String dateOfReg = dateOfRegistration.getText();
+        String dateOfReg = dateOfRegistration.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String note = notes.getText();
         String stat = (String)status.getValue();
 
@@ -337,7 +338,7 @@ public class ModifyStudentView extends View
         lastName.setText((String)selectedStudent.getState("lastName"));
         contactPhone.setText((String)selectedStudent.getState("phone"));
         email.setText((String)selectedStudent.getState("email"));
-        dateOfRegistration.setText((String)selectedStudent.getState("dateOfRegistration"));
+        //dateOfRegistration.setDayCellFactory((Date)selectedStudent.getState("dateOfRegistration"));
         notes.setText((String)selectedStudent.getState("notes"));
 
     }

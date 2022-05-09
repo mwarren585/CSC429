@@ -39,12 +39,12 @@ public class ModifyWorkerView extends View
     protected TextField bannerId;
     protected TextField firstName;
     protected TextField lastName;
-    protected TextField password;
+    protected PasswordField password;
     protected TextField contactPhone;
     protected TextField email;
     protected ComboBox credentials;
     protected TextField dateOfLastCredentialsStatus;
-    protected TextField dateOfHire;
+    protected DatePicker dateOfHire;
     protected ComboBox statusBox;
 
     protected Button doneButton;
@@ -165,8 +165,8 @@ public class ModifyWorkerView extends View
         passwordLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(passwordLabel, 0, 5);
 
-        password = new TextField();
-        password.setEditable(true);
+        password = new PasswordField();
+        password.setEditable(false);
         grid.add(password, 1, 5);
 
         Text contactPhoneLabel = new Text(" Contact Phone : ");
@@ -225,8 +225,8 @@ public class ModifyWorkerView extends View
         dateOfHireLabel.setTextAlignment(TextAlignment.RIGHT);
         grid.add(dateOfHireLabel, 0, 10);
 
-        dateOfHire = new TextField();
-        dateOfHire.setEditable(true);
+        dateOfHire = new DatePicker();
+        dateOfHire.setEditable(false);
         grid.add(dateOfHire, 1, 10);
 
 
@@ -278,7 +278,7 @@ public class ModifyWorkerView extends View
                 p.setProperty("email", email.getText());
                 p.setProperty("credentials", (String)credentials.getValue());
                 p.setProperty("dateOfLatestCredentials", dateOfLastCredentialsStatus.getText());
-                p.setProperty("dateOfHire", dateOfHire.getText());
+                p.setProperty("dateOfHire", dateOfHire.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
                 p.setProperty("status", (String)statusBox.getValue());
 
                 if(bannerId.getText().length() != 9){
@@ -324,7 +324,7 @@ public class ModifyWorkerView extends View
         email.setText((String)selectedWorker.getState("email"));
         //credentials.setText((String)selectedWorker.getState("credentials"));
         //dateOfLastCredentialsStatus.setText((String)selectedWorker.getState("dateOfLatestCredentials"));
-        dateOfHire.setText((String)selectedWorker.getState("dateOfHire"));
+        //dateOfHire.setText((String)selectedWorker.getState("dateOfHire"));
 
 
     }
@@ -388,7 +388,7 @@ public class ModifyWorkerView extends View
         contactPhone.clear();
         email.clear();
         dateOfLastCredentialsStatus.clear();
-        dateOfHire.clear();
+        //dateOfHire.clear();
         //statusBox.valueProperty().set("Active");
     }
 

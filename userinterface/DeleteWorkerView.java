@@ -81,7 +81,7 @@ public class DeleteWorkerView extends View
         HBox container = new HBox();
         container.setAlignment(Pos.CENTER);
 
-        Text titleText = new Text(" Brockport Library System");
+        Text titleText = new Text(" Verify Delete");
         titleText.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         titleText.setWrappingWidth(300);
         titleText.setTextAlignment(TextAlignment.CENTER);
@@ -103,11 +103,11 @@ public class DeleteWorkerView extends View
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text prompt = new Text("WORKER INFORMATION");
+        /*Text prompt = new Text("PLEASE CONFIRM DELETION OF THIS WORKER.");
         prompt.setWrappingWidth(400);
         prompt.setTextAlignment(TextAlignment.CENTER);
         prompt.setFill(Color.BLACK);
-        grid.add(prompt, 0, 0, 2, 1);
+        grid.add(prompt, 0, 0, 2, 1);*/
 
         /*
         Text patronIdLabel = new Text(" Patron ID : ");

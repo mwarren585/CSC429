@@ -29,7 +29,7 @@ import java.util.Properties;
 public class rentalView extends View {
     // GUI components
     protected TextField bookId;
-    protected TextField dueDate;
+    protected DatePicker dueDate;
 
     protected Button cancelButton;
     protected Button submitButton;
@@ -113,7 +113,7 @@ public class rentalView extends View {
         pub.setTextAlignment(TextAlignment.RIGHT);
         grid.add(pub, 0, 2);
 
-        dueDate = new TextField();
+        dueDate = new DatePicker();
         dueDate.setEditable(false);
         grid.add(dueDate, 1, 2);
 
@@ -162,7 +162,7 @@ public class rentalView extends View {
         String borid = (String) s.getState("bannerID");
         String cod = dtf.format(now);
         String workid = (String) w.getState("bannerID");
-        String dD = dueDate.getText();
+        String dD = dueDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String ciw = "";
 
 
@@ -184,7 +184,7 @@ public class rentalView extends View {
 
 
             myModel.stateChangeRequest("InsertRental", p2);
-            displayMessage("Rental inserted successfully");
+            displayMessage("Book Checked Out Successfully!");
         }
 
     }
@@ -212,7 +212,7 @@ public class rentalView extends View {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime ret = now.plusDays(14);
 
-        dueDate.setText(dtf.format(ret));
+        //dueDate.setText(dtf.format(ret));
     }
 
     /**

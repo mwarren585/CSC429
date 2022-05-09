@@ -96,6 +96,12 @@ public class DeleteStudentView extends View
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
+        /*Text prompt = new Text("PLEASE CONFIRM DELETION OF THIS STUDENT.");
+        prompt.setWrappingWidth(400);
+        prompt.setTextAlignment(TextAlignment.CENTER);
+        prompt.setFill(Color.BLACK);
+        grid.add(prompt, 0, 0, 2, 1);*/
+
         Font myFont = Font.font("Helvetica", FontWeight.BOLD, 12);
 
         Text name = new Text(" Name : ");

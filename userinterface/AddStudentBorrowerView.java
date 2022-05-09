@@ -189,7 +189,7 @@ public class AddStudentBorrowerView extends View
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
 
-        Text dateOfLate = new Text(" Students Date Of Latest Borrowing Status : ");
+        Text dateOfLate = new Text(" Students Date Of Latest Borrowing Status (info only) : ");
         dateOfLate.setFont(myFont);
         dateOfLate.setWrappingWidth(150);
         dateOfLate.setTextAlignment(TextAlignment.RIGHT);
